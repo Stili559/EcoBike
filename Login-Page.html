@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    body{
+    background-color: #9ACD32;
+    }
+
+    /* Scrollbar design */
+    ::-webkit-scrollbar {
+    width: 3px;
+    }
+        
+    ::-webkit-scrollbar-track {
+    background-color: #9ACD32;
+    }
+        
+    ::-webkit-scrollbar-thumb {
+    background: #555; 
+    }
+        
+    ::-webkit-scrollbar-thumb:hover {
+    background: rgb(69, 85, 85); 
+    }
+
+    .bg-yellow-green {
+    background-color: #9ACD32;
+    }
+
+     /* Navbar + logo design */
+    .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+    }
+    .shadow{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #bike-icon {
+    transform: rotate(-90deg);
+    font-size: 2rem; 
+    color: #333; 
+    }
+
+    #brand-text {
+    font-weight: bold; 
+    font-size: 2rem; 
+    text-decoration: none; 
+    color: #333333; 
+    pointer-events: none;
+    }
+
+    /* Contact us section */ 
+    .contactUs .container-contact-us{
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0rem;  
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+
+    .contactUs .container-contact-us .box h3{  
+    margin-top: 2rem;
+    font-size: 2rem;
+    color:var(--black);
+    margin-left: 4.5rem;
+    pointer-events: none;
+    }
+
+    .contactUs .container-contact-us .box p{  
+    display:block;    
+    font-size: 1rem;
+    margin-top: 0.9rem;
+    color:var(--black);
+    margin-left: 4.5rem;
+    cursor: pointer;
+    width: 15rem;
+    }
+
+    .contactUs .container-contact-us .box p:hover{  
+    color: #555;
+    text-decoration: underline;
+    }
+
+    .contactUs .container-contact-us .box a{  
+    display:block;    
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 0.9rem;
+    color:var(--black);
+    margin-left: 4.5rem;
+    cursor: pointer;
+    width: 15rem;
+    }
+
+    .contactUs .container-contact-us .box a:hover{  
+    color: #555;
+    text-decoration: underline;
+    }
+
+    .contactUs .box p {
+    transform: scale(1);
+    transition: transform 0.5s;
+    }  
+
+    .contactUs .box p:hover {
+    transform: scale(1.2);
+    animation: none;
+    }
+    
+    .contactUs .box a {
+    transform: scale(1);
+    transition: transform 0.5s;
+    }  
+
+    .contactUs .box a:hover {
+    transform: scale(1.2);
+    animation: none;
+    } 
+
+    .copyRight{                      
+    font-size: 1.4rem;
+    color:var(--black);
+    pointer-events: none;
+    }
+
+     /* Heading design */
+    .sub-heading {
+    color:var(--black);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    }
+
+    .heading {
+    color:var(--black);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
+    pointer-events: none;
+    }
+
+     /* Heading appier animation  */
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+     /* Sign-in/Sign-un form design */
+    .container{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 1000px;
+    max-width: 100%;
+    min-height: 500px;
+    margin-top: 4.5rem;
+    margin-bottom: 4.5rem;
+    }
+
+    .container p{
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+    pointer-events: none;
+    }
+
+    .container span{
+    font-size: 20px;
+    pointer-events: none;
+    }
+
+    .container a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    pointer-events: none;
+    }
+
+    .container button{
+    background-color: #9ACD32;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    }
+
+    .container button:hover{
+    background-color: #7faf1e;
+    }
+
+    .container button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+    }
+
+    .container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    }
+
+    .container input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    }
+
+    .form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    }
+
+    .container.active .sign-in{
+    transform: translateX(100%);
+    }
+
+    /* Sign-up form design */
+    .sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+    }
+
+    .container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+    }
+
+    .toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+    }
+
+    .container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+    }
+
+     /* Sign-up move page */
+    .toggle{
+    height: 100%;
+    background: linear-gradient(to right, #9ACD32, #7daf19);
+    color:var(--black);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+    }
+
+    .container.active .toggle{
+    transform: translateX(50%);
+    }   
+
+    .toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+    }
+
+    .toggle-left{
+    transform: translateX(-200%);
+    }
+
+    .container.active .toggle-left{
+    transform: translateX(0);
+    }
+
+    .toggle-right{
+    right: 0;
+    transform: translateX(0);
+    }
+
+</style>
+</head>
+<body>
+    
+<section>
+    <nav class="navbar navbar-expand-lg navbar-light bg-yellow-green shadow">
+        <div class="navbar">
+            <a class="navbar-brand" style="text-align: center">
+                <i class="fa-solid fa-bicycle" id="bike-icon"></i>
+                <span id="brand-text" style="position: relative; left: -0.8rem; top: -0.18rem;">coBike</span>
+            </a>  
+        </div>   
+    </nav>
+</section>
+
+<section>
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form>
+            <h1 style=" pointer-events: none;">Create Account</h1>
+            <span>to access the site</span>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in">
+        <form>
+            <h1 style=" pointer-events: none;">Sign In</h1>
+            <span>to access the site</span>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1 style=" pointer-events: none;">Hello, Friend!</h1>
+                <p>Register with your personal details to accces the site.</p>
+                <button class="hidden" id="login">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1 style=" pointer-events: none;">Welcome Back!</h1>
+                <p>We're excited to have you back on our site.</p>
+                <button class="hidden" id="register">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+        
+    <section class ="contactUs">   
+        <div class ="container-contact-us">
+            <div class = "box">
+                <h3>Locations:</h3>
+                <p><i class="fa-solid fa-map-location-dot"></i> Bulgaria</p>
+                <p><i class="fa-solid fa-map-location-dot"></i> India</p>
+                <p><i class="fa-solid fa-magnifying-glass-location"></i> Japan</p>
+                <p><i class="fa-solid fa-magnifying-glass-location"></i> USA</p>
+                <p><i class="fa-solid fa-location-dot"></i> Romania</p>
+            </div>
+
+            <div class = "box">
+                <h3>Services:</h3>
+                <p><i class="fa-solid fa-bicycle"></i> Rentals</p>
+                <p><i class="fa-solid fa-screwdriver-wrench"></i> Repair </p>
+                <p><i class="fa-brands fa-discourse"></i></i> Tours</p>
+                <p><i class="fa-solid fa-tag"></i> Sales</p>
+                <p><i class="fa-solid fa-gear"></i> Accessories</p>
+            </div>
+
+            <div class = "box">
+              <h3>Contact Info:</h3>
+              <p><i class="fa-solid fa-phone"></i> +359-884-544-632</p>
+              <p><i class="fa-solid fa-phone"></i> +359-888-236-945</p>
+              <p><i class="fa-solid fa-envelope"></i> stilianmanolov05@gmail.com</p>
+              <p><i class="fa-solid fa-envelope"></i> stilimanolov12@gmail.com</p>
+              <p><i class="fa-solid fa-earth-americas"></i> Bankya, Bulgaria</p>
+           </div>
+
+            <div class = "box">
+              <h3>Follow Us:</h3>
+              <a href="https://www.facebook.com/profile.php?id=100024002704152"><i class="fa-brands fa-facebook"></i> Facebook</a>
+              <a href="https://www.instagram.com/st_ili/?hl=bg"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              <a href="https://github.com/Stili559"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/стилиан-манолов-112bb1199/"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+	</section> 
+
+    <div class = "copyRight" style="text-align: center;  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);">
+        <p>Copyright @ 2023 By Stilyan Manolov</p>
+      </div>
+
+      <script>
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
+      </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
