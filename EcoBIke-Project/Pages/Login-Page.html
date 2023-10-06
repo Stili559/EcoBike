@@ -355,41 +355,41 @@
 </section>
 
 <section>
-<div class="container" id="container">
-    <div class="form-container sign-up">
-        <form>
-            <h1 style=" pointer-events: none;">Create Account</h1>
-            <span>to access the site</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Sign Up</button>
-        </form>
-    </div>
-    <div class="form-container sign-in">
-        <form>
-            <h1 style=" pointer-events: none;">Sign In</h1>
-            <span>to access the site</span>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Sign In</button>
-        </form>
-    </div>
-    <div class="toggle-container">
-        <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1 style=" pointer-events: none;">Hello, Friend!</h1>
-                <p>Register with your personal details to accces the site.</p>
-                <button class="hidden" id="login">Sign In</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1 style=" pointer-events: none;">Welcome Back!</h1>
-                <p>We're excited to have you back on our site.</p>
-                <button class="hidden" id="register">Sign Up</button>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1 style="pointer-events: none;">Create Account</h1>
+                <span>to access the site</span>
+                <input type="text" placeholder="Name"  required pattern="[A-za-z0-9]{6,}$" title="Please enter a name with at least 6 characters">
+                <input type="email" class="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                <input type="password" placeholder="Password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" title="Please enter a valid password with at least 6 characters and an upperCase letter.">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1 style="pointer-events: none;">Sign In</h1>
+                <span>to access the site</span>
+                <input type="email" class="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                <input type="password" placeholder="Password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" title="Please enter a valid password with at least 6 characters and an upperCase letter.">
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1 style="pointer-events: none;">Hello, Friend!</h1>
+                    <p>Register with your personal details to access the site.</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1 style="pointer-events: none;">Welcome Back!</h1>
+                    <p>We're excited to have you back on our site.</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
         
     <section class ="contactUs">   
