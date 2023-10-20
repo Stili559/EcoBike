@@ -1,17 +1,15 @@
 body{
-    background-color: #9ACD32;
+    background: rgb(255, 255, 255);
     font-family: var(--ff-open-sans);
+    height: 100vh;
+    width: 100%;
     }
 
      /* Navbar + logo design */
     .navbar {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    
-    }
-    .shadow{
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;   
     }
 
     #bike-icon {
@@ -159,7 +157,7 @@ body{
      /* Sign-up/Sign-in move animation */
     .toggle{
     height: 100%;
-    background: linear-gradient(to right, #9ACD32, #7daf19);
+    background: #91d30d;
     color:var(--black);
     position: relative;
     left: -100%;
@@ -201,5 +199,3 @@ body{
     transform: translateX(0);
     }
 
-     /* Header design */
-     

@@ -21,7 +21,7 @@
     }
         
     ::-webkit-scrollbar-track {
-    background-color: #9ACD32;
+    background-color: #555;
     }
         
     ::-webkit-scrollbar-thumb {
@@ -33,7 +33,64 @@
     }
 
     .bg-yellow-green {
-    background-color: #9ACD32;
+    background-color: #91d30d;
     }
 
-    
+    /* Footer design */ 
+    .footer{
+    padding: 40px 15%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+    gap: 3.5rem;
+    background: #161515;
+    position: absolute;
+    left: 0;
+    right: 0;   
+    }
+
+    .footer-content h4{
+    color: #fff;
+    margin-bottom: 1.2rem;
+    font-size: 20px;
+    pointer-events: none;
+    }
+
+    .footer-content li{
+    margin-bottom: 10px;
+    }
+
+    .footer-content li {
+    display: block;
+    color: #d6d6d6;
+    font-size: 15px;
+    font-weight: 400;
+    transition: all .40s ease;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .footer-content li:hover{
+    transform: translateY(-3px) translateX(-5px);
+    color: #fff;
+    }
+
+    .footer-content .desText{
+    color: #d6d6d6;
+    font-size: 16px;
+    line-height: 30px;
+    margin: 20px 0;
+    pointer-events: none;
+    }
+
+    .footer-icons a{
+    display: inline-block;
+    font-size: 22px;
+    color: #9ACD32;
+    margin-right: 17px;
+    transition: all .40s ease;
+    }
+
+    .footer-icons a:hover{
+    color: #7faf1e;
+    transform: translateY(-5px);
+    }
