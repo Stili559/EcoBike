@@ -14,7 +14,7 @@
 
     <!-- Navbar + logo saection -->
 <section>
-    <nav class="navbar navbar-expand-lg navbar-light bg-yellow-green shadow">
+    <nav class="navbar navbar-expand-lg navbar-light dark shadow">
         <div class="navbar">
             <a class="navbar-brand" style="text-align: center">
                 <i class="fa-solid fa-bicycle" id="bike-icon"></i>
@@ -24,6 +24,11 @@
     </nav>
 </section>
 
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999999">
+    <div id="toast-container" class="toast-container">
+    </div>
+</div>
+
 <!-- Sign-up/Sign-in section -->
 <section>
     <div class="container" id="container">
@@ -31,18 +36,18 @@
             <form>
                 <h1 style="pointer-events: none;">Create Account</h1>
                 <span>to access the site</span>
-                <input type="text" placeholder="Name"  required pattern="[A-za-z0-9]{6,}$" title="Please enter a name with at least 6 characters">
-                <input type="email" class="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
-                <input type="password" placeholder="Password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" title="Please enter a valid password with at least 6 characters and an upperCase letter.">
-                <button>Sign Up</button>
+                <input type="text" id="name" placeholder="Name">
+                <input type="email" class="email" id="emailUp" placeholder="Email">
+                <input type="password" id="passwordUp" placeholder="Password">
+                <button  type="button" id = "signUpButton">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
             <form>
                 <h1 style="pointer-events: none;">Sign In</h1>
                 <span>to access the site</span>
-                <input type="email" class="email" id="email" placeholder="Email"  title="Please enter a valid email address">
-                <input type="password"  id="password" placeholder="Password" title="Please enter a valid password with at least 6 characters and an upperCase letter.">
+                <input type="email" class="email" id="emailIn" placeholder="Email">
+                <input type="password" id="passwordIn" placeholder="Password">
                 <button  type="button" id = "signInButton">Sign In</button>
             </form>
         </div>

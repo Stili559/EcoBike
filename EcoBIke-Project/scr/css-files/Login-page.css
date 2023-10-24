@@ -15,14 +15,14 @@ body{
     #bike-icon {
     transform: rotate(-90deg);
     font-size: 2rem; 
-    color: #333; 
+    color: #9ACD32; 
     }
 
     #brand-text {
     font-weight: bold; 
     font-size: 2rem; 
     text-decoration: none; 
-    color: #333333; 
+    color: #9ACD32; 
     pointer-events: none;
     }
 
@@ -157,7 +157,7 @@ body{
      /* Sign-up/Sign-in move animation */
     .toggle{
     height: 100%;
-    background: #91d30d;
+    background: #8dcc0e;
     color:var(--black);
     position: relative;
     left: -100%;
