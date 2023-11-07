@@ -32,8 +32,8 @@ async function initFirebase55() {
     const db = getFirestore(app);
     const auth = getAuth(app);
 
-/* Login/Register saved in FireBase */
-document.getElementById("signInButton").addEventListener("click", function () {
+    /* Login/Register saved in FireBase */
+    document.getElementById("signInButton").addEventListener("click", function () {
     var email = document.getElementById("emailIn").value;
     var password = document.getElementById("passwordIn").value;
 
@@ -47,9 +47,12 @@ document.getElementById("signInButton").addEventListener("click", function () {
             console.log("User login:", user); 
             window.location.href = "home.html";  
         })
+        .catch((error) => {
+            showToast("Email or password is incorrect.");
+        });
     } else {
         if (!emailPattern.test(email)) {
-            showToast("Please enter a valid email address");
+            showToast("Please enter a valid email address.");
         } else if (!passwordPattern.test(password)) {
             showToast("Please enter a valid password with at least 6 characters and an uppercase letter.");
         }
@@ -61,7 +64,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
     const  email = document.getElementById("emailUp").value;
     const  password = document.getElementById("passwordUp").value;
 
-    var namePattern = /[a-z]{6,}$/;
+    var namePattern = /^[A-z]{5,}$/;
     var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
     var passwordPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/;
 
@@ -69,15 +72,26 @@ document.getElementById("signUpButton").addEventListener("click", function () {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log("User registered:", user);
-                window.location.href = "home.html";          
+                console.log("User registered:", user);      
+                const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+                myModal.show();
+                
+                document.getElementById("name").value = "";
+                document.getElementById("emailUp").value = "";
+                document.getElementById("passwordUp").value = "";
             })
+            .catch((error) => {
+                if (error.code === "auth/email-already-in-use") 
+                {
+                    showToast("Email is already registered.");
+                }
+            });
     } 
     else 
     {
         if (!namePattern.test(name)) 
         {
-            showToast("Please enter a name with at least 6 letter.");
+            showToast("Please enter a name with at least 5 letters.");
         }
         else if (!emailPattern.test(email))
         {

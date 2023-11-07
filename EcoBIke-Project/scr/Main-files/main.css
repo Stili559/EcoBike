@@ -21,15 +21,15 @@
     }
         
     ::-webkit-scrollbar-track {
-    background-color: #555;
+    background-color: #ffffff;
     }
         
     ::-webkit-scrollbar-thumb {
-    background: #555; 
+    background: #9ACD32; 
     }
         
     ::-webkit-scrollbar-thumb:hover {
-    background: rgb(69, 85, 85); 
+    background: #84b12b; 
     }
 
     .dark {
@@ -46,6 +46,7 @@
     position: absolute;
     left: 0;
     right: 0;   
+ 
     }
 
     .footer-content h4{
