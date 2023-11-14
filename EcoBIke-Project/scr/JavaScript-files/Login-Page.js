@@ -14,7 +14,7 @@ loginBtn.addEventListener('click', () => {
 async function initFirebase55() {
     // Initialize Firebase
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
-    const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
+    const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
     const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
 
     const firebaseConfig = {

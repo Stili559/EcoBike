@@ -22,4 +22,3 @@ function showToast(message) {
     var bootstrapToast = new bootstrap.Toast(toast);
     bootstrapToast.show();
 }
- 

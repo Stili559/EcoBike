@@ -1,0 +1,20 @@
+body{
+    background-color: #9ACD32;
+}
+
+    /* Logo design */
+    #bike-icon {
+    transform: rotate(-90deg);
+    font-size: 2rem; 
+    color: #9ACD32; 
+    cursor: pointer;
+    margin-left: 2rem;
+    }
+
+    #brand-text {
+    font-weight: bold; 
+    font-size: 2rem; 
+    text-decoration: none; 
+    color: #9ACD32; 
+    cursor: pointer;
+    }

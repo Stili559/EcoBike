@@ -1,6 +1,7 @@
     /* Text font */
     :root {
     --ff-open-sans: 'Open Sans', sans-serif;
+    --ff-quicksand: 'Quicksand', sans-serif;
 
     --fs-1: 2.125rem;
     --fs-2: 1.875rem;
@@ -13,6 +14,22 @@
     --fw-400: 400;
     --fw-600: 600;
 
+    }
+
+    @font-face {
+    font-family: "Quicksand";
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: local("Quicksand SemiBold"),
+    }
+  
+    @font-face {
+    font-family: "Quicksand";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: local("Quicksand Bold"),
     }
 
     /* Scrollbar design */
@@ -36,6 +53,101 @@
     background-color: #1f1d1d;
     }
 
+    /* Navbar design */
+    .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    }
+    
+    .containerHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    }
+
+    .navbar-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    }
+    
+    .navbar-item {
+    margin-right: 20px; 
+    }
+    
+    .navbar-link {
+    color: white;
+    font-family: var(--ff-quicksand);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-weight: 600; 
+    text-decoration: none;
+    position: relative; 
+    overflow: hidden;
+    }
+
+    .navbar-link:hover {
+    color: #9ACD32;
+    }
+    
+    .navbar-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    height: 2px; 
+    background-color: #9ACD32;
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.3s ease; 
+    }
+      
+    .navbar-link:hover::before {
+    transform: scaleX(1);
+    }
+
+    .custom-corner-button {
+    padding: 10px 20px;
+    margin-right: 2rem;
+    border-top-right-radius: 0;
+    background-color: #9ACD32;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 0;   
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0;   
+    font-weight: bold;
+    transition: background-color 0.3s;
+    }
+    
+    .custom-corner-button .fa-arrow-right {
+    margin-left: 10px; 
+    transition: transform 0.3s; 
+    }
+    
+    .custom-corner-button:hover {
+    background-color: white; 
+    color: #9ACD32;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;  
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0; 
+    }
+    
+    .custom-corner-button:hover .fa-arrow-right {
+    transform: translateX(5px);
+    }
+    
     /* Footer design */ 
     .footer{
     padding: 40px 15%;
@@ -46,7 +158,6 @@
     position: absolute;
     left: 0;
     right: 0;   
- 
     }
 
     .footer-content h4{
