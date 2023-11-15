@@ -147,6 +147,60 @@
     .custom-corner-button:hover .fa-arrow-right {
     transform: translateX(5px);
     }
+
+    /* Mobile dropdown menu styles */
+    @media (max-width: 1000px) {
+    .navbar-toggler {
+    margin-right: 2rem;
+    display: none;
+    font-size: 20px;
+    color: white !important;
+    cursor: pointer;
+    display: block;
+    }
+
+    .navbar-toggler.active ~ .navbar-collapse {
+    display: block;
+    }
+
+    .navbar-collapse {
+    display: none;
+    position: absolute;
+    top: 105%;
+    right: 1rem;
+    background-color: #1f1d1d;
+    border-radius: 10px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    }
+
+    .navbar-collapse a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+    }
+
+    .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+    }
+
+    .navbar-item {
+    margin-right: 0;
+    }
+
+    .navbar-link {
+    display: none;
+    }
+
+    .custom-corner-button {
+    margin-right: 0;
+    margin-top: 10px; 
+    }
+  }
     
     /* Footer design */ 
     .footer{
@@ -205,4 +259,39 @@
     .footer-icons a:hover{
     color: #7faf1e;
     transform: translateY(-5px);
+    }
+
+     /* signOutButton design */ 
+    #signOutButton {
+    background-color: #9ACD32;
+    color: black;
+    border: none;
+    border-radius: 100px;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: padding 0.3s ease;
+    margin-top: 0.3rem;
+    }
+  
+    #signOutButton:hover {
+    background-color: #7faf1e;
+    padding-right: 4.5rem; 
+    }
+
+    #signOutButton i {
+    transition: opacity 0.3s ease; 
+    }
+
+    #signOutButton span {
+    position: absolute;
+    font-weight: 600;
+    opacity: 0;
+    left: 2.5rem; 
+    }
+
+    #signOutButton:hover span {
+    opacity: 1; 
     }
