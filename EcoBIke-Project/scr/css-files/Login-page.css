@@ -51,12 +51,12 @@ body{
     pointer-events: none;
     }
 
-    .container a{
+    .container p1{
     color: #333;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
-    pointer-events: none;
+    cursor: pointer;
     }
 
     .container button{
@@ -118,6 +118,13 @@ body{
 
     .container.active .sign-in{
     transform: translateX(100%);
+    }
+
+    .container a{
+        color: #333;
+        font-size: 13px;
+        text-decoration: none;
+        margin: 15px 0 10px;
     }
 
     /* Sign-up form design */

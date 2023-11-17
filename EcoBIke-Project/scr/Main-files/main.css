@@ -34,19 +34,19 @@
 
     /* Scrollbar design */
     ::-webkit-scrollbar {
-    width: 3px;
+      width: 0px;
     }
-        
+    
     ::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background: #f1f1f1; 
     }
-        
+
     ::-webkit-scrollbar-thumb {
-    background: #9ACD32; 
+      background: #888; 
     }
-        
+    
     ::-webkit-scrollbar-thumb:hover {
-    background: #84b12b; 
+      background: #555; 
     }
 
     .dark {
