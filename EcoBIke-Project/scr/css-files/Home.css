@@ -9,6 +9,7 @@ body{
     color: #9ACD32; 
     cursor: pointer;
     margin-left: 2rem;
+    transition: transform 0.5s ease;
     }
 
     #brand-text {

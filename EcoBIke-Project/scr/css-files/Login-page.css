@@ -14,6 +14,7 @@ body{
     transform: rotate(-90deg);
     font-size: 2rem; 
     color: #9ACD32; 
+    transition: transform 0.5s ease;
     }
 
     #brand-text {

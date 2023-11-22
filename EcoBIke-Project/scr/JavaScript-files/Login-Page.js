@@ -70,7 +70,7 @@ async function initFirebase55() {
             window.location.href = "home.html";  
         })
         .catch((error) => {
-            showToast("Email or password is incorrect.");
+            showToast("Incorrect Email or password.");
         });
     } else {
         if (!emailPattern.test(email)) {

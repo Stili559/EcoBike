@@ -1,0 +1,184 @@
+    body{
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    }
+
+    /* Logo design */
+    #bike-icon {
+    transform: rotate(-90deg);
+    font-size: 2rem; 
+    color: #9ACD32; 
+    cursor: pointer;
+    margin-left: 2rem;
+    transition: transform 0.5s ease;
+    }
+
+    #brand-text {
+    font-weight: bold; 
+    font-size: 2rem; 
+    text-decoration: none; 
+    color: #9ACD32; 
+    cursor: pointer;
+    }
+
+     /* About-us design */ 
+    .section {
+    margin-top: 5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px;
+    }
+    
+    .container {
+    display: flex;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    }
+    
+    .about-banner {
+    position: relative;
+    margin-right: 30px; 
+    }
+    
+    .img-1 {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1s ease-out forwards; 
+    transition: transform 0.3s ease;
+    }
+
+    .about-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 20px; 
+    animation: fadeSlideIn 1s ease-out forwards;
+    }
+    
+    .section-subtitle {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    }
+    
+    .section-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 30px; 
+    height: 3px;
+    background: #4CAF50;
+    }
+    
+    .h2.section-title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    }
+    
+    .section-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    }
+    
+    .about-wrapper {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .about-card {
+    background: #f7f7f7; 
+    padding: 15px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    }
+    
+    .card-title {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    }
+    
+    .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    }
+    
+    .about-list {
+    list-style: none;
+    }
+    
+    .about-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    }
+    
+    .about-item i{
+    color: #4CAF50;
+    margin-right: 0.5rem;
+    }
+
+    .span{
+    font-weight: bold; 
+    }
+    
+    /* Media queries for responsiveness */
+    @media (max-width: 840px) {
+    .about-banner {
+        margin-right: 0px; 
+    }
+            
+    .section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .about-banner {
+        margin-bottom: 20px;
+    }
+
+    .img-1 {
+        margin-left: auto;
+    margin-right: auto;
+    }
+}
+
+    #bike-icon:hover {
+        transform: rotate(0deg);
+    }
+
+    .img-1:hover {
+        transform: scale(1.03);
+    }
+  
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
