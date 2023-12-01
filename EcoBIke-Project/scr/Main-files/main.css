@@ -277,6 +277,17 @@
     transform: translateY(-5px);
     }
 
+    /* Store title */
+    .title {
+    color: #423c3c;
+    font-size: 38px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 7rem auto 1rem auto; 
+    }
+
      /* signOutButton design */ 
     #signOutButton {
     background-color: #9ACD32;
@@ -316,3 +327,4 @@
       transform: rotate(0deg);
   }
   
+ 

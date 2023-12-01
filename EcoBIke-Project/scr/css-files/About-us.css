@@ -24,7 +24,7 @@
 
      /* About-us design */ 
     .section {
-    margin-top: 5rem;
+    margin-top: -2rem;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
