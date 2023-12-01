@@ -19,6 +19,17 @@ body{
     color: #9ACD32; 
     cursor: pointer;
     }
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+        max-width: 68rem; 
+        height: 20rem;
+        margin: 0 auto; 
+        margin-bottom: 2rem;
+        animation: fadeIn 1s ease-out forwards;
+    }
       
     /* Store cards design */
     .stores-container {
@@ -207,5 +218,44 @@ body{
         .small-image {
             display: none;
         }
+
+        .banner {
+            height: 15rem; 
+        }
+    }
+
+    .stores-container:nth-child(odd) {
+        animation: fadeInOdd 1s ease forwards;
+    }
+    
+    .stores-container:nth-child(even) {
+        animation: fadeInEven 1s ease forwards;
+    }
+    
+    @keyframes fadeInOdd {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInEven {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
     
