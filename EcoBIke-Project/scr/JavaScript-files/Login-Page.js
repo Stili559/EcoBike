@@ -130,8 +130,6 @@ document.getElementById("signUpButton").addEventListener("click", function () {
     }
 });
 
-
-
 }
 
 initFirebase55()

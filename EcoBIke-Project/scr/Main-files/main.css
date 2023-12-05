@@ -288,43 +288,116 @@
     margin: 7rem auto 1rem auto; 
     }
 
-     /* signOutButton design */ 
-    #signOutButton {
-    background-color: #9ACD32;
-    color: black;
-    border: none;
-    border-radius: 100px;
-    padding: 8px 15px;
+    #bike-icon:hover {
+    transform: rotate(0deg);
+    }
+  
+    /* Profile Popup */
+    .profile-popup {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); 
+    }
+
+    .profile-container {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInAnimation 0.5s ease-in-out;
+    }
+
+    .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4b8b3b;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    }
+
+    .close-btn {
+    color: #4b8b3b;
+    font-size: 30px;
     cursor: pointer;
+    margin-top: -2rem;
+    }
+
+    .close-btn:hover {
+    color: #366b2a;
+    }
+
+    .profile-btn {
+    background-color: #4b8b3b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+
+    .profile-btn:hover {
+    background-color: #366b2a;
+    }
+
+    .profile-info {  
+    font-family: var(--ff-quicksand);
+    font-size: 16px;
+    line-height: 1.6;
+    }
+
+    .no-scroll {
+    overflow: hidden;
+    height: 100%;
+    }
+
+    .containerButton {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    }
+    
+    #signOutButton {
+    background-color: #4b8b3b; 
+    color: white;
+    padding: 10px 20px;
+    font-family: var(--ff-quicksand);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
-    position: relative;
-    transition: padding 0.3s ease;
-    margin-top: 0.3rem;
+    justify-content: center;
+    gap: 5px; 
+    transition: background-color 1.5s ease; 
     }
-  
+    
     #signOutButton:hover {
-    background-color: #7faf1e;
-    padding-right: 4.5rem; 
+      background-color: #b92c2a;
     }
 
-    #signOutButton i {
-    transition: opacity 0.3s ease; 
+     /* Media queries for responsiveness */
+     @media (max-width: 700px) {
+      .profile-container {  
+      width: 80%;
+      }
     }
-
-    #signOutButton span {
-    position: absolute;
-    font-weight: 600;
-    opacity: 0;
-    left: 2.5rem; 
+    
+  @keyframes fadeInAnimation {
+    from {
+        opacity: 0; 
     }
-
-    #signOutButton:hover span {
-    opacity: 1; 
+    to {
+        opacity: 1; 
     }
-
-    #bike-icon:hover {
-      transform: rotate(0deg);
-  }
-  
- 
+}

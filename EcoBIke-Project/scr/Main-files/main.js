@@ -6,7 +6,7 @@ navbarToggler.addEventListener("click", () => {
     navbarCollapse.classList.toggle("active");
 });
 
-async function initFirebase55() {
+async function initFirebase54() {
     // Initialize Firebase
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
     const { getAuth, signOut } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
@@ -26,19 +26,21 @@ async function initFirebase55() {
     const db = getFirestore(app);
     const auth = getAuth(app);
 
-document.getElementById("signOutButton").addEventListener("click", function () {
-    signOut(auth)
-        .then(() => {
-            console.log("User signed out");
-            window.location.href = "Login-Page.html";
-        })
-        .catch((error) => {
-            console.error("Error signing out:", error);
-        });
-});
+    document.body.addEventListener('click', function(event) {
+        if (event.target.id === 'signOutButton') {
+            signOut(auth)
+                .then(() => {
+                    console.log("User signed out");
+                    window.location.href = "Login-Page.html";
+                })
+                .catch((error) => {
+                    console.error("Error signing out:", error);
+                });
+        }
+    });
 }
 
-initFirebase55()
+initFirebase54()
 
 // Function to scroll to the top of the page
 function scrollToTop() {
@@ -49,3 +51,56 @@ function scrollToTop() {
 }
 
 document.getElementById('topBtn').addEventListener('click', scrollToTop);
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Define the HTML content for the profile popup
+    var profilePopupHTML = `
+        <div id="profilePopup" class="profile-popup">
+            <div class="profile-container">
+                <div class="profile-header">
+                <h2>User Profile</h2>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-info">
+                    <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+                    <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+                        <!-- More profile information here -->
+                    </div>
+                    <div class="containerButton">
+                    <button id="signOutButton">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', profilePopupHTML);
+
+    var popup = document.getElementById('profilePopup');
+    var btn = document.getElementById('profileBtn');
+    var closeBtn = document.querySelector('.close-btn');
+
+    if (btn) {
+        btn.onclick = function() {
+            popup.style.display = 'block';
+            document.body.classList.add('no-scroll');
+        };
+    }
+
+    closeBtn.onclick = function() {
+        popup.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    };
+
+    window.onclick = function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+    };
+    
+});
+
+
+
