@@ -2,6 +2,7 @@
     :root {
     --ff-open-sans: 'Open Sans', sans-serif;
     --ff-quicksand: 'Quicksand', sans-serif;
+    --ff-nunito: 'Nunito', sans-serif;
 
     --fs-1: 2.125rem;
     --fs-2: 1.875rem;
@@ -286,6 +287,7 @@
     text-align: center;
     display: block;
     margin: 7rem auto 1rem auto; 
+    
     }
 
     #bike-icon:hover {
