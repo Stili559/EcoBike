@@ -143,3 +143,33 @@ body{
     background-color: #4CAF50;
     color: #fff;
     }
+
+    .title-Products {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    display: block;
+    display: block;
+    background-color: #4CAF50; 
+    padding: 3px 6px;
+    border-radius: 4px; 
+    display: inline-block; 
+    }
+
+    .title-Products-first {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    background-color: #4CAF50; 
+    padding: 3px 6px;
+    border-radius: 4px; 
+    display: inline-block; 
+    
+    }
