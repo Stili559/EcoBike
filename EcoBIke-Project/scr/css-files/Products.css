@@ -19,6 +19,85 @@ body{
     color: #9ACD32; 
     cursor: pointer;
     }
+
+/* Container for the filters */
+#price-ranges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    background-color: #1f1d1d;
+    color: white;
+  }
+  
+  /* Buttons */
+  .sort-button {
+    padding: 4px 6px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .sort-button:hover {
+    background-color: #3f8842; 
+  }
+  
+    /* Select box */
+    #year-filter {
+    padding: 2px; 
+    border-radius: 4px;
+    outline: none; 
+    background-color: #fff; 
+    color: #333;
+    font-size: 14px; 
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    }
+
+     /* Checkboxes and labels */
+    .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-family: var(--ff-quicksand);
+    }
+  
+    /* Clear Filters button */
+    #clear-filters-button {
+    padding: 4px 8px;
+    margin-right: 10px;
+    background-color: #df0101;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    }
+
+    #clear-filters-button:hover{
+    background-color: #c71313;
+    }
+    
+    input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #4CAF50; 
+    border-radius: 4px; 
+    margin-right: 5px;
+    cursor: pointer;
+    }
     
     .container {
     max-width: 1200px;
@@ -52,7 +131,7 @@ body{
     width: 100%;
     display: block;
     border-radius: 15px;
-    height: 260px;
+    height: 320px;
     }
 
     .card-content {
@@ -171,5 +250,4 @@ body{
     padding: 3px 6px;
     border-radius: 4px; 
     display: inline-block; 
-    
     }

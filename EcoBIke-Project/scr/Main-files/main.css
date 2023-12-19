@@ -54,6 +54,14 @@
     background-color: #1f1d1d;
     }
 
+    .betterText{
+    color: white;
+    font-family: var(--ff-quicksand);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600; 
+    }
+
     /* Navbar design */
     .navbar {
     display: flex;
