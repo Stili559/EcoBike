@@ -20,8 +20,8 @@ body{
     cursor: pointer;
     }
 
-/* Container for the filters */
-#price-ranges {
+    /* Container for the filters */
+    #price-ranges {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -32,10 +32,11 @@ body{
     margin-left: 2rem;
     background-color: #1f1d1d;
     color: white;
-  }
-  
-  /* Buttons */
-  .sort-button {
+    animation: slideIn 1.2s ease;
+    }
+
+    /* Buttons */
+    .sort-button {
     padding: 4px 6px;
     margin-right: 10px;
     background-color: #4CAF50;
@@ -45,11 +46,11 @@ body{
     border-radius: 4px; 
     transition: background-color 0.3s ease; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-  }
-  
-  .sort-button:hover {
+    }
+      
+    .sort-button:hover {
     background-color: #3f8842; 
-  }
+    }
   
     /* Select box */
     #year-filter {
@@ -99,6 +100,7 @@ body{
     cursor: pointer;
     }
     
+    /* Product styling */
     .container {
     max-width: 1200px;
     margin: auto;
@@ -108,9 +110,13 @@ body{
     .featured-car-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px; 
     margin-bottom: 20px;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
     }
 
     /* Card styling */
@@ -211,6 +217,7 @@ body{
     }
 
     .btn {
+    text-transform: uppercase;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -251,3 +258,134 @@ body{
     border-radius: 4px; 
     display: inline-block; 
     }
+
+    /* Media Query for Tablets and Smaller Screens */
+    @media (max-width: 1000px) {
+    .featured-car-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-right: 1.9rem;
+    }
+    .title-Products-first {
+      display: none;
+    }
+    .title-Products {
+      display: none;
+    }
+    .card-banner img {
+      height: 300px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1200px) {
+    #price-ranges {
+      width: 91.5%;
+      padding: 5px;
+      border-radius: 6px;
+    }
+  
+    .sort-button,
+    #year-filter,
+    .checkbox-label
+    {
+      margin-right: 5px; 
+      padding: 6px 6px; 
+    }
+
+    .sort-button, #clear-filters-button {
+      flex: 1 0 auto;
+    }
+
+    .sort-button {
+      margin-bottom: 0.5rem;
+    }
+
+    .textFilter{
+      margin-bottom: 0.5rem;
+      margin-left: 0.4rem;
+      margin-right: 0.5rem;
+    }
+  
+    #year-filter {
+      flex: 1;
+      margin-bottom: 0.5rem;
+    }
+  
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+    } 
+  }
+
+  @media (max-width: 767px) {
+    .card-banner img {
+      height: 250px;
+    }
+
+    #price-ranges {
+      width: 83%;
+      padding: 5px;
+      border-radius: 6px;
+    }
+  
+    .sort-button,
+    #year-filter,
+    .checkbox-label
+    {
+      margin-right: 5px; 
+      padding: 6px 6px; 
+    }
+
+    #clear-filters-button{
+      margin-top: 0.5rem;
+      margin-left: 0.6rem;
+    }
+  
+    .sort-button, #clear-filters-button {
+      flex: 1 0 auto;
+    }
+
+    .sort-button {
+      margin-bottom: 0.5rem;
+    }
+
+    .textFilter{
+      margin-bottom: 0.5rem;
+      margin-left: 0.4rem;
+      margin-right: 0.5rem;
+    }
+  
+    #year-filter {
+      flex: 1;
+      margin-bottom: 0.5rem;
+    }
+  
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .checkbox-label {
+      flex-basis: 100%; 
+    }
+  }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
