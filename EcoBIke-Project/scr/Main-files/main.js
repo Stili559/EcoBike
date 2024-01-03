@@ -51,7 +51,8 @@ function scrollToTop() {
 }
 
 document.getElementById('topBtn').addEventListener('click', scrollToTop);
-
+const email = localStorage.getItem('userEmail');
+const name = localStorage.getItem('userName');
 document.addEventListener("DOMContentLoaded", function() {
     // Define the HTML content for the profile popup
     var profilePopupHTML = `
@@ -63,9 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="profile-body">
                     <div class="profile-info">
-                    <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
-                    <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
-                        <!-- More profile information here -->
+                    <p><strong>Name:</strong> <span id="userName">${name}</span></p>
+                    <p><strong>Email:</strong> <span id="userEmail">${email}</span></p>
                     </div>
                     <div class="containerButton">
                     <button id="signOutButton">Sign Out</button>
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
             document.body.classList.remove('no-scroll');
         }
     };
-    
 });
 
 

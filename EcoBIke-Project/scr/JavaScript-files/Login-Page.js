@@ -67,6 +67,7 @@ async function initFirebase55() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User login:", user); 
+            localStorage.setItem('userEmail', user.email);
             window.location.href = "home.html";  
         })
         .catch((error) => {
@@ -97,7 +98,6 @@ document.getElementById("signUpButton").addEventListener("click", function () {
                 const user = userCredential.user;
                 console.log("User registered:", user); 
                 sendEmailVerification(auth.currentUser);
-     
                 const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
                 myModal.show();
                 
