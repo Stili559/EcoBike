@@ -35,7 +35,7 @@
 
     /* Scrollbar design */
     ::-webkit-scrollbar {
-      width: 0px;
+      width: 5px;
     }
     
     ::-webkit-scrollbar-track {
@@ -43,11 +43,11 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #888; 
+      background: #9ACD32; 
     }
     
     ::-webkit-scrollbar-thumb:hover {
-      background: #555; 
+      background: #7aa02d; 
     }
 
     .dark {
@@ -392,7 +392,7 @@
     }
     
     #signOutButton:hover {
-      background-color: #b92c2a;
+    background-color: #b92c2a;
     }
 
      /* Media queries for responsiveness */
