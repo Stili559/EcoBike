@@ -221,3 +221,31 @@ body{
       margin: auto;
     }
   }
+
+  /* Video design */
+  .container-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+  .video{
+    width: 1100px;
+    height: 400px;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 0;
+  }
+
+  
