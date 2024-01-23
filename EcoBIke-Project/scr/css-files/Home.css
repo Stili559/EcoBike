@@ -64,8 +64,6 @@ body{
     height: 40.5rem; 
     }
 
-    /* Carousel design Two*/
-
     /* Carousel design Three */
     .carousel-captionThree {
     color: white;
@@ -127,3 +125,99 @@ body{
     margin-top: 4rem;
     }
 }
+
+/* Bike design */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .section {
+    margin-top: -2rem;
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .section-subtitle {
+    color: #888;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: -1rem;
+  }
+
+  .h2.section-title {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal; 
+  }
+
+  .h2 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-item {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .service-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .card-icon {
+    margin-right: 15px;
+    font-size: 30px;
+  }
+
+  .card-text {
+    margin: 0;
+    color: #463d3d;
+  }
+
+  .img-holder {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 30px;
+  }
+
+  .img-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .section i{
+    color: #4caf50;
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+    }
+    .img-holder {
+      order: -1;
+      margin-bottom: 30px;
+    }
+    .service-list {
+      max-width: 500px;
+      margin: auto;
+    }
+  }
