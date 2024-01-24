@@ -190,12 +190,11 @@ body{
   .card-text {
     margin: 0px;
     color: #463d3d;
-   
   }
 
   .img-holder {
     width: 100%;
-    max-width: 400px;
+    max-width: 415px;
     margin: 0 30px;
   }
 
@@ -266,24 +265,60 @@ body{
   }
 
   .video{
-    background-color: #eeeeee;
+    background: #eee;
+    width: auto;
     height: 600px;
     padding: 10px 20px;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font: bold 16px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s;
-    border-top-left-radius: 150px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 150px;
-    border-bottom-left-radius: 0;
+    border-radius: 150px 0 150px 0;
   }
 
+  /* badges design */
+  .badges {
+    background: #eee;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
+  }
 
-    
-    
+  .badge {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    text-align: left; 
+    margin: 20px;
+  }
+
+  .icon {
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    margin-right: 10px; 
+    }
+
+  .green { background-color: #eee;  border: 2px solid #4CAF50; color: #4CAF50 }
+  .blue {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+  .red {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+
+  .text {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .badge .icon i {
+    color: #4CAF50;
+    border-color: inherit;
+  }  
     
