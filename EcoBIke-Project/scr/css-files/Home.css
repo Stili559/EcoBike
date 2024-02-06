@@ -322,3 +322,80 @@ body{
     border-color: inherit;
   }  
     
+  .square {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 5rem;
+    height: 10rem;
+    margin-top: 2rem;
+    }
+
+    .square:hover .square-image {
+    transform: scale(1.1);
+    }
+
+    .square-image {
+    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 1;
+    }
+
+    .square-image img {
+    max-width: 100%;
+    }
+
+    .square-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    }
+
+    .square:hover .square-text {
+    opacity: 1;
+    }
+
+    .square-text h2 {
+    font-size: 24px;
+    margin-top: 0;
+    }
+
+    .square-text p {
+    font-size: 16px;
+    margin-bottom: 0;
+    }
+
+    @media (min-width: 768px){
+      .square {
+        width: calc(33.33% - 20px);
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      .square:last-child {
+        margin-right: 0;
+      }
+      .square-text {
+        padding: 30px;
+        font-size: 18px;
+      }
+      .square-text h2 {
+        font-size: 30px;
+        margin-top: 0;
+      }
+      .square-text p {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }           
