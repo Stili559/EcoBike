@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const bikeList = document.querySelector('.featured-car-list');
     const bikes = Array.from(bikeList.children);
-    const titles = document.querySelectorAll('.title-Products-first, .title-Products');
     const clearFiltersButton = document.getElementById('clear-filters-button');
 
     const sortLowToHighButton = document.getElementById('sort-low-to-high');
@@ -56,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     
         updateBikeList(filteredBikes);
-        hideTitles();
       }
   
     // Function to update the bike list
@@ -67,29 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    const hideTitles = () => {
-        titles.forEach((title) => {
-            title.style.display = 'none';
-        });
-    };
-
-    const showTitles = () => {
-        titles.forEach((title) => {
-            title.style.display = '';
-        });
-    };
-
     sortLowToHighButton.addEventListener('click', () => {
         bikes.sort(comparePrices);
         updateBikeList(bikes);
-        hideTitles();
     });
 
     sortHighToLowButton.addEventListener('click', () => {
         bikes.sort(comparePrices);
         bikes.reverse();
         updateBikeList(bikes);
-        hideTitles();
     });
 
     // Event listener for year filter
@@ -105,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
         updateBikeList(filteredBikes);
-        hideTitles();
     });
 
      // Event listener for clear filter
@@ -114,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
         bikes.length = 0; 
         bikes.push(...originalBikesOrder);
         updateBikeList(bikes);
-        showTitles();
     });
 });
 
@@ -212,34 +194,34 @@ const bikes = [
     imageSrc: "/EcoBIke-Project/Images/ECO Elite GT4.png"
   },
   {
-    title: "EcoBike T-Cross",
-    year: "2020",
-    speed: "20 mph",
-    range: "20/45 miles",
-    batteryLife: "1/4 hours",
-    weight: "25 pounds",
-    price: "$350",
-    imageSrc: "/EcoBIke-Project/Images/EcoBike_T-Cross.png"
+    title: "BMX DT 3",
+    year: "2022",
+    speed: "10 mph",
+    range: "10/25 miles",
+    batteryLife: "1/2 hours",
+    weight: "15 pounds",
+    price: "$250",
+    imageSrc: "/EcoBIke-Project/Images/BMX DT 3.webp"
   },
   {
-    title: "EcoBike T-Cross",
-    year: "2020",
-    speed: "20 mph",
-    range: "20/45 miles",
-    batteryLife: "1/4 hours",
-    weight: "25 pounds",
-    price: "$350",
-    imageSrc: "/EcoBIke-Project/Images/EcoBike_T-Cross.png"
+    title: "BMX REV 2",
+    year: "2022",
+    speed: "27 mph",
+    range: "33/43 miles",
+    batteryLife: "2/6 hours",
+    weight: "45 pounds",
+    price: "$439",
+    imageSrc: "/EcoBIke-Project/Images/BMX REV 2.webp"
   },
   {
-    title: "EcoBike T-Cross",
-    year: "2020",
-    speed: "20 mph",
-    range: "20/45 miles",
-    batteryLife: "1/4 hours",
+    title: "BMX XM 3",
+    year: "2021",
+    speed: "15 mph",
+    range: "20/25 miles",
+    batteryLife: "1/3 hours",
     weight: "25 pounds",
-    price: "$350",
-    imageSrc: "/EcoBIke-Project/Images/EcoBike_T-Cross.png"
+    price: "$299",
+    imageSrc: "/EcoBIke-Project/Images/BMX XM 3.webp"
   }
 ];
 
