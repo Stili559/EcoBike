@@ -19,7 +19,6 @@
                 <i class="fa-solid fa-bicycle" id="bike-icon"></i>
                 <span id="brand-text" style="position: relative; left: -0.8rem; top: -0.18rem;">coBike</span>
             </a>  
-
             <button class="navbar-toggler" id="navbarToggler"><i class="fa-solid fa-bars"></i></button>
             <div class="navbar-collapse">
             <ul class="navbar-nav">
@@ -48,115 +47,9 @@
 <div class="title">
   OUR STORES
   </div>
-
   <img class = "banner" src="/EcoBIke-Project/Images/Banner_EcoBIke_Live.png">
-
   <section>
-    <div class="stores-container">
-        <!-- Store 1 -->
-        <div class="store">
-            <div class="store-header">Sofia</div>
-            <div class="store-header-name">EcoBike Center Sofia Ring Mall</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/Sofia-Ring-Mall.png">
-            </div>
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                <span class="storeColorText">Open daily from </span>
-                <span class="storeColorNum">10:00 - 21:00</span>
-                </div>
-                <button class="store-button" onclick="openPopup('Store 1')">Explore the Store</button>
-            </div>
-        </div>
-        
-        <!-- Store 2 -->
-        <div class="store">
-            <div class="store-header">Berlin</div>
-            <div class="store-header-name">EcoBike TradeSquare Mall</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/TradeSquare.jpg">
-            </div>
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                  <span class="storeColorText">Open daily from </span>
-                  <span class="storeColorNum">09:00 - 22:00</span>
-                  </div>
-                  <button class="store-button" onclick="openPopup('Store 2')">Explore the Store</button>
-            </div>
-        </div>
-        
-        <!-- Store 3 -->
-        <div class="store">
-            <div class="store-header">Texas</div>
-            <div class="store-header-name">EcoBike Live CityLink Mall</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/CityLink-Mall.jpg">
-            </div>
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                  <span class="storeColorText">Open daily from </span>
-                  <span class="storeColorNum">08:00 - 20:00</span>
-                  </div>
-                  <button class="store-button" onclick="openPopup('Store 3')">Explore the Store</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="stores-container" style="margin-top: -1rem;">
-        <!-- Store 4 -->
-        <div class="store">
-            <div class="store-header">Paris</div>
-            <div class="store-header-name">EcoBike South Mall</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/South-Mall.jpg">
-            </div>
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                  <span class="storeColorText">Open daily from </span>
-                  <span class="storeColorNum">09:00 - 23:00</span>
-                  </div>
-                  <button class="store-button" onclick="openPopup('Store 4')">Explore the Store</button>
-            </div>
-        </div>
-        
-        <!-- Store 5 -->
-        <div class="store">
-            <div class="store-header">Burgas</div>
-            <div class="store-header-name">EcoBike Custom Galleria Burgas</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/Galleria_Burgas.jpg">
-            </div>
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                  <span class="storeColorText">Open daily from </span>
-                  <span class="storeColorNum">09:00 - 22:00</span>
-                  </div>
-                  <button class="store-button" onclick="openPopup('Store 5')">Explore the Store</button>
-            </div>
-        </div>
-        
-        <!-- Store 6 -->
-        <div class="store">
-            <div class="store-header">Varna</div>
-            <div class="store-header-name">EcoBike Vision Grand Mall</div>
-            <div class="store-image">
-                <img src="/EcoBIke-Project/Images/Grand_Mall.jpg">
-            </div> 
-            <div class="store-content">
-                <div class="store-hours">Opening Hours</div>
-                <div class="store-hours-time">
-                  <span class="storeColorText">Open daily from </span>
-                  <span class="storeColorNum">08:00 - 23:00</span>
-                  </div>
-                  <button class="store-button" onclick="openPopup('Store 6')">Explore the Store</button>
-            </div>
-        </div>
-    </div>
+    <div id="storesContainer" class="stores-container"></div>
 </section>
 
 <!-- The overlay -->
@@ -175,7 +68,7 @@
 </div>
 
 <!-- footer section -->
-<section class = "footer" style="margin-top: 1.5rem;">
+<section class = "footer" style="margin-top: 2.5rem;">
     <div class = "footer-content">
         <h4>About EcoBike</h4>
         <p class = "desText">Eco bike website sells bikes with recycled frames and tires. The bikes are affordable

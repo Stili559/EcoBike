@@ -118,6 +118,7 @@ body{
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
     margin-left: 2rem;
+    height: 155rem;
     }
 
     /* Card styling */

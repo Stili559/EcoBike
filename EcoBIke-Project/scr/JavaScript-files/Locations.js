@@ -61,3 +61,77 @@ function closePopup() {
     document.getElementById('popup-overlay').style.display = 'none';
     document.body.classList.remove('no-scroll');
 }
+
+
+const stores = [
+    {
+        city: "Sofia",
+        name: "EcoBike Center Sofia Ring Mall",
+        imageSrc: "/EcoBIke-Project/Images/Sofia-Ring-Mall.png",
+        hours: "Open daily from 10:00 - 21:00",
+        id: "Store 1"
+    },
+    {
+        city: "Berlin",
+        name: "EcoBike TradeSquare Mall",
+        imageSrc: "/EcoBIke-Project/Images/TradeSquare.jpg",
+        hours: "Open daily from 09:00 - 22:00",
+        id: "Store 2"
+    },
+    {
+        city: "Texas",
+        name: "EcoBike Live CityLink Mall",
+        imageSrc: "/EcoBIke-Project/Images/CityLink-Mall.jpg",
+        hours: "Open daily from 08:00 - 20:00",
+        id: "Store 3"
+    },
+    {
+        city: "Paris",
+        name: "EcoBike South Mall",
+        imageSrc: "/EcoBIke-Project/Images/South-Mall.jpg",
+        hours: "Open daily from 09:00 - 23:00",
+        id: "Store 4"
+    },
+    {
+        city: "Burgas",
+        name: "EcoBike Custom Galleria Burgas",
+        imageSrc: "/EcoBIke-Project/Images/Galleria_Burgas.jpg",
+        hours: "Open daily from 09:00 - 22:00",
+        id: "Store 5"
+    },
+    {
+        city: "Varna",
+        name: "EcoBike Vision Grand Mall",
+        imageSrc: "/EcoBIke-Project/Images/Grand_Mall.jpg",
+        hours: "Open daily from 08:00 - 23:00",
+        id: "Store 6"
+    }
+];
+
+// Function to generate HTML for each store
+function generateStoreHTML(store) {
+    return `
+        <div class="store">
+            <div class="store-header">${store.city}</div>
+            <div class="store-header-name">${store.name}</div>
+            <div class="store-image">
+                <img src="${store.imageSrc}">
+            </div>
+            <div class="store-content">
+                <div class="store-hours">Opening Hours</div>
+                <div class="store-hours-time">
+                    <span class="storeColorText">Open daily from </span>
+                    <span class="storeColorNum">${store.hours}</span>
+                </div>
+                <button class="store-button" onclick="openPopup('${store.id}')">Explore the Store</button>
+            </div>
+        </div>
+    `;
+}
+
+function renderStores() {
+    const storesContainer = document.getElementById("storesContainer");
+    storesContainer.innerHTML = stores.map(generateStoreHTML).join('');
+}
+
+renderStores();
