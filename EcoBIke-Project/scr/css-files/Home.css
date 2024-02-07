@@ -286,6 +286,7 @@ body{
     justify-content: center; 
     align-items: center; 
     flex-wrap: wrap; 
+    margin-right: 1rem;
   }
 
   .badge {
@@ -316,6 +317,11 @@ body{
     font-size: 14px;
     line-height: 1.4;
   }
+
+ .free-shipping{
+  font-size: 20px;
+  color: #242323;
+ }
 
   .badge .icon i {
     color: #4CAF50;
