@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    loadCart();
     const bikeList = document.querySelector('.featured-car-list');
     const bikes = Array.from(bikeList.children);
     const clearFiltersButton = document.getElementById('clear-filters-button');
@@ -226,7 +227,7 @@ const bikes = [
 ];
 
 // Function to generate HTML for each bike
-function generateBikeHTML(bike) {
+function generateBikeHTML(bike, index) {
   return `
     <div class="bike">
       <div class="featured-car-card">
@@ -262,7 +263,7 @@ function generateBikeHTML(bike) {
             <p class="card-price">
               <strong>${bike.price}</strong>
             </p>
-            <button class="btn">Add to cart</button>
+            <button class="btn" data-id="${index}">Add to cart</button>
           </div>
         </div>
       </div>
@@ -273,10 +274,95 @@ function generateBikeHTML(bike) {
 // Function to render bikes
 function renderBikes() {
   const container = document.getElementById("bikeContainer");
-  bikes.forEach(bike => {
-    const bikeHTML = generateBikeHTML(bike);
+  bikes.forEach((bike, index) => {
+    const bikeHTML = generateBikeHTML(bike, index);
     container.innerHTML += bikeHTML;
   });
 }
 
 renderBikes();
+
+
+// Function to generate HTML for the cart
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      const bikeId = this.getAttribute('data-id');
+      addToCart(bikeId);
+    });
+  });
+});
+
+let cart = [];
+
+function renderCart() {
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartTotalElement = document.getElementById('cartTotal');
+  cartItemsContainer.innerHTML = ''; 
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const itemHTML = `
+      <div class="cart-item">
+        <img src="${item.imageSrc}" alt="${item.title}" width="100" height="60">
+        <div>
+          <h4>${item.title}</h4>
+          <p>Price: ${item.price}</p>
+          <button onclick="removeFromCart(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+    cartItemsContainer.innerHTML += itemHTML;
+    total += parseFloat(item.price.replace('$', ''));
+  });
+
+  cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Function to show the modal
+function showModal() {
+  const modal = document.getElementById('cartModal');
+  modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  const modal = document.getElementById('cartModal');
+  modal.style.display = "none";
+}
+
+const closeButton = document.querySelector('.close-button');
+closeButton.addEventListener('click', closeModal);
+
+function addToCart(id) {
+  const bike = bikes[id];
+  cart.push(bike);
+  renderCart(); 
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1); 
+  renderCart(); 
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('cartModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+document.getElementById('cartIconContainer').addEventListener('click', showModal);
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function loadCart() {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+    renderCart();
+  }
+}
