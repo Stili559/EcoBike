@@ -11,7 +11,8 @@
     <script src="../JavaScript-files/Products.js" type="module" async></script>
 </head>
 <body>
-    <!-- Navbar + logo saection -->
+
+<!-- Navbar + logo saection -->
 <section>
     <nav class="navbar navbar-expand-lg navbar-light dark shadow fixed-top">
         <div class="containerHome">
@@ -19,7 +20,6 @@
                 <i class="fa-solid fa-bicycle" id="bike-icon"></i>
                 <span id="brand-text" style="position: relative; left: -0.8rem; top: -0.18rem;">coBike</span>
             </a>  
-
             <button class="navbar-toggler" id="navbarToggler"><i class="fa-solid fa-bars"></i></button>
             <div class="navbar-collapse">
             <ul class="navbar-nav">
@@ -50,6 +50,7 @@
     </nav>
 </section>
 
+<!-- Filters + title section -->
 <section class="section featured-car" id="featured-car">
 <div class="container">
   <div class="title">
@@ -81,10 +82,10 @@
   </div>
 </div>
 
-<!-- HTML Container for Bike Information -->
+<!-- HTML Container for Bike cards -->
 <div id="bikeContainer" class="featured-car-list"></div>
 
-<!-- Cart Modal -->
+<!-- Cart popup -->
 <div id="cartModal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
@@ -92,7 +93,7 @@
       <div id="cartItems"></div>
       <p id="cartTotal"></p>
     </div>
-  </div>
+</div>
 
 <!-- footer section -->
 <section class = "footer">

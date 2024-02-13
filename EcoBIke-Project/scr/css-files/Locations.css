@@ -2,25 +2,25 @@ body{
     background-color: #f7f7f7;
 }
 
-    /* Logo design */
-    #bike-icon {
+/* Logo design */
+#bike-icon {
     transform: rotate(-90deg);
     font-size: 2rem; 
     color: #9ACD32; 
     cursor: pointer;
     margin-left: 2rem;
     transition: transform 0.5s ease;
-    }
+}
 
-    #brand-text {
+#brand-text {
     font-weight: bold; 
     font-size: 2rem; 
     text-decoration: none; 
     color: #9ACD32; 
     cursor: pointer;
-    }
-    
-    .banner {
+}
+
+.banner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,20 +30,19 @@ body{
     margin: 0 auto; 
     margin-bottom: 2rem;
     animation: fadeIn 1s ease-out forwards;
-    }
-      
-    /* Store cards design */
-    .stores-container {
+}
+    
+/* Store cards design */
+.stores-container {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
     gap: 20px; 
     padding: 20px;
     background: #f5f5f5; 
-    height: 45rem;
-    }
+}
 
-    .store {
+.store {
     border: 1px solid #ddd; 
     max-width: 365px;
     width: 100%;
@@ -52,61 +51,61 @@ body{
     box-shadow: 0 6px 10px rgba(0,0,0,0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    }
-      
-    .store:hover {
+}
+    
+.store:hover {
     transform: scale(1.03); 
     box-shadow: 0 8px 14px rgba(0,0,0,0.2);
-    }
+}
 
-    .store-header {
+.store-header {
     margin-top: 5px;
     font-size: 1.1rem;
     background-color: #ffffff; 
     color: #423c3c; 
     font-weight: bold;
     text-align: center;
-    }
+}
 
-    .store-header-name {
+.store-header-name {
     font-size: 1rem;
     background-color: #ffffff; 
     color: #4CAF50; 
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
-    }
+}
 
-    .store-image img {
+.store-image img {
     max-width: 100%; 
     height: auto; 
     display: block;
-    }
+}
 
-    .store-content {
+.store-content {
     padding: 10px;
-    }
+}
 
-    .store-hours {
+.store-hours {
     background-color: #ffffff; 
     color: #000;
     font-size: 0.9rem;
     font-weight: bold;
     margin-bottom: 1px;
     text-align: center;  
-    }
+}
 
-    .storeColorText {
+.storeColorText {
     color: #423c3c; 
     display: inline; 
-    } 
-  
-    .storeColorNum{
+} 
+
+.storeColorNum{
     color: #4CAF50; 
     display: inline; 
-    } 
+} 
 
-    .store-hours-time {
+.store-hours-time {
     background-color: #ffffff; 
     color: #423c3c; 
     margin-bottom: 1px;
@@ -115,9 +114,9 @@ body{
     margin-bottom: 15px; 
     font-size: 0.9rem;
     font-family: var(--ff-quicksand);
-    }
+}
 
-    .store-button {
+.store-button {
     display: block;
     background-color: #4CAF50; 
     color: white;
@@ -126,13 +125,13 @@ body{
     border: none;
     cursor: pointer;
     width: 100%;
-    }
+}
 
-    .store-button:hover {
+.store-button:hover {
     background-color: #469749; 
-    }
+}
 
-    .popup-overlay {
+.popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -142,10 +141,10 @@ body{
     z-index: 999;
     display: none;
     animation: fadeIn 0.3s ease forwards;
-    }
+}
 
-    /* Store popup */
-    .store-popup {
+/* Store popup */
+.store-popup {
     position: fixed;
     width: 80%;
     max-width: 600px;
@@ -160,105 +159,100 @@ body{
     border-radius: 8px;
     overflow: hidden;
     animation: fadeIn 0.3s ease forwards;
-    }
-    
-    .popup-content {
-    padding: 20px;
-    }
+}
 
-    .popup-content h2 {
+.popup-content {
+    padding: 20px;
+}
+
+.popup-content h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 25px;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    }
-    
-    .popup-content p {
+}
+
+.popup-content p {
     color: #666;
     font-size: 14px;
     line-height: 1.6;
-    }
-    
-    .popup-map {
+}
+
+.popup-map {
     width: 100%;
     height: 200px; 
     background-color: #eaeaea;
     margin-top: 20px;
     position: relative;
-    }
+}
 
-    .no-scroll {
+.no-scroll {
     overflow: hidden;
     height: 100%;
-    }
+}
 
-    @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-    }
-
-    .small-image {
+.small-image {
     width: 270px; 
     position: absolute;
     height: 160px;
     right: 0.8rem;
     top: 5.2rem;
     border-radius: 2rem;
-    }
+}
 
-    .close-popup {
+.close-popup {
     position: absolute;
     top: 2px; 
     right: 10px; 
     font-size: 15px; 
     cursor: pointer; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 700px) {
+    .small-image {
+        display: none;
     }
 
-     /* Media queries for responsiveness */
-     @media (max-width: 700px) {
-        .small-image {
-            display: none;
-        }
+    .banner {
+        height: 10rem; 
+    }
+}
 
-        .banner {
-            height: 10rem; 
-        }
-    }
+.stores-container:nth-child(odd) {
+    animation: fadeInOdd 1s ease forwards;
+}
 
-    .stores-container:nth-child(odd) {
-        animation: fadeInOdd 1s ease forwards;
-    }
-    
-    .stores-container:nth-child(even) {
-        animation: fadeInEven 1s ease forwards;
-    }
-    
-    @keyframes fadeInOdd {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes fadeInEven {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+.stores-container:nth-child(even) {
+    animation: fadeInEven 1s ease forwards;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+/* Animations */
+@keyframes fadeInOdd {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInEven {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

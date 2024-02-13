@@ -62,7 +62,6 @@ function closePopup() {
     document.body.classList.remove('no-scroll');
 }
 
-
 const stores = [
     {
         city: "Sofia",

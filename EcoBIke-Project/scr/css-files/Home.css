@@ -1,131 +1,88 @@
 body{
-    background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 
-    /* Logo design */
-    #bike-icon {
-    transform: rotate(-90deg);
-    font-size: 2rem; 
-    color: #9ACD32; 
-    cursor: pointer;
-    margin-left: 2rem;
-    transition: transform 0.5s ease;
-    }
-
-    #brand-text {
-    font-weight: bold; 
-    font-size: 2rem; 
-    text-decoration: none; 
-    color: #9ACD32; 
-    cursor: pointer;
-    } 
-
-    /* Carousel design */
-    .carousel-caption, .carousel-captionThree {
-    color: #000;
-    position: absolute;
-    top: 0;
-    margin-left: 5rem;
-    margin-top: 3rem;
-    z-index: 10;
-    }
-    
-    .carousel-caption h1, .carousel-captionThree h1{
-    font-size: 3.3rem;
-    }
-    
-    .carousel-caption p, .carousel-captionThree p {
-    color: black;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    padding: .25rem .5rem;
-    }
-
-    .more-button, .more-buttonThree {
-    background-color: #000; 
-    color: white; 
-    border: none; 
-    padding: .5rem 1.5rem; 
-    border-radius: 20px; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s ease; 
-    margin-top: 1rem;
-    margin-left: 0.5rem;
-    }
-    
-    .more-button:hover {
-    background-color: #333; 
-    }
-
-    .carousel-item img,.carousel-captionThree img {
-    max-width: 100%; 
-    height: 40.5rem; 
-    }
-
-    /* Carousel design Three */
-    .carousel-captionThree {
-    color: white;
-    margin-left: 10rem;
-    margin-top: 15rem;
-    }
-    
-    .carousel-captionThree p {
-    color: white;
-    }
-
-    .more-buttonThree {
-    background-color: white; 
-    color: black; 
-    }
-    
-    .more-buttonThree:hover {
-    background-color: #d3cdcd; 
-    }
-    
-    @media (min-width: 768px) and (max-width: 1200px) {
-    .carousel-item img, .carousel-captionThree img{
-    height: 19rem; 
-    }
-    .carousel-caption p, .carousel-captionThree p { 
-    font-size: 1rem; 
-    }
-    .carousel-caption h1, .carousel-captionThree h1{
-    font-size: 2rem;
-    }
-    .carousel-captionThree {
-    margin-left: 5rem;
-    margin-top: 5rem;
-    }
-}
-    
-    @media (max-width: 767px) {
-    .carousel-item img, .carousel-captionThree img {
-    height: 10rem; 
-    }
-    .carousel-caption p, .carousel-captionThree p { 
-    display: none;
-    }
-    .carousel-caption h1, .carousel-captionThree h1 {
-    font-size: 0.9rem;
-    }
-    .more-button, .more-buttonThree {
-    padding: 0.2rem 0.5rem;
-    margin-top: 0rem;  
-    font-size: 0.8rem;
-    margin-left: 1.6rem;
-    }
-    .carousel-caption {
-    margin-left: 3rem;
-    margin-top: 0rem;
-    }
-    .carousel-captionThree {
-    margin-left: 3rem;
-    margin-top: 4rem;
-    }
+/* Logo design */
+#bike-icon {
+  transform: rotate(-90deg);
+  font-size: 2rem; 
+  color: #9ACD32; 
+  cursor: pointer;
+  margin-left: 2rem;
+  transition: transform 0.5s ease;
 }
 
+#brand-text {
+  font-weight: bold; 
+  font-size: 2rem; 
+  text-decoration: none; 
+  color: #9ACD32; 
+  cursor: pointer;
+} 
+
+/* Slider design */
+.carousel-caption, .carousel-captionThree {
+  color: #000;
+  position: absolute;
+  top: 0;
+  margin-left: 5rem;
+  margin-top: 3rem;
+  z-index: 10;
+}
+
+.carousel-caption h1, .carousel-captionThree h1{
+  font-size: 3.3rem;
+}
+
+.carousel-caption p, .carousel-captionThree p {
+  color: black;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: .25rem .5rem;
+}
+
+.more-button, .more-buttonThree {
+  background-color: #000; 
+  color: white; 
+  border: none; 
+  padding: .5rem 1.5rem; 
+  border-radius: 20px; 
+  font-size: 1rem; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.more-button:hover {
+  background-color: #333; 
+}
+
+.carousel-item img,.carousel-captionThree img {
+  max-width: 100%; 
+  height: 40.5rem; 
+}
+
+.carousel-captionThree {
+  color: white;
+  margin-left: 10rem;
+  margin-top: 15rem;
+}
+
+.carousel-captionThree p {
+  color: white;
+}
+
+.more-buttonThree {
+  background-color: white; 
+  color: black; 
+}
+
+.more-buttonThree:hover {
+  background-color: #d3cdcd; 
+}
+  
 /* Three mini cards design */
 .square {
   background-color: #fff;
@@ -139,23 +96,23 @@ body{
   width: 5rem;
   height: 10rem;
   margin-top: 2rem;
-  }
+}
 
-  .square:hover .square-image {
+.square:hover .square-image {
   transform: scale(1.1);
-  }
+}
 
-  .square-image {
+.square-image {
   transition: transform 0.5s ease;
   position: relative;
   z-index: 1;
-  }
+}
 
-  .square-image img {
+.square-image img {
   max-width: 100%;
-  }
+}
 
-  .square-text {
+.square-text {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -166,247 +123,462 @@ body{
   z-index: 2;
   opacity: 0;
   transition: opacity 0.5s ease;
-  }
+}
 
-  .square:hover .square-text {
+.square:hover .square-text {
   opacity: 1;
-  }
+}
 
-  .square-text h2 {
+.square-text h2 {
   font-size: 24px;
   margin-top: 0;
-  }
+}
 
-  .square-text p {
+.square-text p {
   font-size: 16px;
   margin-bottom: 0;
-  }
+}
 
-/* Bike design */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
+/* Home bike design */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
 
-  .section {
-    margin-top: -2rem;
-    text-align: center;
-    padding: 50px 0;
-  }
+.section {
+  margin-top: -2rem;
+  text-align: center;
+  padding: 50px 0;
+}
 
-  .section-subtitle {
-    color: #888;
+.section-subtitle {
+  color: #888;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: -1rem;
+}
+
+.h2.section-title {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: normal; 
+}
+
+.h2 {
+  margin: 20px 0;
+  font-size: 2.5rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+}
+
+.service-item {
+  background: #f7f7f7;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.service-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+.card-text {
+  margin: 0px;
+  color: #463d3d;
+}
+
+.img-holder {
+  width: 100%;
+  max-width: 415px;
+  margin: 0 30px;
+}
+
+.img-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.section i{
+  color: #4caf50;
+}
+
+/* Stats */
+.stats {
+  padding-block: 0;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 40px; 
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.stats-list {
+  margin-top: -5rem;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex; 
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stats-card {
+  text-align: center;
+  padding-inline: 50px;
+  flex: 1; 
+  min-width: 150px;
+}
+
+.stats-card .card-title {
+  font-size: 3rem
+}
+
+.stats-card .card-text {
+  font-size: 1rem;
+}
+
+/* badges design */
+.badges {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  margin-left: 1rem;
+}
+
+.badge {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  text-align: left; 
+  margin: 20px 56px; 
+}
+
+.icon {
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  margin-right: 10px; 
+}
+
+.green { background-color: #eee;  border: 2px solid #4CAF50; color: #4CAF50 }
+.blue {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+.red {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+
+.text {
+  color: #000;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.textHeader{
+  font-size: 24px;
+  color: #242323;
+}
+
+.textMini{
+  font-size: 12px;
+  color: #474545;
+}
+
+.badge .icon i {
+  color: #4CAF50;
+  border-color: inherit;
+}  
+
+/* Responsiveness */
+@media (min-width: 768px){
+  .square {
+    width: calc(33.33% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .square:last-child {
+    margin-right: 0;
+  }
+  .square-text {
+    padding: 30px;
     font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: -1rem;
   }
-
-  .h2.section-title {
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    white-space: normal; 
-  }
-
-  .h2 {
-    margin: 20px 0;
-    font-size: 2.5rem;
-  }
-
-  .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .service-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .service-item {
-    background: #f7f7f7;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-  }
-
-  .service-item:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  .card-icon {
-    margin-right: 15px;
+  .square-text h2 {
     font-size: 30px;
+    margin-top: 0;
   }
-
-  .card-text {
-    margin: 0px;
-    color: #463d3d;
+  .square-text p {
+    font-size: 20px;
+    margin-bottom: 0;
   }
+}           
 
+@media (min-width: 768px) and (max-width: 1200px) {
+  .carousel-item img, .carousel-captionThree img{
+    height: 19rem; 
+  }
+  .carousel-caption p, .carousel-captionThree p { 
+    font-size: 1rem; 
+  }
+  .carousel-caption h1, .carousel-captionThree h1{
+    font-size: 2rem;
+  }
+  .carousel-captionThree {
+    margin-left: 5rem;
+    margin-top: 5rem;
+  }
+}
+  
+@media (max-width: 767px) {
+  .carousel-item img, .carousel-captionThree img {
+    height: 10rem; 
+  }
+  .carousel-caption p, .carousel-captionThree p { 
+    display: none;
+  }
+  .carousel-caption h1, .carousel-captionThree h1 {
+    font-size: 0.9rem;
+  }
+  .more-button, .more-buttonThree {
+    padding: 0.2rem 0.5rem;
+    margin-top: 0rem;  
+    font-size: 0.8rem;
+    margin-left: 1.6rem;
+  }
+  .carousel-caption {
+    margin-left: 3rem;
+    margin-top: 0rem;
+  }
+  .carousel-captionThree {
+    margin-left: 3rem;
+    margin-top: 4rem;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
   .img-holder {
-    width: 100%;
-    max-width: 415px;
-    margin: 0 30px;
+    order: -1;
+    margin-bottom: 30px;
+  }
+  .service-list {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+
+
+
+
+  .cards-info {
+    border-radius: 2px;
+    padding: 3px 6px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
   }
 
-  .img-cover {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+  .cards-info.badge-danger {
+    background-color: #ff2400;
   }
 
-  .section i{
-    color: #4caf50;
+  .cards-info.badge-info {
+    background-color: #58bafc;
+  }
+
+  .cards-info.badge-dark {
+    background-color: #406177;
+  }
+
+  .hbtn {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 8px 24px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 25px;
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .hbtn.hbtn-default {
+    background-color: #333c4e;
+    color: #adadad;
+  }
+
+  .latest-news {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #eaf2fe;
+  }
+
+  .latest-news .row-title {
+    text-align: left;
+    font-size: 27px;
+    font-weight: 700;
+    color: #4d5666;
+    margin-bottom: 30px;
+  }
+
+  .latest-news .main-btn-holder {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+
+  .latest-news .post-box {
+    position: relative;
+    border-radius: 15px;
+    padding: 115px 35px 40px 35px;
+    margin: 20px 0;
+    z-index: 1;
+  }
+
+  .latest-news .post-box.blue-bg {
+    background-color: #4789fc;
+  }
+
+  .latest-news .post-box.blue-bg .post-img {
+    opacity: 0.45;
+  }
+
+  .latest-news .post-box.grey-bg {
+    background-color: #333c4e;
+  }
+
+  .latest-news .post-box.grey-bg .post-img {
+    opacity: 0.15;
+  }
+
+  .latest-news .post-box.yellow-bg {
+    background-color: #ffc600;
+  }
+
+  .latest-news .post-box.yellow-bg .post-img {
+    opacity: 0.11;
+  }
+
+  .latest-news .post-box .post-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    z-index: -1;
+    background-size: 100%;
+    background-position: center;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .latest-news .post-box .badge {
+    margin-bottom: 8px;
+  }
+
+  .latest-news .post-box .post-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #ffffff;
+    max-width: 70%;
+    margin-bottom: 15px;
+  }
+
+  .latest-news .post-box .post-link a {
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 10px 14px;
+    color: #3e6077;
+    background-color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .latest-news .post-box .post-link a:hover {
+    color: #2b91d7;
+  }
+
+  .post-box {
+    display: inline-block;
+    width: 100%;
+    max-width: 1070px;
+    margin-bottom: 80px;
+  }
+
+  .post-box .post-title {
+    font-size: 27px;
+    font-weight: 700;
+    color: #4d5666;
+    margin-bottom: 18px;
+  }
+
+  .blue-bg {
+    background-color: #2a74e3;
+  }
+
+  @media (max-width: 1200px) {
+    .latest-news .post-box .post-title {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .latest-news .row-title {
+      font-size: 25px;
+    }
   }
 
   @media (max-width: 768px) {
-    .wrapper {
-      flex-direction: column;
+    .latest-news .row-title {
+      text-align: center;
     }
-    .img-holder {
-      order: -1;
-      margin-bottom: 30px;
-    }
-    .service-list {
-      max-width: 500px;
-      margin: auto;
+
+    .latest-news .main-btn-holder {
+      text-align: center;
     }
   }
 
-  /* Stats */
-  .stats {
-    padding-block: 0;
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 40px; 
-    align-items: center;
-    justify-content: space-between; 
-  }
-
-  .stats-list {
-    margin-top: -5rem;
-    padding-left: 0;
-    list-style-type: none;
-    display: flex; 
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-
-  .stats-card {
-    text-align: center;
-    padding-inline: 50px;
-    flex: 1; 
-    min-width: 150px;
-  }
-
-  .stats-card .card-title {
-    font-size: 3rem
-  }
-
-  .stats-card .card-text {
-    font-size: 1rem;
-  }
-
-  /* Video design */
-  .container-video {
-    background-color: #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .video{
-    background: #eee;
-    width: auto;
-    height: 600px;
-    padding: 10px 20px;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font: bold 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 150px 0 150px 0;
-  }
-
-  /* badges design */
-  .badges {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    margin-left: 1rem;
-  }
-
-  .badge {
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    text-align: left; 
-    margin: 20px 56px; 
-  }
-
-  .icon {
-    border-radius: 50%;
-    width: 110px;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5em;
-    margin-right: 10px; 
+  @media (max-width: 480px) {
+    .latest-news {
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
-  .green { background-color: #eee;  border: 2px solid #4CAF50; color: #4CAF50 }
-  .blue {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
-  .red {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+    .latest-news .row-title {
+      font-size: 25px;
+      text-align: left;
+      margin-bottom: 5px;
+    }
 
-  .text {
-    color: #000;
-    font-size: 14px;
-    line-height: 1.4;
+    .latest-news .main-btn-holder {
+      display: none;
+    }
   }
-
- .textHeader{
-  font-size: 24px;
-  color: #242323;
- }
-
- .textMini{
-  font-size: 12px;
-  color: #474545;
- }
-
-  .badge .icon i {
-    color: #4CAF50;
-    border-color: inherit;
-  }  
-
-    @media (min-width: 768px){
-      .square {
-        width: calc(33.33% - 20px);
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-      .square:last-child {
-        margin-right: 0;
-      }
-      .square-text {
-        padding: 30px;
-        font-size: 18px;
-      }
-      .square-text h2 {
-        font-size: 30px;
-        margin-top: 0;
-      }
-      .square-text p {
-        font-size: 20px;
-        margin-bottom: 0;
-      }
-    }           
+  
