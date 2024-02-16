@@ -90,6 +90,7 @@
   text-decoration: none;
   position: relative; 
   overflow: hidden;
+  cursor: pointer;
 }
 
 .navbar-link:hover {
@@ -298,7 +299,7 @@
 .profile-popup {
   display: none;
   position: fixed;
-  z-index: 99999;
+  z-index: 9;
   left: 0;
   top: 0;
   width: 100%;
