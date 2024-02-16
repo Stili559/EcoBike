@@ -22,7 +22,7 @@ body{
 
 /* Slider design */
 .carousel-caption, .carousel-captionThree {
-  color: #000;
+  color: #4d5666;
   position: absolute;
   top: 0;
   margin-left: 5rem;
@@ -35,15 +35,15 @@ body{
 }
 
 .carousel-caption p, .carousel-captionThree p {
-  color: black;
+  color: #4d5666;
   margin-top: 1rem;
   font-size: 1.2rem;
   padding: .25rem .5rem;
 }
 
 .more-button, .more-buttonThree {
-  background-color: #000; 
-  color: white; 
+  background-color: white; 
+  color: #4d5666;
   border: none; 
   padding: .5rem 1.5rem; 
   border-radius: 20px; 
@@ -56,7 +56,7 @@ body{
 }
 
 .more-button:hover {
-  background-color: #333; 
+  background-color: #d3cdcd; 
 }
 
 .carousel-item img,.carousel-captionThree img {
@@ -85,8 +85,6 @@ body{
   
 /* Three mini cards design */
 .square {
-  background-color: #fff;
-  border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
   margin-bottom: 20px;
@@ -141,29 +139,29 @@ body{
 
 /* Home bike design */
 .container {
-  max-width: 1200px;
+  max-width: 1290px;
   margin: auto;
   padding: 20px;
+  margin-bottom: -4.5rem;
 }
 
 .section {
-  margin-top: -2rem;
+  border-top: 2px solid #cec5c5;
+  margin-top: 15rem;
   text-align: center;
   padding: 50px 0;
 }
 
-.section-subtitle {
-  color: #888;
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: -1rem;
-}
-
 .h2.section-title {
-  max-width: 500px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: -2rem;
+  color: #4d5666;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   white-space: normal; 
+  font-family: "Montserrat", sans-serif; 
 }
 
 .h2 {
@@ -183,7 +181,6 @@ body{
 }
 
 .service-item {
-  background: #f7f7f7;
   margin: 10px;
   padding: 20px;
   border-radius: 8px;
@@ -193,6 +190,10 @@ body{
 
 .service-item:not(:last-child) {
   margin-bottom: 20px;
+}
+
+.card-title{
+  color: #4d5666;
 }
 
 .card-icon {
@@ -207,8 +208,8 @@ body{
 
 .img-holder {
   width: 100%;
-  max-width: 415px;
-  margin: 0 30px;
+  max-width: 425px;
+  margin: 0 60px;
 }
 
 .img-cover {
@@ -221,47 +222,233 @@ body{
   color: #4caf50;
 }
 
-/* Stats */
-.stats {
-  padding-block: 0;
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 40px; 
-  align-items: center;
-  justify-content: space-between; 
+/* See more design*/
+.container-more {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif; 
+  font-weight: 400;
 }
 
-.stats-list {
-  margin-top: -5rem;
-  padding-left: 0;
-  list-style-type: none;
-  display: flex; 
-  gap: 30px;
-  flex-wrap: wrap;
+.cards-info {
+  border-radius: 2px;
+  padding: 3px 6px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
 }
 
-.stats-card {
+.cards-info.badge-danger {
+  background-color: #e2df11;
+}
+
+.cards-info.badge-info {
+  background-color: #58bafc;
+}
+
+.cards-info.badge-dark {
+  background-color: #6AFF00;
+}
+
+.latest-news {
+  border-top: 2px solid #cec5c5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #eaf2fe;
+}
+
+.latest-news .row-title {
+  text-align: left;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #4d5666;
+  margin-bottom: 10px;
+}
+
+.latest-news .main-btn-holder {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.latest-news .post-box {
+  position: relative;
+  border-radius: 15px;
+  padding: 115px 35px 40px 35px;
+  margin: 20px 0;
+  z-index: 1;
+}
+
+.latest-news .post-box.blue-bg {
+  background-color: #4789fc;
+}
+
+.latest-news .post-box.blue-bg .post-img {
+  opacity: 0.45;
+}
+
+.latest-news .post-box.grey-bg {
+  background-color: #333c4e;
+  height: 16.9rem;
+}
+
+.latest-news .post-box.grey-bg .post-img {
+  opacity: 0.15;
+}
+
+.latest-news .post-box.yellow-bg {
+  background-color: #ffc600;
+}
+
+.latest-news .post-box.yellow-bg .post-img {
+  opacity: 0.11;
+}
+
+.latest-news .post-box .post-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  z-index: -1;
+  background-size: 100%;
+  background-position: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.latest-news .post-box .badge {
+  margin-bottom: 8px;
+}
+
+.latest-news .post-box .post-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #ffffff;
+  max-width: 70%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.latest-news .post-box .post-link a {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 10px 14px;
+  color: #3e6077;
+  background-color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.latest-news .post-box .post-link a:hover {
+  color: #4CAF50;
+}
+
+.post-box {
+  display: inline-block;
+  width: 100%;
+  max-width: 1070px;
+  margin-bottom: 80px;
+}
+
+.post-box .post-title {
+  font-size: 27px;
+  font-weight: 700;
+  color: #4d5666;
+  margin-bottom: 18px;
+}
+
+.blue-bg {
+  background-color: #2a74e3;
+}
+
+/* Sponsors Footer */
+.sponsorsFooter {
+  border-top: 2px solid #cec5c5;
+  width: 100%;
+  height: auto;
+  padding: 40px 0px 10px;
+  z-index: 14;
+  margin-top: 0px;
+  z-index: 1;
   text-align: center;
-  padding-inline: 50px;
-  flex: 1; 
-  min-width: 150px;
+  z-index: 99;
 }
 
-.stats-card .card-title {
-  font-size: 3rem
+.sponsorsFooter h1 {
+    width: 40.2%;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4d5666;
+    margin-bottom: -15px;
+  }
+
+.sponsorsFooter h1 > strong { font-weight: 700;}
+
+.sponsorsFooter img {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: auto;
+  vertical-align: middle;
+  max-width: 131px;
 }
 
-.stats-card .card-text {
-  font-size: 1rem;
+.sponsorsFooter ul {
+  padding: 0;
+  margin: 15px 0 0 0;
+  list-style: none;
+  display: block;
+}
+
+.sponsorsFooter ul.enter > span:not(.hover) {
+  opacity: .1;
+}
+
+.sponsorsFooter ul.enter > span.hover {
+  opacity: 1;
+  box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, .1), inset 1px 0 0 0 rgba(0, 0, 0, .1);
+}
+
+.sponsorsFooter ul span {
+  display: inline;
+  word-break: break-all;
+  word-wrap: break-word;
+  margin: 0px;
+  padding: 26px 0;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  -ms-transition: opacity 0.25s ease;
+  -o-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.sponsorsFooter ul span,
+.sponsorsFooter ul span li > a {
+  cursor: default;
+  border: none;
+  outline: 0;
+  text-decoration: none;
+}
+
+.sponsorsFooter ul li {
+  margin: 35px 16px 0px;
+  display: inline-block;
 }
 
 /* badges design */
 .badges {
+  border-top: 2px solid #cec5c5;
   display: flex;
   justify-content: center; 
   align-items: center; 
   flex-wrap: wrap; 
-  margin-left: 1rem;
+  background-color: #eaf2fe;
+  margin-top: 2.5rem;
 }
 
 .badge {
@@ -269,13 +456,13 @@ body{
   flex-direction: row; 
   align-items: center; 
   text-align: left; 
-  margin: 20px 56px; 
+  margin: 40px 66px 30px; 
 }
 
 .icon {
   border-radius: 50%;
-  width: 110px;
-  height: 110px;
+  width: 115px;
+  height: 115px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -283,9 +470,9 @@ body{
   margin-right: 10px; 
 }
 
-.green { background-color: #eee;  border: 2px solid #4CAF50; color: #4CAF50 }
-.blue {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
-.red {  background-color: #eee; border: 2px solid #4CAF50; color: #4CAF50 }
+.green { border: 2px solid #4CAF50; color: #4CAF50 }
+.blue { border: 2px solid #4CAF50; color: #4CAF50 }
+.red { border: 2px solid #4CAF50; color: #4CAF50 }
 
 .text {
   color: #000;
@@ -295,7 +482,7 @@ body{
 
 .textHeader{
   font-size: 24px;
-  color: #242323;
+  color: #4d5666;
 }
 
 .textMini{
@@ -306,6 +493,7 @@ body{
 .badge .icon i {
   color: #4CAF50;
   border-color: inherit;
+  font-size: 2.5rem;
 }  
 
 /* Responsiveness */
@@ -346,6 +534,9 @@ body{
     margin-left: 5rem;
     margin-top: 5rem;
   }
+  .latest-news .post-box .post-title {
+    max-width: 100%;
+  }
 }
   
 @media (max-width: 767px) {
@@ -357,6 +548,12 @@ body{
   }
   .carousel-caption h1, .carousel-captionThree h1 {
     font-size: 0.9rem;
+  }
+  .latest-news .row-title {
+    text-align: center;
+  }
+  .latest-news .main-btn-holder {
+    text-align: center;
   }
   .more-button, .more-buttonThree {
     padding: 0.2rem 0.5rem;
@@ -383,202 +580,16 @@ body{
     max-width: 500px;
     margin: auto;
   }
-}
-
-
-
-
-
-  .cards-info {
-    border-radius: 2px;
-    padding: 3px 6px;
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 600;
-  }
-
-  .cards-info.badge-danger {
-    background-color: #ff2400;
-  }
-
-  .cards-info.badge-info {
-    background-color: #58bafc;
-  }
-
-  .cards-info.badge-dark {
-    background-color: #406177;
-  }
-
-  .hbtn {
-    position: relative;
-    display: inline-block;
-    margin-right: 5px;
-    padding: 8px 24px;
-    font-weight: 500;
-    font-size: 15px;
-    color: #ffffff;
-    border-radius: 25px;
-    border: 0;
-    outline: 0;
-    overflow: hidden;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .hbtn.hbtn-default {
-    background-color: #333c4e;
-    color: #adadad;
-  }
-
   .latest-news {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    background-color: #eaf2fe;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
-
   .latest-news .row-title {
+    font-size: 25px;
     text-align: left;
-    font-size: 27px;
-    font-weight: 700;
-    color: #4d5666;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
-
   .latest-news .main-btn-holder {
-    text-align: right;
-    margin-bottom: 30px;
+    display: none;
   }
-
-  .latest-news .post-box {
-    position: relative;
-    border-radius: 15px;
-    padding: 115px 35px 40px 35px;
-    margin: 20px 0;
-    z-index: 1;
-  }
-
-  .latest-news .post-box.blue-bg {
-    background-color: #4789fc;
-  }
-
-  .latest-news .post-box.blue-bg .post-img {
-    opacity: 0.45;
-  }
-
-  .latest-news .post-box.grey-bg {
-    background-color: #333c4e;
-  }
-
-  .latest-news .post-box.grey-bg .post-img {
-    opacity: 0.15;
-  }
-
-  .latest-news .post-box.yellow-bg {
-    background-color: #ffc600;
-  }
-
-  .latest-news .post-box.yellow-bg .post-img {
-    opacity: 0.11;
-  }
-
-  .latest-news .post-box .post-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    z-index: -1;
-    background-size: 100%;
-    background-position: center;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-  }
-
-  .latest-news .post-box .badge {
-    margin-bottom: 8px;
-  }
-
-  .latest-news .post-box .post-title {
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 23px;
-    color: #ffffff;
-    max-width: 70%;
-    margin-bottom: 15px;
-  }
-
-  .latest-news .post-box .post-link a {
-    font-size: 10.5px;
-    font-weight: 600;
-    padding: 10px 14px;
-    color: #3e6077;
-    background-color: #ffffff;
-    border-radius: 5px;
-    text-decoration: none;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-  }
-
-  .latest-news .post-box .post-link a:hover {
-    color: #2b91d7;
-  }
-
-  .post-box {
-    display: inline-block;
-    width: 100%;
-    max-width: 1070px;
-    margin-bottom: 80px;
-  }
-
-  .post-box .post-title {
-    font-size: 27px;
-    font-weight: 700;
-    color: #4d5666;
-    margin-bottom: 18px;
-  }
-
-  .blue-bg {
-    background-color: #2a74e3;
-  }
-
-  @media (max-width: 1200px) {
-    .latest-news .post-box .post-title {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .latest-news .row-title {
-      font-size: 25px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .latest-news .row-title {
-      text-align: center;
-    }
-
-    .latest-news .main-btn-holder {
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .latest-news {
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-
-    .latest-news .row-title {
-      font-size: 25px;
-      text-align: left;
-      margin-bottom: 5px;
-    }
-
-    .latest-news .main-btn-holder {
-      display: none;
-    }
-  }
-  
+}

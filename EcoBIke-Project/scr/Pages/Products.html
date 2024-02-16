@@ -38,11 +38,9 @@
                 <li class="navbar-item">
                     <a href="#" class="navbar-link">Support</a>
                 </li>
-                <li>
-                <div id="cartIconContainer">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link icon-cart"><i class="fas fa-shopping-cart"></i>  <span class="count-items">0</span></a>    
+                  </li>
             </ul>
             <button class="custom-corner-button" id="profileBtn">PROFILE <i class="fa-solid fa-arrow-right"></i></button>
         </div>
@@ -85,15 +83,18 @@
 <!-- HTML Container for Bike cards -->
 <div id="bikeContainer" class="featured-car-list"></div>
 
-<!-- Cart popup -->
-<div id="cartModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button">&times;</span>
-      <h2>Cart</h2>
-      <div id="cartItems"></div>
-      <p id="cartTotal"></p>
+<!-- Cart Modal -->
+<div class = "cartTab">
+    <h1 class = "cartTitle">Shopping Cart</h1>
+      <div class="listCart">
+      </div>
+    <div class="btnCart">
+      <button class="closeCart">CLOSE</button>
+      <button class="checkOut">CHECK OUT</button>
     </div>
 </div>
+  
+<div class="shadowTwo"></div>
 
 <!-- footer section -->
 <section class = "footer">

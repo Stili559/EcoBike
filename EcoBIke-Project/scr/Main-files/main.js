@@ -25,7 +25,7 @@ async function initFirebase54() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth(app);
-
+    // Sign Out Button function
     document.body.addEventListener('click', function(event) {
         if (event.target.id === 'signOutButton') {
             signOut(auth)
@@ -50,11 +50,11 @@ function scrollToTop() {
     });
 }
 
+// Define the HTML content for the profile popup
 document.getElementById('topBtn').addEventListener('click', scrollToTop);
 const email = localStorage.getItem('userEmail');
 const name = localStorage.getItem('userName');
 document.addEventListener("DOMContentLoaded", function() {
-    // Define the HTML content for the profile popup
     var profilePopupHTML = `
         <div id="profilePopup" class="profile-popup">
             <div class="profile-container">
@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.body.insertAdjacentHTML('beforeend', profilePopupHTML);
 
+    // No scroll on open popup
     var popup = document.getElementById('profilePopup');
     var btn = document.getElementById('profileBtn');
     var closeBtn = document.querySelector('.close-btn');

@@ -38,11 +38,9 @@
               <li class="navbar-item">
                   <a href="#" class="navbar-link">Support</a>
               </li>
-              <li>
-                <div id="cartIconContainer">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                </li>
+              <li class="navbar-item">
+                <a class="navbar-link icon-cart"><i class="fas fa-shopping-cart"></i>  <span class="count-items">0</span></a>    
+              </li>
           </ul>
           <button class="custom-corner-button" id="profileBtn">PROFILE <i class="fa-solid fa-arrow-right"></i></button>
       </div>
@@ -117,7 +115,7 @@
         </div>
         <div class="square">
           <div class="square-image">
-            <img src="/EcoBIke-Project/Images/DALL·E 2024-02-06 09.53.52 - Design a minimalistic image showcasing the word _Durable_ in a sleek, simple font on a clean, uncluttered background. The font should be modern and st.webp" alt="Image 2">
+            <img src="/EcoBIke-Project/Images/DALL·E 2024-02-06 10.18.42 - Craft an image that depicts an innovative bicycle frame made entirely from recycled materials, focusing on the frame's structure without wheels, seat,.webp" alt="Image 2">
           </div>
           <div class="square-text">
             <h2>Design</h2>
@@ -126,7 +124,7 @@
         </div>
         <div class="square">
           <div class="square-image">
-            <img src="img/CPU.jpg" alt="Image 3">
+            <img src="/EcoBIke-Project/Images/DALL·E 2024-02-06 10.18.42 - Craft an image that depicts an innovative bicycle frame made entirely from recycled materials, focusing on the frame's structure without wheels, seat,.webp" alt="Image 3">
           </div>
           <div class="square-text">
             <h2>Eco Friendly</h2>
@@ -141,9 +139,8 @@
 <!-- Bike info section -->
 <section class="section service">
   <div class="container">
-    <p class="section-subtitle has-before" id="service-label">What We Do!</p>
     <h2 class="h2 section-title">
-      What Advantages Will You Get Using An EcoBike?
+      What Advantages does EcoBike have?
     </h2>
     <div class="wrapper">
       <ul class="service-list">
@@ -224,68 +221,35 @@
   </div>
 </section>
 
-<!-- stats section -->
-<section class="section stats" aria-label="statistics" style="margin-top: 0rem;">
-  <div class="container">
-    <ul class="stats-list">
-      <li class="stats-card">
-        <h3 class="h3 card-title">650k</h3>
-        <p class="card-text">
-          Eco Bikes produced annually every year for you
-        </p>
-      </li>
-      <li class="stats-card">
-        <h3 class="h3 card-title">564+</h3>
-        <p class="card-text">
-          Chargers around the world for Eco Bikes
-        </p>
-      </li>
-      <li class="stats-card">
-        <h3 class="h3 card-title">125k</h3>
-        <p class="card-text">
-          Eco Bikes has been sold to a happy customers
-        </p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- Cart Modal section-->
-<section>
-<div id="cartModal" class="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h2>Cart</h2>
-    <div id="cartItems"></div>
-    <p id="cartTotal"></p>
+<!-- Cart Modal -->
+<div class = "cartTab">
+  <h1 class = "cartTitle">Shopping Cart</h1>
+    <div class="listCart">
+    </div>
+  <div class="btnCart">
+    <button class="closeCart">CLOSE</button>
+    <button class="checkOut">CHECK OUT</button>
   </div>
 </div>
-</section>
+
+<div class="shadowTwo"></div>
 
 <!-- HTML Container for Bike Information -->
-<section>
 <div id="bikeContainer" class="featured-car-list" style="display: none;">
-    <button class="sort-button betterText" id="sort-low-to-high">Low to High</button>
-    <button class="sort-button betterText" id="sort-high-to-low">High to Low</button>
-    <select id="year-filter" class = "betterText">
-    </select> 
-    <button id="clear-filters-button" class="clear-button betterText">Clear Filters</button>
+    <button id="sort-low-to-high"></button>
+    <button id="sort-high-to-low"></button>
+    <select id="year-filter"></select> 
+    <button id="clear-filters-button"></button>
 </div>
-</section>
 
 <!-- Learn More section -->
 <section>
   <div class="latest-news container-fluid">
-    <div class="container">
+    <div class="container-more">
       <div class="row">
         <div class="col-sm-8">
           <div class="row-title">
-            Latest news from our blog
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="main-btn-holder">
-            <a href="#" class="hbtn hbtn-default">View more</a>
+            Latest news from EcoBike
           </div>
         </div>
       </div>
@@ -293,7 +257,7 @@
         <div class="col-sm-6 col-md-4">
           <div class="post-box blue-bg">
             <div class="post-img"></div>
-            <span class="cards-info badge-danger">Hot</span>
+            <span class="cards-info badge-danger">New</span>
             <div class="post-title">Conference Of Digital Photography</div>
             <div class="post-link"><a href="#">Learn more</a></div>
           </div>
@@ -317,6 +281,50 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- Sponsor section -->
+<section>
+    <div class='sponsorsFooter'>
+      <h1 id="sponsorTitle" data-default-title="Our Sponsors"><strong>Our Sponsors</strong></h1>
+      <ul>
+        <span data-group-title="Gold Sponsor">											
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+						</span>
+      </ul>
+      <ul>
+        <span data-group-title="Silver Sponsor">											
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>    
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>		
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+						</span>
+      </ul>
+      <ul>
+        <span data-group-title="Bronze Sponsor">											
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>    
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+							<li><img src="http://placehold.it/140x80/ccc/BBB&text=Company" ></li>
+						</span>
+      </ul>
+    </div>
+</section>
+
+<!-- Badges section -->
+<section>
   <div class="badges">
     <div class="badge">
       <div class="icon green"><i class="fa fa-undo"></i></div>
@@ -326,7 +334,7 @@
       </div>
     </div>
     <div class="badge">
-      <div class="icon blue"><i class="fa fa-truck"></i></div>
+      <div class="icon blue"><i class="fa-solid fa-truck-fast"></i></div>
       <div class="text">
         <div class="textHeader">FAST DELIVERY</div>
         <div class="textMini">only in 3 working days</div>

@@ -388,44 +388,113 @@
   background-color: #b92c2a;
 }
 
-/* Cart */
-.modal {
+/* Cart design */
+.fa-shopping-cart{
+  width: 20px;
+}
+.count-items{
+  display: inline;
+  width: 30px;
+  height: 30px;
+}
+
+.shadowTwo{
   display: none;
-  position: fixed; 
-  z-index: 1; 
+  position: fixed;
+  z-index: 9;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); 
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; 
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; 
+.cartTab{
+  width: 400px;
+  background-color: #1f1d1d;
+  color: #eee;
+  position: fixed;
+  inset: 73px -400px 0 auto;
+  display: grid;
+  z-index: 99;
+  grid-template-rows: 70px 1fr 70px;
+  transition: right 0.6s ease;
 }
 
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+body.showCart .cartTab{
+  inset: 73px 0 0 auto;
+  transition: right 0.6s ease;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
+.cartTitle{
+  font-weight: 600;
+  padding: 10px;
+}
+
+.cartTab .cartName{
+  margin-left: 1rem;
+}
+
+.cartTab .btnCart{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .btnCart button{
+  background-color: #9ACD32;
+  color: white;
+  border: none;
+  font-weight: 500;
   cursor: pointer;
 }
 
-#cartIconContainer{
-  color: #ffffff;
+.cartTab .btnCart button:hover {
+  background-color: white; 
+  color: #9ACD32;
+}
+
+.cartTab .listCart .cartItem img{
+  width: 100%;
+  border-radius: 10%;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cartTab .listCart .cartItem{
+  display: grid;
+  grid-template-columns: 70px 150px 50px 1fr;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.listCart .cartQuantity span{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.listCart .cartQuantity span:nth-child(2){
+  background-color: transparent;
+  color: white;
+}
+
+.listCart .cartItem:nth-child(even){
+  background-color: #615d5d;
+}
+
+.listCart{
+  overflow: auto;
+}
+
+.listCart::-webkit-scrollbar{
+  width: 0;
 }
 
 /* Media queries for responsiveness */

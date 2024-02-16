@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    loadCart();
     const bikeList = document.querySelector('.featured-car-list');
     const bikes = Array.from(bikeList.children);
     const clearFiltersButton = document.getElementById('clear-filters-button');
@@ -101,127 +100,164 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+//Bikes and cart
+let iconCart = document.querySelector('.icon-cart')
+let closeCart = document.querySelector('.closeCart')
+let body = document.querySelector('body')
+let listCart = document.querySelector('.listCart')
+let iconCartSpan = document.querySelector('.count-items')
+let shadowTwo = document.querySelector('.shadowTwo');
+
+let isVisible = false;
+
+iconCart.addEventListener('click', () => {
+  body.classList.toggle('showCart');
+  if (!isVisible) {
+    shadowTwo.style.display = 'block';
+  } else {
+    shadowTwo.style.display = 'none';
+  }
+  isVisible = !isVisible;
+});
+
+closeCart.addEventListener('click', () => {
+  body.classList.remove('showCart');
+  shadowTwo.style.display = 'none';
+  isVisible = false;
+});
 
 // Sample data representing bike information
-const bikes = [
+let bikes = [
   {
+    id: 1,
     title: "Cruiser GT3 Series",
     year: "2021",
     speed: "25 mph",
     range: "30/50 miles",
     batteryLife: "3/6 hours",
     weight: "15 pounds",
-    price: "$440",
+    price: "440",
     imageSrc: "/EcoBIke-Project/Images/Cruiser GT3 Series.png"
   },
   {
+    id: 2,
     title: "EcoBike T-Cross",
     year: "2020",
     speed: "20 mph",
     range: "20/45 miles",
     batteryLife: "1/4 hours",
     weight: "25 pounds",
-    price: "$350",
+    price: "350",
     imageSrc: "/EcoBIke-Project/Images/EcoBike T-Cross.png"
   },
   {
+    id: 3,
     title: "EcoTraverse R2 GT",
     year: "2020",
     speed: "35 mph",
     range: "10/30 miles",
     batteryLife: "1/2 hours",
     weight: "10 pounds",
-    price: "$600",
+    price: "600",
     imageSrc: "/EcoBIke-Project/Images/EcoTraverse R2 GT.png"
   },
   {
+    id: 4,
     title: "Cadillac Escalide S3",
     year: "2022",
     speed: "40 mph",
     range: "45/60 miles",
     batteryLife: "8/10 hours",
     weight: "35 pounds",
-    price: "$620",
+    price: "620",
     imageSrc: "/EcoBIke-Project/Images/Cadillac Escalade S3.jpg"
   },
   {
+    id: 5,
     title: "ECO 4 Series GTI",
     year: "2021",
     speed: "10 mph",
     range: "10/20 miles",
     batteryLife: "1/3 hours",
     weight: "15 pounds",
-    price: "$330",
+    price: "330",
     imageSrc: "/EcoBIke-Project/Images/ECO 4 Series GTI.jpg"
   },
   {
+    id: 6,
     title: "ECO 4 Series",
     year: "2020",
     speed: "20 mph",
     range: "80/100 miles",
     batteryLife: "10/12 hours",
     weight: "30 pounds",
-    price: "$475",
+    price: "475",
     imageSrc: "/EcoBIke-Project/Images/ECO 4 Serie.jpg"
   },
   {
+    id: 7,
     title: "EcoTraverse RAV4",
     year: "2021",
     speed: "10 mph",
     range: "100/120 miles",
     batteryLife: "5/6 hours",
     weight: "23 pounds",
-    price: "$740",
+    price: "740",
     imageSrc: "/EcoBIke-Project/Images/EcoTraverse RAV4.png"
   },
   {
+    id: 8,
     title: "GreenRoadster 3 Series",
     year: "2022",
     speed: "34 mph",
     range: "23/48miles",
     batteryLife: "2/4 hours",
     weight: "18 pounds",
-    price: "$490",
+    price: "490",
     imageSrc: "/EcoBIke-Project/Images/GreenRoadster 3 Series.png"
   },
   {
+    id: 9,
     title: "ECO Elite GT4",
     year: "2022",
     speed: "19 mph",
     range: "35/67 miles",
     batteryLife: "4/5 hours",
     weight: "28 pounds",
-    price: "$400",
+    price: "400",
     imageSrc: "/EcoBIke-Project/Images/ECO Elite GT4.png"
   },
   {
+    id:10,
     title: "BMX DT 3",
     year: "2022",
     speed: "10 mph",
     range: "10/25 miles",
     batteryLife: "1/2 hours",
     weight: "15 pounds",
-    price: "$250",
+    price: "250",
     imageSrc: "/EcoBIke-Project/Images/BMX DT 3.webp"
   },
   {
+    id: 11,
     title: "BMX REV 2",
     year: "2022",
     speed: "27 mph",
     range: "33/43 miles",
     batteryLife: "2/6 hours",
     weight: "45 pounds",
-    price: "$439",
+    price: "439",
     imageSrc: "/EcoBIke-Project/Images/BMX REV 2.webp"
   },
   {
+    id: 12,
     title: "BMX XM 3",
     year: "2021",
     speed: "15 mph",
     range: "20/25 miles",
     batteryLife: "1/3 hours",
     weight: "25 pounds",
-    price: "$299",
+    price: "299",
     imageSrc: "/EcoBIke-Project/Images/BMX XM 3.webp"
   }
 ];
@@ -232,7 +268,9 @@ function generateBikeHTML(bike, index) {
     <div class="bike">
       <div class="featured-car-card">
         <figure class="card-banner">
-          <img src="${bike.imageSrc}" alt="${bike.title}" loading="lazy" width="440" height="300" class="w-100">
+        <a href ="Detail.html?id=${bike.id}">
+        <img src="${bike.imageSrc}" alt="${bike.title}" loading="lazy" width="440" height="300" class="w-100">
+        </a>
         </figure>
         <div class="card-content">
           <div class="card-title-wrapper">
@@ -261,9 +299,9 @@ function generateBikeHTML(bike, index) {
           </ul>
           <div class="card-price-wrapper">
             <p class="card-price">
-              <strong>${bike.price}</strong>
+              <strong>$${bike.price}</strong>
             </p>
-            <button class="btn" data-id="${index}">Add to cart</button>
+            <button class="btn" data-id="${bike.id}">Add to cart</button>
           </div>
         </div>
       </div>
@@ -282,87 +320,116 @@ function renderBikes() {
 
 renderBikes();
 
-
-// Function to generate HTML for the cart
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.btn');
-  buttons.forEach(button => {
-    button.addEventListener('click', function() {
-      const bikeId = this.getAttribute('data-id');
-      addToCart(bikeId);
-    });
-  });
+  const params = new URLSearchParams(window.location.search);
+  const bikeId = parseInt(params.get('id'));
+  const bike = bikes.find(b => b.id === bikeId);
+
+  if (bike) {
+      const detailsContainer = document.querySelector('.bike-details');
+      detailsContainer.innerHTML = `
+          <div class="bike-detail">
+              <h2>${bike.title}</h2>
+              <p>Year: ${bike.year}</p>
+              <p>Speed: ${bike.speed}</p>
+              <p>Range: ${bike.range}</p>
+              <p>Battery Life: ${bike.batteryLife}</p>
+              <p>Weight: ${bike.weight}</p>
+              <p>Price: $${bike.price}</p>
+              <img src="${bike.imageSrc}" alt="${bike.title}">
+              <button class="add-to-cart-btn" data-id="${bike.id}">Add to Cart</button>
+          </div>
+      `;
+
+      const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
+      addToCartBtn.addEventListener('click', () => {
+          addToCart(bike.id);
+      });
+  }
 });
 
-let cart = [];
+const bikeList = document.querySelector('.featured-car-list');
+let cartAdding = [];
 
-function renderCart() {
-  const cartItemsContainer = document.getElementById('cartItems');
-  const cartTotalElement = document.getElementById('cartTotal');
-  cartItemsContainer.innerHTML = ''; 
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    const itemHTML = `
-      <div class="cart-item">
-        <img src="${item.imageSrc}" alt="${item.title}" width="100" height="60">
-        <div>
-          <h4>${item.title}</h4>
-          <p>Price: ${item.price}</p>
-          <button onclick="removeFromCart(${index})">Remove</button>
-        </div>
-      </div>
-    `;
-    cartItemsContainer.innerHTML += itemHTML;
-    total += parseFloat(item.price.replace('$', ''));
-  });
-
-  cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
-}
-
-// Function to show the modal
-function showModal() {
-  const modal = document.getElementById('cartModal');
-  modal.style.display = "block";
-}
-
-// Function to close the modal
-function closeModal() {
-  const modal = document.getElementById('cartModal');
-  modal.style.display = "none";
-}
-
-const closeButton = document.querySelector('.close-button');
-closeButton.addEventListener('click', closeModal);
-
-function addToCart(id) {
-  const bike = bikes[id];
-  cart.push(bike);
-  renderCart(); 
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1); 
-  renderCart(); 
-}
-
-window.onclick = function(event) {
-  const modal = document.getElementById('cartModal');
-  if (event.target == modal) {
-    closeModal();
+bikeList.addEventListener('click', (event) => {
+  let posclick = event.target
+  if(posclick.classList.contains('btn')){
+    let product_id = posclick.getAttribute('data-id');
+    addToCart(product_id)
   }
-}
+})
 
-document.getElementById('cartIconContainer').addEventListener('click', showModal);
-
-function saveCart() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function loadCart() {
-  const savedCart = localStorage.getItem('cart');
-  if (savedCart) {
-    cart = JSON.parse(savedCart);
-    renderCart();
+const addToCart = (product_id) => {
+  let productIndex = cartAdding.findIndex(item => item.product_id === product_id);
+  if (productIndex === -1) 
+  { 
+    cartAdding.push({ product_id: product_id, quantity: 1 });
+  }else 
+  { 
+    cartAdding[productIndex].quantity++;
   }
+  addCartToHTML();
+};
+
+const addCartToHTML = () => {
+  listCart.innerHTML = '';
+  let totalQuantity = 0;
+  if (cartAdding.length > 0) {
+    cartAdding.forEach(cart => {
+      totalQuantity += cart.quantity;
+          let newCart = document.createElement('div');
+          newCart.classList.add('item');
+          newCart.dataset.id = cart.product_id;
+          let productInCart = bikes.findIndex((value) => value.id == cart.product_id);
+          let info = bikes[productInCart];
+          newCart.innerHTML = `
+          <div class = "cartItem">
+              <div class="cartImage">
+                  <img src="${info.imageSrc}" alt="">
+              </div>
+              <div class="cartName">
+              ${info.title}
+              </div>
+              <div class="cartPrice">
+              $${info.price * cart.quantity}
+              </div>
+              <div class="cartQuantity">
+                  <span class="minus">-</span>
+                  <span>${cart.quantity}</span>
+                  <span class="plus">+</span>
+              </div>
+          </div>
+          `;
+          listCart.appendChild(newCart);
+      });
+  }
+  iconCartSpan.innerText = totalQuantity;
+};
+
+listCart.addEventListener('click', (event) => {
+  let clickedElement = event.target;
+  if (clickedElement.classList.contains('minus') || clickedElement.classList.contains('plus')) {
+     let product_id = clickedElement.closest('.item').dataset.id;
+     let type = clickedElement.classList.contains('plus') ? 'plus' : 'minus';
+     changeQuantity(product_id, type);
+  }
+});
+
+const changeQuantity = (product_id, type) => {
+  let quantityChecker = cartAdding.findIndex((value) => value.product_id == product_id);
+  if(quantityChecker >= 0){
+    switch(type){
+        case 'plus':
+          cartAdding[quantityChecker].quantity++;
+          break;
+        case 'minus':
+          if (cartAdding[quantityChecker].quantity > 1) {
+            cartAdding[quantityChecker].quantity--;
+          } else {
+            cartAdding.splice(quantityChecker, 1);
+          }
+          break;
+    }
+  }
+  addCartToHTML();
 }
