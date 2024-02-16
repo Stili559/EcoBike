@@ -1,3 +1,4 @@
+// Profile popup opening
 const navbarToggler = document.getElementById("navbarToggler");
 const navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -5,9 +6,10 @@ navbarToggler.addEventListener("click", () => {
     navbarToggler.classList.toggle("active");
     navbarCollapse.classList.toggle("active");
 });
+// End of profile popup opening
 
+// Firebase for Sign Out authatication
 async function initFirebase54() {
-    // Initialize Firebase
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
     const { getAuth, signOut } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
     const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
@@ -25,6 +27,7 @@ async function initFirebase54() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth(app);
+
     // Sign Out Button function
     document.body.addEventListener('click', function(event) {
         if (event.target.id === 'signOutButton') {
@@ -38,9 +41,11 @@ async function initFirebase54() {
                 });
         }
     });
+    // End of Sign Out Button function
 }
 
 initFirebase54()
+//End of Firebase authatication
 
 // Function to scroll to the top of the page
 function scrollToTop() {
@@ -49,6 +54,7 @@ function scrollToTop() {
         behavior: 'smooth' 
     });
 }
+//End of scroll function
 
 // Define the HTML content for the profile popup
 document.getElementById('topBtn').addEventListener('click', scrollToTop);
@@ -76,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
 
     document.body.insertAdjacentHTML('beforeend', profilePopupHTML);
+    //End of HTML content
 
     // No scroll on open popup
     var popup = document.getElementById('profilePopup');
@@ -101,6 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 });
-
+//End of no scroll on open
 
 

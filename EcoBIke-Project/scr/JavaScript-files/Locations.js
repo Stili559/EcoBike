@@ -1,3 +1,4 @@
+// Function for opening popups with different information and for rendering the HTML for each popup
 function openPopup(store) {
     var title = document.getElementById('popup-title');
     var location = document.getElementById('popup-location');
@@ -5,7 +6,6 @@ function openPopup(store) {
     var contact = document.getElementById('popup-contact');
     var storeImage = document.getElementById('small-image');
     
-
     if(store === 'Store 1') {
         title.textContent = 'ECOBIKE CENTER SOFIA RING MALL';
         location.innerHTML = "<strong>Location:</strong><br>St. 'Alexander Stamboliyski' 101";
@@ -53,15 +53,18 @@ function openPopup(store) {
     document.getElementById('store-popup').style.display = 'block';
     document.body.classList.add('no-scroll');
 }
+//End of popup information
 
+// Function for closing the popups 
 document.getElementById('close-popup').addEventListener('click', closePopup);
-    
 function closePopup() {
     document.getElementById('store-popup').style.display = 'none';
     document.getElementById('popup-overlay').style.display = 'none';
     document.body.classList.remove('no-scroll');
 }
+//End of closing the popups 
 
+// Information for different stores
 const stores = [
     {
         city: "Sofia",
@@ -106,6 +109,7 @@ const stores = [
         id: "Store 6"
     }
 ];
+//End of different stores information
 
 // Function to generate HTML for each store
 function generateStoreHTML(store) {
@@ -127,10 +131,13 @@ function generateStoreHTML(store) {
         </div>
     `;
 }
+//End of HTML generator
 
+// Function to rendering the HTML for each store
 function renderStores() {
     const storesContainer = document.getElementById("storesContainer");
     storesContainer.innerHTML = stores.map(generateStoreHTML).join('');
 }
 
 renderStores();
+//End of rendering

@@ -1,4 +1,4 @@
-// Sponsors tire
+// Sponsors tiers
 document.addEventListener("DOMContentLoaded", function() {
     var span = document.querySelectorAll(".sponsorsFooter ul span");
     var saparateRows = document.querySelectorAll(".sponsorsFooter ul");
@@ -20,4 +20,4 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
-  
+  //End of sponsors tiers

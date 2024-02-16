@@ -1,130 +1,102 @@
+//Filters
 document.addEventListener('DOMContentLoaded', function () {
-    const bikeList = document.querySelector('.featured-car-list');
-    const bikes = Array.from(bikeList.children);
-    const clearFiltersButton = document.getElementById('clear-filters-button');
+  const bikeList = document.querySelector('.featured-car-list');
+  const clearFiltersButton = document.getElementById('clear-filters-button');
+  const sortLowToHighButton = document.getElementById('sort-low-to-high');
+  const sortHighToLowButton = document.getElementById('sort-high-to-low');
+  const yearFilterSelect = document.getElementById('year-filter');
+  const checkboxes = document.querySelectorAll('#price-ranges input[type="checkbox"]');
 
-    const sortLowToHighButton = document.getElementById('sort-low-to-high');
-    const sortHighToLowButton = document.getElementById('sort-high-to-low');
-    const yearFilterSelect = document.getElementById('year-filter');
-    const originalBikesOrder = Array.from(bikes);
+  const bikes = Array.from(bikeList.children);
+  const originalBikesOrder = Array.from(bikes);
 
-    const priceRanges = {
-        'range-0-400': [0, 400],
-        'range-400-600': [401, 599],
-        'range-600-800': [600, 800],
-    };
-      
-    const checkboxes = document.querySelectorAll('#price-ranges input[type="checkbox"]');
-    const resultsCount = document.getElementById('filtered-count');
+  // Price range for checkboxes
+  const priceRanges = {
+      'range-0-400': [0, 400],
+      'range-400-600': [401, 599],
+      'range-600-800': [600, 800],
+  };
 
-    // Function to compare bike prices
-    const comparePrices = (a, b) => {
-        const priceA = parseFloat(a.querySelector('.card-price strong').textContent.replace('$', ''));
-        const priceB = parseFloat(b.querySelector('.card-price strong').textContent.replace('$', ''));
+  // Compare bike prices
+  const comparePrices = (a, b) => {
+      const priceA = parseFloat(a.querySelector('.card-price strong').textContent.replace('$', ''));
+      const priceB = parseFloat(b.querySelector('.card-price strong').textContent.replace('$', ''));
+      return priceA - priceB;
+  };
 
-        return priceA - priceB;
-    };
-
-    // Function to update the price list
-      checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', updatePriceFilter);
+  // Update bike list
+  const updateBikeList = (bikeArray) => {
+      bikeList.innerHTML = '';
+      bikeArray.forEach((bike) => {
+          bikeList.appendChild(bike);
       });
-    
-      function updatePriceFilter() {
-        const selectedPriceRanges = [];
-    
-        checkboxes.forEach((checkbox) => {
+  };
+
+  // Function for working filters
+  function updatePriceFilter() {
+      const selectedPriceRanges = [];
+      checkboxes.forEach((checkbox) => {
           if (checkbox.checked) {
-            const rangeId = checkbox.id;
-            selectedPriceRanges.push(priceRanges[rangeId]);
+              const rangeId = checkbox.id;
+              selectedPriceRanges.push(priceRanges[rangeId]);
           }
-        });
-    
-        if (selectedPriceRanges.length === 0) {   
+      });
+      if (selectedPriceRanges.length === 0) {
           return;
-        }
-    
-        const filteredBikes = bikes.filter((bike) => {
+      }
+      const filteredBikes = bikes.filter((bike) => {
           const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
           for (const [minPrice, maxPrice] of selectedPriceRanges) {
-            if (bikePrice >= minPrice && bikePrice <= maxPrice) {
-              return true;
-            }
+              if (bikePrice >= minPrice && bikePrice <= maxPrice) {
+                  return true;
+              }
           }
           return false;
-        });
-    
-        updateBikeList(filteredBikes);
-      }
-  
-    // Function to update the bike list
-    const updateBikeList = (bikeArray) => {
-        bikeList.innerHTML = '';
-        bikeArray.forEach((bike) => {
-            bikeList.appendChild(bike);
-        });
-    };
-
-    sortLowToHighButton.addEventListener('click', () => {
-        bikes.sort(comparePrices);
-        updateBikeList(bikes);
-    });
-
-    sortHighToLowButton.addEventListener('click', () => {
-        bikes.sort(comparePrices);
-        bikes.reverse();
-        updateBikeList(bikes);
-    });
-
-    // Event listener for year filter
-    yearFilterSelect.addEventListener('change', () => {
-        const selectedYear = yearFilterSelect.value;
-        let filteredBikes;
-        if (selectedYear === 'all') {
-            filteredBikes = bikes;
-        } else {
-            filteredBikes = bikes.filter((bike) => {
-                const bikeYear = bike.querySelector('.year').getAttribute('value');
-                return bikeYear === selectedYear;
-            });
-        }
-        updateBikeList(filteredBikes);
-    });
-
-     // Event listener for clear filter
-    clearFiltersButton.addEventListener('click', () => {
-        yearFilterSelect.value = 'all';
-        bikes.length = 0; 
-        bikes.push(...originalBikesOrder);
-        updateBikeList(bikes);
-    });
-});
-
-//Bikes and cart
-let iconCart = document.querySelector('.icon-cart')
-let closeCart = document.querySelector('.closeCart')
-let body = document.querySelector('body')
-let listCart = document.querySelector('.listCart')
-let iconCartSpan = document.querySelector('.count-items')
-let shadowTwo = document.querySelector('.shadowTwo');
-
-let isVisible = false;
-
-iconCart.addEventListener('click', () => {
-  body.classList.toggle('showCart');
-  if (!isVisible) {
-    shadowTwo.style.display = 'block';
-  } else {
-    shadowTwo.style.display = 'none';
+      });
+      updateBikeList(filteredBikes);
   }
-  isVisible = !isVisible;
-});
+  // End of function for filters
 
-closeCart.addEventListener('click', () => {
-  body.classList.remove('showCart');
-  shadowTwo.style.display = 'none';
-  isVisible = false;
+  // Event listeners for all filters
+  checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updatePriceFilter);
+  });
+
+  sortLowToHighButton.addEventListener('click', () => {
+      bikes.sort(comparePrices);
+      updateBikeList(bikes);
+  });
+
+  sortHighToLowButton.addEventListener('click', () => {
+      bikes.sort(comparePrices);
+      bikes.reverse();
+      updateBikeList(bikes);
+  });
+
+  yearFilterSelect.addEventListener('change', () => {
+      const selectedYear = yearFilterSelect.value;
+      let filteredBikes;
+      if (selectedYear === 'all') {
+          filteredBikes = bikes;
+      } else {
+          filteredBikes = bikes.filter((bike) => {
+              const bikeYear = bike.querySelector('.year').getAttribute('value');
+              return bikeYear === selectedYear;
+          });
+      }
+      updateBikeList(filteredBikes);
+  });
+
+  clearFiltersButton.addEventListener('click', () => {
+      yearFilterSelect.value = 'all';
+      bikes.length = 0;
+      bikes.push(...originalBikesOrder);
+      updateBikeList(bikes);
+  });
 });
+//End of event listeners
+//End of filters
+
 
 // Sample data representing bike information
 let bikes = [
@@ -261,6 +233,7 @@ let bikes = [
     imageSrc: "/EcoBIke-Project/Images/BMX XM 3.webp"
   }
 ];
+//End of bike information
 
 // Function to generate HTML for each bike
 function generateBikeHTML(bike, index) {
@@ -309,6 +282,8 @@ function generateBikeHTML(bike, index) {
   `;
 }
 
+// End of HTML for each bike
+
 // Function to render bikes
 function renderBikes() {
   const container = document.getElementById("bikeContainer");
@@ -319,117 +294,141 @@ function renderBikes() {
 }
 
 renderBikes();
+// End of function for rendering bikes
 
+// Cart Elements
+const iconCart = document.querySelector('.icon-cart');
+const closeCart = document.querySelector('.closeCart');
+const body = document.querySelector('body');
+const listCart = document.querySelector('.listCart');
+const iconCartSpan = document.querySelector('.count-items');
+const shadowTwo = document.querySelector('.shadowTwo');
+let isVisible = false;
+
+// Toggle Cart Visibility
+iconCart.addEventListener('click', () => {
+  body.classList.toggle('showCart');
+  shadowTwo.style.display = isVisible ? 'none' : 'block';
+  isVisible = !isVisible;
+});
+
+// Close Cart
+closeCart.addEventListener('click', () => {
+  body.classList.remove('showCart');
+  shadowTwo.style.display = 'none';
+  isVisible = false;
+});
+
+// Populate Bike Details
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const bikeId = parseInt(params.get('id'));
   const bike = bikes.find(b => b.id === bikeId);
 
   if (bike) {
-      const detailsContainer = document.querySelector('.bike-details');
-      detailsContainer.innerHTML = `
-          <div class="bike-detail">
-              <h2>${bike.title}</h2>
-              <p>Year: ${bike.year}</p>
-              <p>Speed: ${bike.speed}</p>
-              <p>Range: ${bike.range}</p>
-              <p>Battery Life: ${bike.batteryLife}</p>
-              <p>Weight: ${bike.weight}</p>
-              <p>Price: $${bike.price}</p>
-              <img src="${bike.imageSrc}" alt="${bike.title}">
-              <button class="add-to-cart-btn" data-id="${bike.id}">Add to Cart</button>
-          </div>
-      `;
+    const detailsContainer = document.querySelector('.bike-details');
+    detailsContainer.innerHTML = `
+      <div class="bike-detail">
+        <h2>${bike.title}</h2>
+        <p>Year: ${bike.year}</p>
+        <p>Speed: ${bike.speed}</p>
+        <p>Range: ${bike.range}</p>
+        <p>Battery Life: ${bike.batteryLife}</p>
+        <p>Weight: ${bike.weight}</p>
+        <p>Price: $${bike.price}</p>
+        <img src="${bike.imageSrc}" alt="${bike.title}">
+        <button class="add-to-cart-btn" data-id="${bike.id}">Add to Cart</button>
+      </div>
+    `;
+    const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
+    addToCartBtn.addEventListener('click', () => {
+      addToCart(bike.id);
+    });
+  }
+});
+//End of bike details
 
-      const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
-      addToCartBtn.addEventListener('click', () => {
-          addToCart(bike.id);
-      });
+// Add to Cart Functionality
+const bikeList = document.querySelector('.featured-car-list');
+const cartAdding = [];
+
+bikeList.addEventListener('click', (event) => {
+  const posclick = event.target;
+  if (posclick.classList.contains('btn')) {
+    const productId = posclick.getAttribute('data-id');
+    addToCart(productId);
   }
 });
 
-const bikeList = document.querySelector('.featured-car-list');
-let cartAdding = [];
-
-bikeList.addEventListener('click', (event) => {
-  let posclick = event.target
-  if(posclick.classList.contains('btn')){
-    let product_id = posclick.getAttribute('data-id');
-    addToCart(product_id)
-  }
-})
-
-const addToCart = (product_id) => {
-  let productIndex = cartAdding.findIndex(item => item.product_id === product_id);
-  if (productIndex === -1) 
-  { 
-    cartAdding.push({ product_id: product_id, quantity: 1 });
-  }else 
-  { 
+const addToCart = (productId) => {
+  const productIndex = cartAdding.findIndex(item => item.productId === productId);
+  if (productIndex === -1) {
+    cartAdding.push({ productId: productId, quantity: 1 });
+  } else {
     cartAdding[productIndex].quantity++;
   }
   addCartToHTML();
 };
 
+//HTML for cart
 const addCartToHTML = () => {
   listCart.innerHTML = '';
   let totalQuantity = 0;
   if (cartAdding.length > 0) {
     cartAdding.forEach(cart => {
       totalQuantity += cart.quantity;
-          let newCart = document.createElement('div');
-          newCart.classList.add('item');
-          newCart.dataset.id = cart.product_id;
-          let productInCart = bikes.findIndex((value) => value.id == cart.product_id);
-          let info = bikes[productInCart];
-          newCart.innerHTML = `
-          <div class = "cartItem">
-              <div class="cartImage">
-                  <img src="${info.imageSrc}" alt="">
-              </div>
-              <div class="cartName">
-              ${info.title}
-              </div>
-              <div class="cartPrice">
-              $${info.price * cart.quantity}
-              </div>
-              <div class="cartQuantity">
-                  <span class="minus">-</span>
-                  <span>${cart.quantity}</span>
-                  <span class="plus">+</span>
-              </div>
+      const newCart = document.createElement('div');
+      newCart.classList.add('item');
+      newCart.dataset.id = cart.productId;
+      const productInCart = bikes.findIndex((value) => value.id == cart.productId);
+      const info = bikes[productInCart];
+      newCart.innerHTML = `
+        <div class="cartItem">
+          <div class="cartImage">
+            <img src="${info.imageSrc}" alt="">
           </div>
-          `;
-          listCart.appendChild(newCart);
-      });
+          <div class="cartName">${info.title}</div>
+          <div class="cartPrice">$${info.price * cart.quantity}</div>
+          <div class="cartQuantity">
+            <span class="minus">-</span>
+            <span>${cart.quantity}</span>
+            <span class="plus">+</span>
+          </div>
+        </div>
+      `;
+      listCart.appendChild(newCart);
+    });
   }
   iconCartSpan.innerText = totalQuantity;
 };
+//End of HTML for cart
 
+// Modify Cart Item Quantity
 listCart.addEventListener('click', (event) => {
-  let clickedElement = event.target;
+  const clickedElement = event.target;
   if (clickedElement.classList.contains('minus') || clickedElement.classList.contains('plus')) {
-     let product_id = clickedElement.closest('.item').dataset.id;
-     let type = clickedElement.classList.contains('plus') ? 'plus' : 'minus';
-     changeQuantity(product_id, type);
+    const productId = clickedElement.closest('.item').dataset.id;
+    const type = clickedElement.classList.contains('plus') ? 'plus' : 'minus';
+    changeQuantity(productId, type);
   }
 });
 
-const changeQuantity = (product_id, type) => {
-  let quantityChecker = cartAdding.findIndex((value) => value.product_id == product_id);
-  if(quantityChecker >= 0){
-    switch(type){
-        case 'plus':
-          cartAdding[quantityChecker].quantity++;
-          break;
-        case 'minus':
-          if (cartAdding[quantityChecker].quantity > 1) {
-            cartAdding[quantityChecker].quantity--;
-          } else {
-            cartAdding.splice(quantityChecker, 1);
-          }
-          break;
+const changeQuantity = (productId, type) => {
+  const quantityChecker = cartAdding.findIndex((value) => value.productId == productId);
+  if (quantityChecker >= 0) {
+    switch (type) {
+      case 'plus':
+        cartAdding[quantityChecker].quantity++;
+        break;
+      case 'minus':
+        if (cartAdding[quantityChecker].quantity > 1) {
+          cartAdding[quantityChecker].quantity--;
+        } else {
+          cartAdding.splice(quantityChecker, 1);
+        }
+        break;
     }
   }
   addCartToHTML();
-}
+};
+// ENd of Cart Functionality

@@ -1,4 +1,4 @@
-/* Sign-up/Sign-in move animation */
+// Sign-up/Sign-in move animation
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
@@ -10,9 +10,10 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
+//End of animation
 
+// Firebase for authitication
 async function initFirebase55() {
-    // Initialize Firebase
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
     const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider,sendEmailVerification, sendPasswordResetEmail } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
     const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
@@ -38,7 +39,9 @@ async function initFirebase55() {
         'sameSite': 'None',
         'secure': true
     });
+    //End of secure cookies
 
+    // Forgot Password logic
     document.getElementById("forgotPasswordLink").addEventListener("click", function () {
         const email = document.getElementById("emailIn").value;
     
@@ -46,15 +49,15 @@ async function initFirebase55() {
             showToast("Please enter your email address.");
             return;
         }
-
         sendPasswordResetEmail(auth, email)
         .then(() => {
             const myModal = new bootstrap.Modal(document.getElementById('exampleModalTwo'));
             myModal.show();
         })
     });
+    //End of password logic
 
-    /* Login/Register saved in FireBase */
+    // Sign-in information saved in FireBase(authitication logic)
     document.getElementById("signInButton").addEventListener("click", function () {
     var email = document.getElementById("emailIn").value;
     var password = document.getElementById("passwordIn").value;
@@ -81,7 +84,9 @@ async function initFirebase55() {
         }
     }
 });
+//End of logic for sign-in
 
+// Register information saved in FireBase(authitication logic)
 document.getElementById("signUpButton").addEventListener("click", function () {
     const  name = document.getElementById("name").value;
     const  email = document.getElementById("emailUp").value;
@@ -129,10 +134,11 @@ document.getElementById("signUpButton").addEventListener("click", function () {
         
     }
 });
-
+//End of logic for registration
 }
 
 initFirebase55()
+//End of Firebase authitication
 
 /* Alerts for invalid information */
 function showToast(message) {
@@ -158,3 +164,4 @@ function showToast(message) {
     var bootstrapToast = new bootstrap.Toast(toast);
     bootstrapToast.show();
 }
+//End of alerts
