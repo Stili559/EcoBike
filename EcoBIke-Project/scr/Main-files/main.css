@@ -1,3 +1,8 @@
+@import url('https://unpkg.com/boxicons@latest/css/boxicons.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+
 /* Text font */
 :root {
   --ff-open-sans: 'Open Sans', sans-serif;
