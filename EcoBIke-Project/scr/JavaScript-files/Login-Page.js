@@ -71,7 +71,7 @@ async function initFirebase55() {
             const user = userCredential.user;
             console.log("User login:", user); 
             localStorage.setItem('userEmail', user.email);
-            window.location.href = "home.html";  
+            window.location.href = "Home.html";  
         })
         .catch((error) => {
             showToast("Incorrect Email or password.");

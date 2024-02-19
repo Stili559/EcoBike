@@ -118,7 +118,7 @@ function generateStoreHTML(store) {
             <div class="store-header">${store.city}</div>
             <div class="store-header-name">${store.name}</div>
             <div class="store-image">
-                <img src="${store.imageSrc}">
+                <img src="${store.imageSrc}" loading="lazy">
             </div>
             <div class="store-content">
                 <div class="store-hours">Opening Hours</div>

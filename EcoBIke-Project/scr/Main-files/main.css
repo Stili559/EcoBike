@@ -228,7 +228,7 @@
 
 /* Footer design */ 
 .footer{
-  padding: 40px 15%;
+  padding: 50px 15%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, auto));
   gap: 3.5rem;

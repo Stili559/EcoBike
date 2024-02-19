@@ -26,6 +26,13 @@ body{
   transition: transform 0.3s ease;
 }
 
+.carousel-control-prev{
+  max-width: 8rem;
+}
+
+.carousel-control-next{
+  max-width: 8rem;
+}
 .carousel-caption, .carousel-captionThree {
   color: #302b2b;
   position: absolute;
@@ -188,16 +195,37 @@ body{
 }
 
 .service-list {
-  list-style: none;
+  list-style: none;  
   padding: 0;
 }
 
 .service-item {
-  margin: 10px;
+  margin: 20px;
   padding: 20px;
   border-radius: 8px;
   display: flex;
   align-items: center;
+  background-color: #f7f7f7;
+}
+
+.service-item .card-icon {
+  background-color: #9ACD32;
+  min-width: 75px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px 0;
+  transition: 0.25s ease;
+  margin-left: 1rem;
+  margin-right: 15px;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.service-item:hover .card-icon {
+  border-radius: 0;
+  border-top-right-radius: 20px;
+  background-color: black;
 }
 
 .service-item:not(:last-child) {
@@ -206,11 +234,8 @@ body{
 
 .card-title{
   color: #4d5666;
-}
-
-.card-icon {
-  margin-right: 15px;
-  font-size: 30px;
+  margin-bottom: 0.2rem;
+  font-size: 1.5rem;
 }
 
 .card-text {
@@ -221,17 +246,18 @@ body{
 .img-holder {
   width: 100%;
   max-width: 425px;
-  margin: 0 60px;
+  margin: 0 -5px;
+  transition: transform 0.3s ease;
+}
+
+.img-holder:hover {
+  transform: scale(1.05);
 }
 
 .img-cover {
   width: 100%;
   height: auto;
   border-radius: 8px;
-}
-
-.section i{
-  color: #4caf50;
 }
 
 /* See more design*/
