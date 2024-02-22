@@ -24,6 +24,9 @@ body{
 .carousel{
   animation: fadeIn 1s ease-out forwards; 
   transition: transform 0.3s ease;
+  max-width: 100rem;
+  max-height: 43rem; 
+  margin: 0 auto;
 }
 
 .carousel-control-prev{
@@ -33,6 +36,7 @@ body{
 .carousel-control-next{
   max-width: 8rem;
 }
+
 .carousel-caption, .carousel-captionThree {
   color: #302b2b;
   position: absolute;
@@ -41,6 +45,10 @@ body{
   margin-top: 3rem;
   font-weight: 600;
   z-index: 1;
+}
+
+.carousel-item .fixer{
+  height: 43rem;
 }
 
 .carousel-caption h1, .carousel-captionThree h1{
@@ -578,7 +586,7 @@ body{
 
 @media (min-width: 768px) and (max-width: 1200px) {
   .carousel-item img, .carousel-captionThree img{
-    height: 19rem; 
+    height: 10rem; 
   }
   .carousel-caption p, .carousel-captionThree p { 
     font-size: 1rem; 
@@ -596,14 +604,29 @@ body{
 }
   
 @media (max-width: 767px) {
-  .carousel-item img, .carousel-captionThree img {
-    height: 10rem; 
+  .devider{
+    border-top: 2px solid #cec5c5;
+  }
+  .carousel-control-prev{
+    width: 1.5rem;
+  }
+  .carousel-control-next{
+    margin-right: 0.1rem;
+    width: 1.5rem;
+  }
+  .carousel-item .fixer{
+    height: 13rem;
+    width: 1rem;
   }
   .carousel-caption p, .carousel-captionThree p { 
-    display: none;
+    font-size: 0.5rem;
+    width: 11rem;
+    margin-left: -1.5rem;
+    margin-top: -0.5rem;
   }
   .carousel-caption h1, .carousel-captionThree h1 {
     font-size: 0.9rem;
+    margin-left: -1.5rem;
   }
   .latest-news .row-title {
     text-align: center;
@@ -612,10 +635,7 @@ body{
     text-align: center;
   }
   .more-button, .more-buttonThree {
-    padding: 0.2rem 0.5rem;
-    margin-top: 0rem;  
-    font-size: 0.8rem;
-    margin-left: 1.6rem;
+    display: none;
   }
   .carousel-caption {
     margin-left: 3rem;
