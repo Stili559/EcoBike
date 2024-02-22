@@ -156,12 +156,38 @@ body{
   margin-bottom: 0;
 }
 
-/* Home bike design */
-.container {
-  max-width: 1290px;
+/* Video */
+.video-container { 
+  padding-inline: 16px;  
+  max-width: 1220px;
   margin: auto;
   padding: 20px;
-  margin-bottom: -4.5rem;
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
+}
+
+.section-video {
+  background-color: #eaf2fe;
+  border-top: 2px solid #cec5c5;
+  margin-top: 15rem;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.video-banner {
+  position: relative;
+  height: 380px;
+  border-radius: 60px 0;
+  overflow: hidden;
+  margin-left: 0.5rem;
+}
+
+/* Home bike design */
+.container {
+  max-width: 1305px;
+  margin: auto;
+  padding: 20px;
+  margin-bottom: -20rem;
 }
 
 .section {
@@ -428,8 +454,6 @@ body{
 .sponsorsFooter h1 > strong { font-weight: 700;}
 
 .sponsorsFooter img {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   border-radius: 3px;
   height: auto;
   vertical-align: middle;
@@ -458,11 +482,6 @@ body{
   word-wrap: break-word;
   margin: 0px;
   padding: 26px 0;
-  -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
-  -ms-transition: opacity 0.25s ease;
-  -o-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
 }
 
 .sponsorsFooter ul span,
@@ -485,7 +504,6 @@ body{
   justify-content: center; 
   align-items: center; 
   flex-wrap: wrap; 
-  background-color: #eaf2fe;
   margin-top: 2.5rem;
 }
 
@@ -494,7 +512,7 @@ body{
   flex-direction: row; 
   align-items: center; 
   text-align: left; 
-  margin: 40px 66px 30px; 
+  margin: 40px 78px 30px; 
 }
 
 .icon {
