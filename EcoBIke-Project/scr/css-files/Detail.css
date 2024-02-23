@@ -1,0 +1,71 @@
+/* Logo design */
+#bike-icon {
+    transform: rotate(-90deg);
+    font-size: 2rem; 
+    color: #9ACD32; 
+    cursor: pointer;
+    margin-left: 2rem;
+    transition: transform 0.5s ease;
+  }
+  
+  #brand-text {
+    font-weight: bold; 
+    font-size: 2rem; 
+    text-decoration: none; 
+    color: #9ACD32; 
+    cursor: pointer;
+  } 
+/* Detail style*/
+  .bike-detail{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    text-align: left;
+  }
+  .bike-detail .detailImg img{
+    width: 400px;
+    display: block;
+    border-radius: 15px;
+    height: 340px;
+    margin-left: 25rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+  .bike-detail .detailImg{
+    position: relative;
+  }
+  .bike-detail .detailImg::before{
+    position: absolute;
+    width: 300px;
+    height: 320px;
+    content: '';
+    background-color: #94817733;
+    z-index: -1;
+    border-radius: 190px 100px 170px 180px;
+    margin-left: 20rem;
+  }
+  .titleDesctiption{
+    margin-top: 5rem;
+    margin-left: 25rem;
+  }
+  .bike-detail .desName{
+    padding: 40px 0 0 0;
+    margin:  0 0 10px 0;
+    margin-top: -1.5rem;
+  }
+  .bike-detail .desPrice{
+    font-weight: bold;
+    letter-spacing: 7px;
+    margin-bottom: 20px;
+    font-size: large;
+  }
+  .btn{
+    background-color: #2f2f2f;
+    color: #eee;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  .bike-detail .detailDescription{
+    margin-top: 1rem;
+    width: 60%;
+    margin-bottom: 1rem;
+  }

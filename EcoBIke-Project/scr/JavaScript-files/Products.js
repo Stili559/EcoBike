@@ -328,16 +328,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (bike) {
     const detailsContainer = document.querySelector('.bike-details');
     detailsContainer.innerHTML = `
+    <div class="title">
+    PRODUCT DETAIL
+    </div>
       <div class="bike-detail">
-        <h2>${bike.title}</h2>
-        <p>Year: ${bike.year}</p>
-        <p>Speed: ${bike.speed}</p>
-        <p>Range: ${bike.range}</p>
-        <p>Battery Life: ${bike.batteryLife}</p>
-        <p>Weight: ${bike.weight}</p>
-        <p>Price: $${bike.price}</p>
-        <img src="${bike.imageSrc}" alt="${bike.title}">
-        <button class="add-to-cart-btn" data-id="${bike.id}">Add to Cart</button>
+        <div class = "detailImg">
+          <img src="${bike.imageSrc}" alt="${bike.title}">
+        </div>
+        <div class = "detailInfo">
+          <h2 class = "desName">${bike.title}</h2>
+          <p class = "desPrice">$${bike.price}</p>
+          <div class = "datailButton">
+            <button class="btn add-to-cart-btn" data-id="${bike.id}">ADD TO CART</button>
+          </div>
+            <div class = "detailDescription">
+            RedirectToDetailPage is a JavaScript function that gets called when the user clicks on the image.
+            This function checks if the id is valid (you need to implement this logic based on your data). If the id is valid, it redirects the user to the detail page with the provided id. If the id is not valid, it redirects the user to the home page.
+            You need to implement the idIsValid function according to your application logic to determine whether the id is real or not.
+            </div>
+        </div>
       </div>
     `;
     const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
