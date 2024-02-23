@@ -517,10 +517,13 @@ body{
 
 .badge {
   display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap; 
   flex-direction: row; 
   align-items: center; 
   text-align: left; 
-  margin: 40px 78px 30px; 
+  margin: 40px 68px 30px; 
 }
 
 .icon {
@@ -561,7 +564,7 @@ body{
 }  
 
 /* Responsiveness */
-@media (min-width: 768px){
+@media (min-width: 768px) and (max-width: 1200px){
   .square {
     width: calc(33.33% - 20px);
     margin-right: 10px;
@@ -582,16 +585,23 @@ body{
     font-size: 20px;
     margin-bottom: 0;
   }
-}           
-
-@media (min-width: 768px) and (max-width: 1200px) {
-  .carousel-item img, .carousel-captionThree img{
-    height: 10rem; 
+  .carousel-item .fixer{
+    height: 24rem;
   }
-  .carousel-caption p, .carousel-captionThree p { 
+  .carousel-caption h1{
+    margin-left: -5rem;
+    font-size: 2rem;
+  }
+  .carousel-caption p{
     font-size: 1rem; 
+    width: 40%;
+    margin-left: -5rem;
   }
-  .carousel-caption h1, .carousel-captionThree h1{
+  .carousel-captionThree p { 
+    font-size: 1rem; 
+    width: 40%;
+  }
+  .carousel-captionThree h1{
     font-size: 2rem;
   }
   .carousel-captionThree {
@@ -601,9 +611,64 @@ body{
   .latest-news .post-box .post-title {
     max-width: 100%;
   }
-}
+  .badge {
+    text-align: center; 
+    margin: 40px 80px 30px; 
+  }
+  .h2.section-title {
+    font-size: 1.5rem; 
+  }
+  .card-title{
+    font-size: 1rem;
+  }
+  .card-text {
+    font-size: 0.8rem;
+  }
+  .service-item .card-icon {
+    display: none;
+  }
+  .latest-news .post-box.grey-bg {
+    height: 18.2rem;
+  }
+  .textHeader{
+    font-size: 14px;
+    margin-right: 0.5rem;
+  }
+  .textMini{
+    font-size: 10px;
+    margin-right: 0.5rem;
+  }
+  .badge {
+    text-align: left; 
+    margin: 40px 10px 30px; 
+  }
+}           
   
 @media (max-width: 767px) {
+  .square-image img {
+    height: 8rem;
+  }
+  .square {
+    width: calc(33.33% - 0px);
+  }
+  .square:last-child {
+    margin-right: 0;
+  }
+  .square-text {
+    padding: 30px;
+    font-size: 18px;
+  }
+  .square-text h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  .square-text p {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  .section {
+    margin-top: 12rem;
+  }
   .devider{
     border-top: 2px solid #cec5c5;
   }
@@ -615,7 +680,7 @@ body{
     width: 1.5rem;
   }
   .carousel-item .fixer{
-    height: 13rem;
+    height: 14rem;
     width: 1rem;
   }
   .carousel-caption p, .carousel-captionThree p { 
@@ -627,6 +692,37 @@ body{
   .carousel-caption h1, .carousel-captionThree h1 {
     font-size: 0.9rem;
     margin-left: -1.5rem;
+  }
+  .h2.section-title {
+    font-size: 1.5rem; 
+  }
+  .card-title{
+    font-size: 1rem;
+  }
+  .card-text {
+    font-size: 0.8rem;
+  }
+  .img-holder {
+    width: 75%;
+  }
+  .latest-news .post-box .post-title {
+    font-size: 16px;
+  }
+  .sponsorsFooter h1 {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  .textHeader{
+    font-size: 14px;
+    margin-right: 0.5rem;
+  }
+  .textMini{
+    font-size: 10px;
+    margin-right: 0.5rem;
+  }
+  .badge {
+    text-align: center; 
+    margin: 40px 100px 30px; 
   }
   .latest-news .row-title {
     text-align: center;
@@ -669,6 +765,29 @@ body{
     display: none;
   }
 }
+
+@media (min-width: 768px){
+  .square {
+    width: calc(33.33% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .square:last-child {
+    margin-right: 0;
+  }
+  .square-text {
+    padding: 30px;
+    font-size: 18px;
+  }
+  .square-text h2 {
+    font-size: 30px;
+    margin-top: 0;
+  }
+  .square-text p {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}           
 
 /* Animations */
 @keyframes fadeIn {
