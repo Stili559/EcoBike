@@ -1,18 +1,16 @@
-<div align="center">
-  <img src="https://github.com/Stili559/EcoBike/assets/80035053/ef445074-c548-4f15-82f3-36d5fc7465c0" alt="example image" />
-</div>
-
-# EcoBike: Eco-Innovation
+# Welcome to EcoBike: Pioneers of Eco-Innovation🚲🌿
 
 ## Introduction
-EcoBike stands at the forefront of eco-friendly transportation, offering a unique range of bicycles made entirely from recycled materials. Our mission extends beyond simply selling bikes; we strive to inspire a green revolution, changing how people think about and use transportation in their daily lives.
+**EcoBike stands at the forefront of eco-friendly transportation,** offering a unique range of bicycles made entirely from recycled materials. Our mission extends beyond simply selling bikes; we strive to inspire a green revolution, changing how people think about and use transportation in their daily lives.
 
-## Vision and Mission
-Our vision is a world where sustainable transportation is the norm, not the exception. EcoBike's mission is to provide affordable, durable, and environmentally-friendly bicycles, crafted from recycled water bottles and other sustainable materials. We believe in a cleaner, greener future where our mobility choices contribute positively to our planet.
+## Vision and Mission🍀
+**Our vision is a world where sustainable transportation is the norm, not the exception.** EcoBike's mission is to provide affordable, durable, and environmentally-friendly bicycles, crafted from recycled water bottles and other sustainable materials. We believe in a cleaner, greener future where our mobility choices contribute positively to our planet.
 
-![image](https://github.com/Stili559/EcoBike/assets/80035053/5fb06002-52bf-4477-b3ba-74d4635d553b)
+<div align="center">
+  <img src="https://github.com/Stili559/EcoBike/assets/80035053/5fb06002-52bf-4477-b3ba-74d4635d553b" alt="Our vision for a sustainable future" />
+</div>
 
-## Key Functionalities
+## Key Functionalities🍃
 
 - **Sustainable Registration Process**: Sign up effortlessly with an email and password, supporting eco-conscious users.
 - **Eco-Friendly Bike Library**: Explore a wide range of eco-friendly bikes, including models with recycled frames and tires.
@@ -22,81 +20,107 @@ Our vision is a world where sustainable transportation is the norm, not the exce
 ## Contents
 
 - [Usage](#usage)
-- [How to Access the WebSite](#website)
 - [Home Page](#home-page)
 - [Login and Register Page](#login-and-register-page)
 - [Products Page](#products-page)
 - [Locations Page](#locations-page)
 - [Support Pop-up](#support-pop-up)
 - [About Us Page](#about-us-page)
+- [Unit test](#unitTest)
 - [Technologies Used](#technologies-Used)
 - [Contributing](#contributing)
 - [Contact Me](#contact-me)
 
-## Usage<a name="#usage"></a>
+## Usage🌳<a name="#usage"></a>
 
-### Step 1: Use the link to acces EcoBike site
+### Step 1: Download the resources from the EcoBike repository
 
-```shell
-https://ecobike.netlify.app/ecobike-project/scr/pages/home
-```
+![image](https://github.com/Stili559/EcoBike/assets/80035053/912a80c0-b555-46f8-96fb-c2635e0dc0c3)
 
-### Step 1: Use the link to acces EcoBike site
+### Step 2: Download Visual Studio Code
 
-```shell
-https://ecobike.netlify.app/ecobike-project/scr/pages/home
-```
+Download and set up [**Visual Studio Code**](https://code.visualstudio.com/download)
 
-### Step 1: Use the link to acces EcoBike site
+### Step 3: Download Live Server
 
-```shell
-https://ecobike.netlify.app/ecobike-project/scr/pages/home
-```
+![image](https://github.com/Stili559/EcoBike/assets/80035053/ec634af1-e65b-4311-9910-47881782d296)
 
-## How to Access the WebSite<a name="#website"></a>
+### Step 4: Right click on the Home page and start the Live Server
 
-### Step 1: Use the link to acces EcoBike site
+![image](https://github.com/Stili559/EcoBike/assets/80035053/091db0b1-1a2a-4c40-bf84-a198fc92e319)
 
-```shell
-https://ecobike.netlify.app/ecobike-project/scr/pages/home
-```
+## Accessing the Website
 
-## Home Page<a name="home-page"></a>
+### Embark on Your EcoBike Adventure
 
-A dynamic and engaging portal introducing visitors to our green mission, with featured eco-friendly products.
+**Embark on a journey of innovation and sustainability with EcoBike.** Click on the link below to explore how EcoBike is revolutionizing the world of eco-friendly transportation. Experience the future of travel that not only promises adventure but also pledges to protect our planet. 🌍💚
 
-## Products Page<a name="products-page"></a>
+[**Discover EcoBike's Sustainable Vision**](https://ecobike.netlify.app/ecobike-project/scr/pages/home) - Begin your exploration of a greener and more sustainable future today!
 
-Explore our range of bicycles, each with a detailed description, highlighting their eco-friendly features and benefits.
+## Welcome to Our Green Journey 🌱<a name="home-page"></a>
 
-## Locations Page<a name="locations-page"></a>
+**Discover a vibrant** portal dedicated to our mission of sustainability. Here, you'll find a curated showcase of our eco-friendly products, each designed to make a positive impact on the planet.
 
-Explore our Eco shops locations, design and accessibility.
+![image](https://github.com/Stili559/EcoBike/assets/80035053/d1f62d77-5c42-43dd-8c30-b35976d8f29a)
 
-## Login and Register Page<a name="login-and-register-page"></a>
+## Our Eco-Friendly Collection 🚴<a name="products-page"></a>
 
-The login and register page allows users to create an account or log in to their existing account in order to acces the site.
+**Dive into our diverse** range of bicycles, crafted for the eco-conscious rider. Explore detailed descriptions that highlight the sustainable features and benefits of each model, guiding you to make a choice that aligns with your values.
 
-## Support Pop-up<a name="support-pop-up"></a>
+![image](https://github.com/Stili559/EcoBike/assets/80035053/ffb60929-118a-4f5c-bb4c-0cc33d77e7bb)
 
-The support pop-up allows users to ask questions or report issues with the website or the products.
+## Find Our Eco Shops 🏬<a name="locations-page"></a>
 
-## About Us Page<a name="about-us-page"></a>
+**Embark on a journey** to our Eco shops, where design meets sustainability. Explore the locations, accessibility, and unique design elements that define each of our eco-friendly stores.
 
-Deep dive into our commitment to sustainability, our journey, and the innovative processes behind our unique bicycles.
+![image](https://github.com/Stili559/EcoBike/assets/80035053/ef8df5c7-624e-4044-95e5-ea35117c7faf)
+
+## Join Our Community 👥<a name="login-and-register-page"></a>
+
+**Become a part** of our eco-conscious community by creating an account or logging into your existing one. Access exclusive content, updates, and more, all designed to enhance your sustainable lifestyle.
+
+![image](https://github.com/Stili559/EcoBike/assets/80035053/826856bd-2222-44fc-9757-9666a42ad0e3)
+
+## Need Assistance? 💬<a name="support-pop-up"></a>
+
+**Encounter an issue or have a question?** Our support pop-up is here to help. Easily ask questions or report any concerns regarding our website or products, and receive timely assistance.
+
+## About Us: Our Eco Mission 🌍<a name="about-us-page"></a>
+
+**Delve into our story of sustainability**, from our humble beginnings to our innovative processes. Learn about our unwavering commitment to the environment and how our unique bicycles are a testament to our green mission.
+
+![image](https://github.com/Stili559/EcoBike/assets/80035053/311fc241-e154-4fc3-a314-022723ae7be5)
+
+## Unit Tests: Ensuring Quality ✅<a name="unitTest"></a>
+The EcoBike website is equipped with a suite of unit tests designed to ensure the reliability and stability of the application. These tests cover a range of functionalities, from user authentication to cart management.
+
+#### Running Tests
+
+To run the unit tests for the EcoBike application, follow these steps:
+
+1. Open the terminal in visual studio code
+3. Type in ```npm run test```
+4. After few seconds different test will appear in the terminal
 
 ## Technologies Used<a name="technologies-Used"></a>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Language-HTML%20%7C%20CSS%20%7C%20JavaScript-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 </p>
 
-Built with HTML, CSS, and JavaScript, our website offers a seamless and responsive user experience, emphasizing ease of use and accessibility.
+**At the heart of our website** lies a robust foundation built upon HTML, CSS, and JavaScript. This triad of technologies ensures that our platform not only looks visually appealing but also operates smoothly across all devices. Our commitment to providing a seamless and responsive user experience is reflected in our meticulous coding practices, which prioritize ease of use, fast loading times, and universal accessibility. Join us in exploring a website designed with the user's journey in mind, where every interaction is intuitive and every page reinforces our dedication to sustainability and innovation.
 
-## Contributing to EcoBike<a name="contributing"></a>
+## Contribute to EcoBike 🌿<a name="contributing"></a>
 
-Contributions to this website are welcome. If you find a bug or have a suggestion for new content, please submit an issue or a pull request.
+Your insights and contributions are invaluable to us! Whether you've encountered a bug or have innovative ideas for new content, we warmly welcome your involvement. Here’s how you can make a difference:
 
-## Contact Me<a name="contact-me"></a>
+- **Report a Bug**: Noticed something amiss? Let us know by submitting an issue.
+- **Suggest Enhancements**: Have ideas for new features or content? We’d love to hear them. Feel free to submit a pull request or share your suggestions.
 
-If you have any questions, feedback, or just want to say hi, feel free to contact me at stilianmanolov05@gmail.com. I'm always happy to hear from fellow developers or users.
+Your participation helps us grow and improve, ensuring EcoBike remains at the forefront of sustainable transportation.
+
+## Get in Touch 📬<a name="contact-me"></a>
+
+Questions? Feedback? Or just want to share your enthusiasm for sustainability? Don’t hesitate to reach out. I’m Stilyan, and you can contact me directly at [stilianmanolov05@gmail.com](mailto:stilianmanolov05@gmail.com). Whether you’re a fellow developer, an eco-warrior, or just curious, I’m all ears and eager to connect with you.
