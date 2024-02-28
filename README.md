@@ -2,7 +2,7 @@
   <img src="https://github.com/Stili559/EcoBike/assets/80035053/ef445074-c548-4f15-82f3-36d5fc7465c0" alt="example image" />
 </div>
 
-# EcoBike: Revolutionizing Sustainable Transportation
+# EcoBike: Eco-Innovation
 
 ## Introduction
 EcoBike stands at the forefront of eco-friendly transportation, offering a unique range of bicycles made entirely from recycled materials. Our mission extends beyond simply selling bikes; we strive to inspire a green revolution, changing how people think about and use transportation in their daily lives.
@@ -10,9 +10,19 @@ EcoBike stands at the forefront of eco-friendly transportation, offering a uniqu
 ## Vision and Mission
 Our vision is a world where sustainable transportation is the norm, not the exception. EcoBike's mission is to provide affordable, durable, and environmentally-friendly bicycles, crafted from recycled water bottles and other sustainable materials. We believe in a cleaner, greener future where our mobility choices contribute positively to our planet.
 
+![image](https://github.com/Stili559/EcoBike/assets/80035053/5fb06002-52bf-4477-b3ba-74d4635d553b)
+
+## Key Functionalities
+
+- **Sustainable Registration Process**: Sign up effortlessly with an email and password, supporting eco-conscious users.
+- **Eco-Friendly Bike Library**: Explore a wide range of eco-friendly bikes, including models with recycled frames and tires.
+- **Eco-Friendly Elegance**: Our site blends clean design with sustainability, offering an intuitive and eco-inspired online experience.
+- **Eco-Friendly Stores**: Discover and explore a vast array of eco-friendly stores globally, each offering unique, sustainable products.
+
 ## Contents
 
 - [Usage](#usage)
+- [How to Access the WebSite](#website)
 - [Home Page](#home-page)
 - [Login and Register Page](#login-and-register-page)
 - [Products Page](#products-page)
@@ -28,7 +38,27 @@ Our vision is a world where sustainable transportation is the norm, not the exce
 ### Step 1: Use the link to acces EcoBike site
 
 ```shell
-Ecobike website
+https://ecobike.netlify.app/ecobike-project/scr/pages/home
+```
+
+### Step 1: Use the link to acces EcoBike site
+
+```shell
+https://ecobike.netlify.app/ecobike-project/scr/pages/home
+```
+
+### Step 1: Use the link to acces EcoBike site
+
+```shell
+https://ecobike.netlify.app/ecobike-project/scr/pages/home
+```
+
+## How to Access the WebSite<a name="#website"></a>
+
+### Step 1: Use the link to acces EcoBike site
+
+```shell
+https://ecobike.netlify.app/ecobike-project/scr/pages/home
 ```
 
 ## Home Page<a name="home-page"></a>
