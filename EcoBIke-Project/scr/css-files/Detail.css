@@ -15,6 +15,7 @@
     color: #9ACD32; 
     cursor: pointer;
   } 
+  
 /* Detail style*/
   .bike-detail{
     display: grid;
@@ -22,18 +23,23 @@
     gap: 50px;
     text-align: left;
   }
+
   .bike-detail .detailImg img{
     width: 400px;
     display: block;
     border-radius: 15px;
     height: 340px;
-    margin-left: 25rem;
+    margin-left: 22rem;
     margin-top: 1rem;
     margin-bottom: 3rem;
+    animation: fadeIn 1s ease-out forwards; 
+    transition: transform 0.3s ease;
   }
+
   .bike-detail .detailImg{
     position: relative;
   }
+
   .bike-detail .detailImg::before{
     position: absolute;
     width: 300px;
@@ -42,30 +48,173 @@
     background-color: #94817733;
     z-index: -1;
     border-radius: 190px 100px 170px 180px;
-    margin-left: 20rem;
+    margin-left: 17rem;
+    margin-top: -1rem;
   }
+
+  .detailInfo{
+    animation: fadeSlideIn 2s ease-out forwards;
+  }
+
   .titleDesctiption{
     margin-top: 5rem;
     margin-left: 25rem;
+    color: #000;
   }
+
   .bike-detail .desName{
     padding: 40px 0 0 0;
     margin:  0 0 10px 0;
     margin-top: -1.5rem;
   }
+
+  .bike-detail .desName::before{
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    content: '';
+    background-color: #94817733;
+    z-index: -1;
+    border-radius: 190px 100px 170px 180px;
+    margin-left: 15rem;
+    margin-top: -1rem;
+  }
+
   .bike-detail .desPrice{
-    font-weight: bold;
+    margin-top: 1rem;
     letter-spacing: 7px;
     margin-bottom: 20px;
-    font-size: large;
+    font-size: 2rem;
+    border-bottom: 2px solid #cec5c5;
+    width: 55%;
   }
+
+  .bike-detail .btn::before{
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    content: '';
+    background-color: #94817733;
+    z-index: -1;
+    border-radius: 190px 100px 170px 180px;
+    margin-left: -8rem;
+    margin-top: -5rem;
+  }
+
   .btn{
     background-color: #2f2f2f;
     color: #eee;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
+
   .bike-detail .detailDescription{
     margin-top: 1rem;
     width: 60%;
     margin-bottom: 1rem;
+    font-weight: 300;
   }
+
+/* Animations */
+@keyframes fadeSlideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .bike-detail .detailImg::before{
+    display: none;
+  }
+
+  .bike-detail .desName::before{
+    display: none;
+  }
+
+  .bike-detail .btn::before{
+    display: none;
+  }
+
+  .bike-detail {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bike-detail .detailImg img{
+    width: auto;
+    margin-left: 2.3rem;
+    margin-bottom: 0rem;
+  }
+
+  .titleDesctiption {
+    margin-left: 0;
+  }
+
+  .bike-detail .desPrice {
+    width: 80%; 
+    margin: 0 auto; 
+  }
+
+  .bike-detail .desName {
+    width: 60%; 
+    margin-left: 2.5rem;
+    margin-top: -4rem;
+  }
+
+  .bike-detail .detailDescription {
+    width: 78%;
+    margin-left: 2.5rem;
+  }
+
+  .btn{
+    margin-left: 2.3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px){
+  .bike-detail {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bike-detail .detailImg img{
+    width: 25rem;
+    margin-left: 13rem;
+    margin-bottom: 0rem;
+  }
+
+  .titleDesctiption {
+    margin-left: 0;
+  }
+
+  .bike-detail .desPrice {
+    width: 50%;
+    margin: 0 auto; 
+    margin-left: 13rem;
+  }
+
+  .bike-detail .desName {
+    width: 60%; 
+    margin-left: 13rem;
+    margin-top: -4rem;
+  }
+
+  .bike-detail .detailDescription {
+    width: 52%;
+    margin-left: 13rem;
+  }
+
+  .btn{
+    margin-left: 13rem;
+    margin-bottom: 2rem;
+  }
+}

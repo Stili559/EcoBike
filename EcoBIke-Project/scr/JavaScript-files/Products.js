@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //End of event listeners
 //End of filters
 
-
 // Sample data representing bike information
 let bikes = [
   {
@@ -109,7 +108,9 @@ let bikes = [
     batteryLife: "3/6 hours",
     weight: "15 pounds",
     price: "440",
-    imageSrc: "/EcoBIke-Project/Images/Cruiser GT3 Series.png"
+    imageSrc: "/EcoBIke-Project/Images/EcoBike T-Cross.png",
+    description: "Experience the Cruiser GT3 Series, a versatile electric bike perfect for urban commuting and leisurely rides. With a top speed of 25 mph and a range of 30 to 50 miles.",
+    descriptionTwo: "But it's not just about performance; the Cruiser GT3 Series also prioritizes comfort and convenience. Its lightweight design, weighing just 15 pounds.",
   },
   {
     id: 2,
@@ -120,7 +121,9 @@ let bikes = [
     batteryLife: "1/4 hours",
     weight: "25 pounds",
     price: "350",
-    imageSrc: "/EcoBIke-Project/Images/EcoBike T-Cross.png"
+    imageSrc: "/EcoBIke-Project/Images/EcoTraverse R2 GT.png",
+    description: "Introducing the EcoBike T-Cross, a reliable companion for your daily commute and weekend adventures. With a top speed of 20 mph and a range of 20 to 45 miles.",
+    descriptionTwo: "But what sets the EcoBike T-Cross apart is its versatility. Whether you're navigating city streets or exploring scenic trails, this bike delivers a smooth and enjoyable riding experience every time.",
   },
   {
     id: 3,
@@ -131,7 +134,9 @@ let bikes = [
     batteryLife: "1/2 hours",
     weight: "10 pounds",
     price: "600",
-    imageSrc: "/EcoBIke-Project/Images/EcoTraverse R2 GT.png"
+    imageSrc: "/EcoBIke-Project/Images/Cruiser GT3 Series.png",
+    description: "Unleash the power of the EcoTraverse R2 GT, a high-performance electric bike designed for speed enthusiasts and thrill-seekers. With a top speed of 35 mph and a range of 10 to 30 miles.",
+    descriptionTwo: "But speed isn't the only thing this bike offers. Its lightweight construction, weighing just 10 pounds, ensures agile handling and effortless maneuverability.",
   },
   {
     id: 4,
@@ -142,7 +147,9 @@ let bikes = [
     batteryLife: "8/10 hours",
     weight: "35 pounds",
     price: "620",
-    imageSrc: "/EcoBIke-Project/Images/Cadillac Escalade S3.jpg"
+    imageSrc: "/EcoBIke-Project/Images/Cadillac Escalade S3.jpg",
+    description: "Introducing the Cadillac Escalide S3, a powerhouse of performance and luxury in the world of electric bikes. With its impressive top speed of 40 mph and a range of 45 to 60 miles.",
+    descriptionTwo: "But it's not just about speed; the Cadillac Escalide S3 also prioritizes comfort and convenience. Its sleek design and ergonomic features ensure a comfortable ride.",
   },
   {
     id: 5,
@@ -153,7 +160,9 @@ let bikes = [
     batteryLife: "1/3 hours",
     weight: "15 pounds",
     price: "330",
-    imageSrc: "/EcoBIke-Project/Images/ECO 4 Series GTI.jpg"
+    imageSrc: "/EcoBIke-Project/Images/ECO 4 Series GTI.jpg",
+    description: "Discover the ECO 4 Series GTI, a compact and versatile electric bike perfect for urban commuting and short trips. With a top speed of 10 mph and a range of 10 to 20 miles.",
+    descriptionTwo: "But don't let its compact size fool you; the ECO 4 Series GTI is packed with features. Its lightweight frame, weighing just 15 pounds, ensures easy maneuverability.",
   },
   {
     id: 6,
@@ -164,7 +173,9 @@ let bikes = [
     batteryLife: "10/12 hours",
     weight: "30 pounds",
     price: "475",
-    imageSrc: "/EcoBIke-Project/Images/ECO 4 Serie.jpg"
+    imageSrc: "/EcoBIke-Project/Images/ECO 4 Serie.jpg",
+    description: "Experience the ECO 4 Series, a reliable and efficient electric bike designed for longer journeys and outdoor adventures. With a top speed of 20 mph and an impressive range of 80 to 100 miles.",
+    descriptionTwo: "But what truly sets the ECO 4 Series apart is its durability and longevity. Its sturdy construction and reliable components ensure years of dependable use.",
   },
   {
     id: 7,
@@ -175,7 +186,9 @@ let bikes = [
     batteryLife: "5/6 hours",
     weight: "23 pounds",
     price: "740",
-    imageSrc: "/EcoBIke-Project/Images/EcoTraverse RAV4.png"
+    imageSrc: "/EcoBIke-Project/Images/EcoTraverse RAV4.png",
+    description: "Introducing the EcoTraverse RAV4, a reliable companion for your outdoor adventures. With its sturdy build and impressive range of 100 to 120 miles, this electric bike ensures you can explore far and wide with confidence.",
+    descriptionTwo: "The EcoTraverse RAV4 isn't just about endurance; it's also about comfort. Its ergonomic design and adjustable features guarantee a smooth and enjoyable ride, no matter the terrain.",
   },
   {
     id: 8,
@@ -186,7 +199,9 @@ let bikes = [
     batteryLife: "2/4 hours",
     weight: "18 pounds",
     price: "490",
-    imageSrc: "/EcoBIke-Project/Images/GreenRoadster 3 Series.png"
+    imageSrc: "/EcoBIke-Project/Images/GreenRoadster 3 Series.png",
+    description: "Meet the GreenRoadster 3 Series, a high-performance electric bike designed for speed enthusiasts and urban commuters alike. With a top speed of 34 mph and a range of 23 to 48 miles, this bike offers exhilarating rides and convenient travels.",
+    descriptionTwo: "But speed isn't the only thing this bike offers. Its lightweight construction, weighing just 18 pounds, ensures agile handling and effortless maneuverability in crowded city streets.",
   },
   {
     id: 9,
@@ -197,7 +212,9 @@ let bikes = [
     batteryLife: "4/5 hours",
     weight: "28 pounds",
     price: "400",
-    imageSrc: "/EcoBIke-Project/Images/ECO Elite GT4.png"
+    imageSrc: "/EcoBIke-Project/Images/ECO Elite GT4.png",
+    description: "Experience the ECO Elite GT4, a versatile electric bike crafted for both leisurely rides and daily commutes. With a top speed of 19 mph and a range of 35 to 67 miles, this bike offers the perfect balance of performance and practicality.",
+    descriptionTwo: "But what sets the ECO Elite GT4 apart is its durability and endurance. Its robust frame and reliable components ensure long-lasting reliability.",
   },
   {
     id:10,
@@ -208,7 +225,9 @@ let bikes = [
     batteryLife: "1/2 hours",
     weight: "15 pounds",
     price: "250",
-    imageSrc: "/EcoBIke-Project/Images/BMX DT 3.webp"
+    imageSrc: "/EcoBIke-Project/Images/BMX DT 3.webp",
+    description: "Sleek, efficient urban mobility. Stylish design, top speed 10 mph, range 10-25 miles, lightweight at 15 lbs. Durable battery for 1-2 hours. Perfect for commuters and leisure riders.",
+    descriptionTwo: "The BMX DT 3 is not just about performance; it's also about style. Its sleek lines and modern aesthetics ensure you'll turn heads wherever you go. And with its advanced features and reliable performance, this bike is more than just a mode of transportation.",
   },
   {
     id: 11,
@@ -219,7 +238,10 @@ let bikes = [
     batteryLife: "2/6 hours",
     weight: "45 pounds",
     price: "439",
-    imageSrc: "/EcoBIke-Project/Images/BMX REV 2.webp"
+    imageSrc: "/EcoBIke-Project/Images/BMX REV 2.webp",
+    description: "The BMX REV 2 is a high-performance electric bike designed for urban commuting and off-road adventures. With a top speed of 27 mph and a range of 33 to 43 miles.",
+    descriptionTwo:"Its lightweight design, weighing just 45 pounds, makes it easy to maneuver in various terrains. The powerful battery provides 2 to 6 hours of riding "
+    +"ensuring you can go the distance without worrying about recharging."
   },
   {
     id: 12,
@@ -230,7 +252,10 @@ let bikes = [
     batteryLife: "1/3 hours",
     weight: "25 pounds",
     price: "299",
-    imageSrc: "/EcoBIke-Project/Images/BMX XM 3.webp"
+    imageSrc: "/EcoBIke-Project/Images/BMX XM 3.webp",
+    description: "BMX XM 3 is a sleek and efficient electric bike designed to take your riding experience to the next level.",
+    descriptionTwo:"With a top speed of 15 mph and a range of 20 to 25 miles, this bike ensures you can cover significant distances with ease."
+    +"Its battery provides 1 to 3 hours of continuous riding, allowing you to explore urban streets or venture into the countryside without worrying about running out of power."
   }
 ];
 //End of bike information
@@ -338,14 +363,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class = "detailInfo">
           <h2 class = "desName">${bike.title}</h2>
           <p class = "desPrice">$${bike.price}</p>
+          <div class = "detailDescription">
+          ${bike.description}
+          </div>
+          <div class = "detailDescription">
+          ${bike.descriptionTwo}
+          </div>
           <div class = "datailButton">
             <button class="btn add-to-cart-btn" data-id="${bike.id}">ADD TO CART</button>
           </div>
-            <div class = "detailDescription">
-            RedirectToDetailPage is a JavaScript function that gets called when the user clicks on the image.
-            This function checks if the id is valid (you need to implement this logic based on your data). If the id is valid, it redirects the user to the detail page with the provided id. If the id is not valid, it redirects the user to the home page.
-            You need to implement the idIsValid function according to your application logic to determine whether the id is real or not.
-            </div>
         </div>
       </div>
     `;
