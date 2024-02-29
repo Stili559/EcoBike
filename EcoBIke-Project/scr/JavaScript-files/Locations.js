@@ -6,42 +6,42 @@ function openPopup(store) {
     var contact = document.getElementById('popup-contact');
     var storeImage = document.getElementById('small-image');
     
-    if(store === 'Store 1') {
+    if(store === 'Sofia') {
         title.textContent = 'ECOBIKE CENTER SOFIA RING MALL';
         location.innerHTML = "<strong>Location:</strong><br>St. 'Alexander Stamboliyski' 101";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 10:00 - 21:00";
         contact.innerHTML = "<strong>Contact us:</strong><br>+359 889 274 774";
         storeImage.src = 'https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/eco_bike_center.jpg?alt=media&token=116e1c3e-7286-4cee-837b-f2ef619c6632';
     } 
-    else if(store === 'Store 2') {
+    else if(store === 'Berlin') {
         title.textContent = 'ECOBIKE TRADESQUARE MALL';
         location.innerHTML = "<strong>Location:</strong><br>St. 'John Smith' 123";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 09:00 - 22:00";
         contact.innerHTML = "<strong>Contact us:</strong><br>+359 888 123 456";
         storeImage.src = 'https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/eco_bike1.jpg?alt=media&token=b0b34a21-95b5-4290-bd8a-46d10a0d9fae';
     }
-    else if(store === 'Store 3') {
+    else if(store === 'Texas') {
         title.textContent = 'EcoBike Live CityLink Mall';
         location.innerHTML = "<strong>Location:</strong><br>St. 'Mary Johnson' 456";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 08:00 - 20:00";
         contact.innerHTML = "<strong>Contact us:</strong><br>+359 877 987 654";
         storeImage.src = 'https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/eco_bike_live.jpg?alt=media&token=8a18d37f-56ae-4c58-b325-72b28db7f0b2';
     }
-    else if(store === 'Store 4') {
+    else if(store === 'Paris') {
         title.textContent = 'EcoBike South Mall';
         location.innerHTML = "<strong>Location:</strong><br>St. 'Robert Davis' 789";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 09:00 - 23:00";
         contact.innerHTML = "<strong>Contact us:</strong><br>+359 866 345 678";
         storeImage.src = 'https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/eco_bike2.jpg?alt=media&token=64c7efe2-8dff-40e3-907c-92fc39906594';
     }
-    else if(store === 'Store 5') {
+    else if(store === 'Burgas') {
         title.textContent = 'EcoBike Custom Galleria Burgas';
         location.innerHTML = "<strong>Location:</strong><br>St. 'Emily Wilson' 555";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 09:00 - 22:00";
         contact.innerHTML = "<strong>Contact us:</strong><br>+359 855 222 333";
         storeImage.src = 'https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/eco_bike_custom.jpg?alt=media&token=0b2d283e-ea0f-480a-b711-711585339e33';
     }
-    else if(store === 'Store 6') {
+    else if(store === 'Varna') {
         title.textContent = 'EcoBike Vision Grand Mall';
         location.innerHTML = "<strong>Location:</strong><br>St. 'James Brown' 999";
         hours.innerHTML = "<strong>Opening Hours:</strong><br>Open daily from 08:00 - 23:00";
@@ -64,51 +64,40 @@ function closePopup() {
 }
 //End of closing the popups 
 
+async function initFirebase55() {
+    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
+    const { getDatabase, ref, set, get, child, update, remove } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyDEffEyjkHl-hztawckeSD1qFYAI4vCDUI",
+        authDomain: "ecobike-bb6cc.firebaseapp.com",
+        projectId: "ecobike-bb6cc",
+        storageBucket: "ecobike-bb6cc.appspot.com",
+        messagingSenderId: "73199752449",
+        appId: "1:73199752449:web:7288aedbefb7cedd6bb700",
+        measurementId: "G-Q1N62R5827"
+      };  
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app, "https://ecobike-bb6cc-default-rtdb.europe-west1.firebasedatabase.app");
+  
 // Information for different stores
-const stores = [
-    {
-        city: "Sofia",
-        name: "EcoBike Center Sofia Ring Mall",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Sofia-Ring-Mall.png?alt=media&token=ba929338-dd7c-4fba-9a33-4d2bd53d9550",
-        hours: "Open daily from 10:00 - 21:00",
-        id: "Store 1"
-    },
-    {
-        city: "Berlin",
-        name: "EcoBike TradeSquare Mall",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/TradeSquare.jpg?alt=media&token=c5611b96-add2-40ab-98dd-50edc2e3e028",
-        hours: "Open daily from 09:00 - 22:00",
-        id: "Store 2"
-    },
-    {
-        city: "Texas",
-        name: "EcoBike Live CityLink Mall",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/CityLink-Mall.jpg?alt=media&token=e42d2428-91fd-45f1-83bf-7746f4149f61",
-        hours: "Open daily from 08:00 - 20:00",
-        id: "Store 3"
-    },
-    {
-        city: "Paris",
-        name: "EcoBike South Mall",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/South-Mall.jpg?alt=media&token=2859d599-37f8-49d8-839b-dccc983d7a3a",
-        hours: "Open daily from 09:00 - 23:00",
-        id: "Store 4"
-    },
-    {
-        city: "Burgas",
-        name: "EcoBike Custom Galleria Burgas",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Galleria_Burgas.jpg?alt=media&token=8987c1c7-ec69-4251-b3fe-7d04db3d721d",
-        hours: "Open daily from 09:00 - 22:00",
-        id: "Store 5"
-    },
-    {
-        city: "Varna",
-        name: "EcoBike Vision Grand Mall",
-        imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Grand_Mall.jpg?alt=media&token=ef5a0794-3cd8-41c9-94fb-e0ce25bb1b45",
-        hours: "Open daily from 08:00 - 23:00",
-        id: "Store 6"
+const dbRef = ref(database, 'stores');
+  get(dbRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      const bikesData = snapshot.val();
+      const bikesContainer = document.getElementById('storesContainer');
+      bikesContainer.innerHTML = ''; 
+      Object.values(bikesData).forEach(bike => {
+        const bikeHTML = generateStoreHTML(bike);
+        bikesContainer.innerHTML += bikeHTML;
+      });
+    } else {
+      console.log("No data available");
     }
-];
+  }).catch((error) => {
+    console.error("Error fetching data: ", error);
+  });
 //End of different stores information
 
 // Function to generate HTML for each store
@@ -126,18 +115,11 @@ function generateStoreHTML(store) {
                     <span class="storeColorText">Open daily from </span>
                     <span class="storeColorNum">${store.hours}</span>
                 </div>
-                <button class="store-button" onclick="openPopup('${store.id}')">Explore the Store</button>
+                <button class="store-button" onclick="openPopup('${store.city}')">Explore the Store</button>
             </div>
         </div>
     `;
 }
 //End of HTML generator
-
-// Function to rendering the HTML for each store
-function renderStores() {
-    const storesContainer = document.getElementById("storesContainer");
-    storesContainer.innerHTML = stores.map(generateStoreHTML).join('');
 }
-
-renderStores();
-//End of rendering
+initFirebase55()
