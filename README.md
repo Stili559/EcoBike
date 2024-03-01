@@ -99,12 +99,6 @@ The **EcoBike** site utilizes Firebase Database to store and manage various data
 
 ![image](https://github.com/Stili559/EcoBike/assets/80035053/137bd5cd-aab4-4e16-acef-2ef036458d5e)
 
-### Authentication
-
-Firebase Authentication is integrated into the **EcoBike** site, providing user authentication using email and password credentials. Users can sign up for accounts and log in.
-
-![image](https://github.com/Stili559/EcoBike/assets/80035053/b92b8d55-7ef5-4c17-85f4-1cee42db120f)
-
 ## Unit Tests: Ensuring Quality ✅<a name="unitTest"></a>
 The EcoBike website is equipped with a suite of unit tests designed to ensure the reliability and stability of the application. These tests cover a range of functionalities, from user authentication to cart management.
 
