@@ -41,19 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
               selectedPriceRanges.push(priceRanges[rangeId]);
           }
       });
+      let filteredBikes;
       if (selectedPriceRanges.length === 0) {
-          return;
-      }
-      const filteredBikes = bikes.filter((bike) => {
-          const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
-          for (const [minPrice, maxPrice] of selectedPriceRanges) {
-              if (bikePrice >= minPrice && bikePrice <= maxPrice) {
-                  return true;
-              }
-          }
-          return false;
-      });
-      updateBikeList(filteredBikes);
+        filteredBikes = bikes;
+    } else {
+        filteredBikes = bikes.filter((bike) => {
+            const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
+            return selectedPriceRanges.some(([minPrice, maxPrice]) => bikePrice >= minPrice && bikePrice <= maxPrice);
+        });
+    }
+    updateBikeList(filteredBikes);
   }
   // End of function for filters
 
@@ -97,171 +94,50 @@ document.addEventListener('DOMContentLoaded', function () {
 //End of event listeners
 //End of filters
 
-// Sample data representing bike information
-let bikes = [
-  {
-    id: 1,
-    title: "Cruiser R2 GT",
-    year: "2021",
-    speed: "25 mph",
-    range: "30/50 miles",
-    batteryLife: "3/6 hours",
-    weight: "15 pounds",
-    price: "440",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/CruiserGT3Series.webp?alt=media&token=33cbed2c-de7d-42eb-bcf3-9ffadb7f0e6e",
-    description: "Experience the Cruiser R2 GT, a versatile electric bike perfect for urban commuting and leisurely rides. With a top speed of 25 mph and a range of 30 to 50 miles.",
-    descriptionTwo: "But it's not just about performance; the Cruiser R2 GT also prioritizes comfort and convenience. Its lightweight design, weighing just 15 pounds.",
-  },
-  {
-    id: 2,
-    title: "EcoBike T-Cross",
-    year: "2020",
-    speed: "20 mph",
-    range: "20/45 miles",
-    batteryLife: "1/4 hours",
-    weight: "25 pounds",
-    price: "350",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/EcoBike%20T-Cross.png?alt=media&token=a4822cb5-159e-4639-b96c-5e6aa21b7cf0",
-    description: "Introducing the EcoBike T-Cross, a reliable companion for your daily commute and weekend adventures. With a top speed of 20 mph and a range of 20 to 45 miles.",
-    descriptionTwo: "But what sets the EcoBike T-Cross apart is its versatility. Whether you're navigating city streets or exploring scenic trails, this bike delivers a smooth and enjoyable riding experience every time.",
-  },
-  {
-    id: 3,
-    title: "EcoTraverse GT3 Series",
-    year: "2020",
-    speed: "35 mph",
-    range: "10/30 miles",
-    batteryLife: "1/2 hours",
-    weight: "10 pounds",
-    price: "600",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/EcoTraverse%20R2%20GT.png?alt=media&token=9247c9ab-a9ca-4f23-8d8e-eb0b0e08fe3a",
-    description: "Unleash the power of the EcoTraverse GT3 Series, a high-performance electric bike designed for speed enthusiasts and thrill-seekers. With a top speed of 35 mph and a range of 10 to 30 miles.",
-    descriptionTwo: "But speed isn't the only thing this bike offers. Its lightweight construction, weighing just 10 pounds, ensures agile handling and effortless maneuverability.",
-  },
-  {
-    id: 4,
-    title: "Cadillac Escalide S3",
-    year: "2022",
-    speed: "40 mph",
-    range: "45/60 miles",
-    batteryLife: "8/10 hours",
-    weight: "35 pounds",
-    price: "620",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Cadillac%20Escalade%20S3.jpg?alt=media&token=e9129507-6d33-461a-ac49-e97aabe7980e",
-    description: "Introducing the Cadillac Escalide S3, a powerhouse of performance and luxury in the world of electric bikes. With its impressive top speed of 40 mph and a range of 45 to 60 miles.",
-    descriptionTwo: "But it's not just about speed; the Cadillac Escalide S3 also prioritizes comfort and convenience. Its sleek design and ergonomic features ensure a comfortable ride.",
-  },
-  {
-    id: 5,
-    title: "ECO 4 Series GTI",
-    year: "2021",
-    speed: "10 mph",
-    range: "10/20 miles",
-    batteryLife: "1/3 hours",
-    weight: "15 pounds",
-    price: "330",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/ECO%204%20Series%20GTI.jpg?alt=media&token=db1b0249-bb7b-4ab5-987c-9a654786c71f",
-    description: "Discover the ECO 4 Series GTI, a compact and versatile electric bike perfect for urban commuting and short trips. With a top speed of 10 mph and a range of 10 to 20 miles.",
-    descriptionTwo: "But don't let its compact size fool you; the ECO 4 Series GTI is packed with features. Its lightweight frame, weighing just 15 pounds, ensures easy maneuverability.",
-  },
-  {
-    id: 6,
-    title: "ECO 4 Series",
-    year: "2020",
-    speed: "20 mph",
-    range: "80/100 miles",
-    batteryLife: "10/12 hours",
-    weight: "30 pounds",
-    price: "475",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/ECO%204%20Serie.jpg?alt=media&token=6fea9c6c-6f08-42b2-9a8a-5cc82a2b7633",
-    description: "Experience the ECO 4 Series, a reliable and efficient electric bike designed for longer journeys and outdoor adventures. With a top speed of 20 mph and an impressive range of 80 to 100 miles.",
-    descriptionTwo: "But what truly sets the ECO 4 Series apart is its durability and longevity. Its sturdy construction and reliable components ensure years of dependable use.",
-  },
-  {
-    id: 7,
-    title: "EcoTraverse RAV4",
-    year: "2021",
-    speed: "10 mph",
-    range: "100/120 miles",
-    batteryLife: "5/6 hours",
-    weight: "23 pounds",
-    price: "740",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/EcoTraverse%20RAV4.png?alt=media&token=6c3b6504-3a94-437d-bac3-657dc9315f21",
-    description: "Introducing the EcoTraverse RAV4, a reliable companion for your outdoor adventures. With its sturdy build and impressive range of 100 to 120 miles, this electric bike ensures you can explore far and wide with confidence.",
-    descriptionTwo: "The EcoTraverse RAV4 isn't just about endurance; it's also about comfort. Its ergonomic design and adjustable features guarantee a smooth and enjoyable ride, no matter the terrain.",
-  },
-  {
-    id: 8,
-    title: "GreenRoadster 3 Series",
-    year: "2022",
-    speed: "34 mph",
-    range: "23/48miles",
-    batteryLife: "2/4 hours",
-    weight: "18 pounds",
-    price: "490",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/GreenRoadster%203%20Series.png?alt=media&token=085eb24c-7025-4699-a3b1-8e97c8f63525",
-    description: "Meet the GreenRoadster 3 Series, a high-performance electric bike designed for speed enthusiasts and urban commuters alike. With a top speed of 34 mph and a range of 23 to 48 miles, this bike offers exhilarating rides and convenient travels.",
-    descriptionTwo: "But speed isn't the only thing this bike offers. Its lightweight construction, weighing just 18 pounds, ensures agile handling and effortless maneuverability in crowded city streets.",
-  },
-  {
-    id: 9,
-    title: "ECO Elite GT4",
-    year: "2022",
-    speed: "19 mph",
-    range: "35/67 miles",
-    batteryLife: "4/5 hours",
-    weight: "28 pounds",
-    price: "400",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/ECO%20Elite%20GT4.png?alt=media&token=96288a0f-92c3-4d73-ba3f-e20b7455680e",
-    description: "Experience the ECO Elite GT4, a versatile electric bike crafted for both leisurely rides and daily commutes. With a top speed of 19 mph and a range of 35 to 67 miles, this bike offers the perfect balance of performance and practicality.",
-    descriptionTwo: "But what sets the ECO Elite GT4 apart is its durability and endurance. Its robust frame and reliable components ensure long-lasting reliability.",
-  },
-  {
-    id:10,
-    title: "BMX DT 3",
-    year: "2022",
-    speed: "10 mph",
-    range: "10/25 miles",
-    batteryLife: "1/2 hours",
-    weight: "15 pounds",
-    price: "250",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/BMX%20DT%203.webp?alt=media&token=5b6a9975-5aad-49ef-9bc1-8b05d370486e",
-    description: "Sleek, efficient urban mobility. Stylish design, top speed 10 mph, range 10-25 miles, lightweight at 15 lbs. Durable battery for 1-2 hours. Perfect for commuters and leisure riders.",
-    descriptionTwo: "The BMX DT 3 is not just about performance; it's also about style. Its sleek lines and modern aesthetics ensure you'll turn heads wherever you go. And with its advanced features and reliable performance, this bike is more than just a mode of transportation.",
-  },
-  {
-    id: 11,
-    title: "BMX REV 2",
-    year: "2022",
-    speed: "27 mph",
-    range: "33/43 miles",
-    batteryLife: "2/6 hours",
-    weight: "45 pounds",
-    price: "439",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/BMX%20REV%202.webp?alt=media&token=3368fa88-0bfc-4a0d-b217-3f2dddfddc8c",
-    description: "The BMX REV 2 is a high-performance electric bike designed for urban commuting and off-road adventures. With a top speed of 27 mph and a range of 33 to 43 miles.",
-    descriptionTwo:"Its lightweight design, weighing just 45 pounds, makes it easy to maneuver in various terrains. The powerful battery provides 2 to 6 hours of riding "
-    +"ensuring you can go the distance without worrying about recharging."
-  },
-  {
-    id: 12,
-    title: "BMX XM 3",
-    year: "2021",
-    speed: "15 mph",
-    range: "20/25 miles",
-    batteryLife: "1/3 hours",
-    weight: "25 pounds",
-    price: "299",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/BMX%20XM%203.webp?alt=media&token=ec6d013f-2ec6-427f-894f-eb9b5686a543",
-    description: "BMX XM 3 is a sleek and efficient electric bike designed to take your riding experience to the next level.",
-    descriptionTwo:"With a top speed of 15 mph and a range of 20 to 25 miles, this bike ensures you can cover significant distances with ease."
-    +"Its battery provides 1 to 3 hours of continuous riding, allowing you to explore urban streets or venture into the countryside without worrying about running out of power."
+async function ProductsFirebase() {
+  const { getDatabase, ref, set, push, get,firebase,child  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
+  const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
+
+  const firebaseConfig = {
+      apiKey: "AIzaSyDEffEyjkHl-hztawckeSD1qFYAI4vCDUI",
+      authDomain: "ecobike-bb6cc.firebaseapp.com",
+      projectId: "ecobike-bb6cc",
+      storageBucket: "ecobike-bb6cc.appspot.com",
+      messagingSenderId: "73199752449",
+      appId: "1:73199752449:web:7288aedbefb7cedd6bb700",
+      measurementId: "G-Q1N62R5827"
+    };  
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const database = getDatabase(app, "https://ecobike-bb6cc-default-rtdb.europe-west1.firebasedatabase.app");
+
+  let bikes = [
+  ];
+
+  // Function to retrieve bikes data from Firebase and generate HTML
+  async function fetchBikes() {
+    const dbRef = ref(database, 'bikes');
+    try {
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        const bikesObj = snapshot.val();
+        bikes = Object.keys(bikesObj).map(key => ({
+          id: key,
+          ...bikesObj[key]
+        }));
+        renderBikes(bikes);
+      } else {
+        console.log("No data available");
+      }
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   }
-];
-//End of bike information
 
 // Function to generate HTML for each bike
-function generateBikeHTML(bike, index) {
+function generateBikeHTML(bike) {
   return `
     <div class="bike">
       <div class="featured-car-card">
@@ -306,19 +182,19 @@ function generateBikeHTML(bike, index) {
     </div>
   `;
 }
-
 // End of HTML for each bike
 
-// Function to render bikes
-function renderBikes() {
-  const container = document.getElementById("bikeContainer");
-  bikes.forEach((bike, index) => {
-    const bikeHTML = generateBikeHTML(bike, index);
-    container.innerHTML += bikeHTML;
+// Function to render bikes on the page
+function renderBikes(bikesData) {
+  const bikesContainer = document.getElementById('bikeContainer');
+  bikesContainer.innerHTML = ''; // Clear the container
+  Object.values(bikesData).forEach(bike => {
+    const bikeHTML = generateBikeHTML(bike);
+    bikesContainer.innerHTML += bikeHTML;
   });
 }
 
-renderBikes();
+fetchBikes();
 // End of function for rendering bikes
 
 // Cart Elements
@@ -350,35 +226,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const bikeId = parseInt(params.get('id'));
   const bike = bikes.find(b => b.id === bikeId);
 
-  if (bike) {
+  if (!isNaN(bikeId)) {
+    fetchBikeDetails(bikeId);
+  } 
+
+  async function fetchBikeDetails(bikeId) {
+    const dbRef = ref(database, `bikes/${bikeId}`);
+    try {
+        const snapshot = await get(dbRef);
+        if (snapshot.exists()) {
+            const bikeData = snapshot.val();
+            renderBikeDetails(bikeData);
+        } else {
+            console.log(`No bike found with ID ${bikeId}`);
+        }
+    } catch (error) {
+        console.error("Error fetching bike details: ", error);
+    }
+  }  
+
+  function renderBikeDetails(bikeData) {
     const detailsContainer = document.querySelector('.bike-details');
-    detailsContainer.innerHTML = `
-    <div class="title">
-    PRODUCT DETAIL
-    </div>
-      <div class="bike-detail">
-        <div class = "detailImg">
-          <img src="${bike.imageSrc}" alt="${bike.title}">
-        </div>
-        <div class = "detailInfo">
-          <h2 class = "desName">${bike.title}</h2>
-          <p class = "desPrice">$${bike.price}</p>
-          <div class = "detailDescription">
-          ${bike.description}
+    if (detailsContainer) {
+        detailsContainer.innerHTML = `
+          <div class="bike-detail">
+            <div class = "detailImg">
+              <img src="${bikeData.imageSrc}" alt="${bikeData.title}">
+            </div>
+            <div class = "detailInfo">
+              <h2 class = "desName">${bikeData.title}</h2>
+              <p class = "desPrice">$${bikeData.price}</p>
+              <div class = "detailDescription">
+              ${bikeData.description}
+              </div>
+              <div class = "detailDescription">
+              ${bikeData.descriptionTwo}
+              </div>
+              <div class = "datailButton">
+                <button class="btn add-to-cart-btn" data-id="${bikeData.id}">ADD TO CART</button>
+              </div>
+            </div>
           </div>
-          <div class = "detailDescription">
-          ${bike.descriptionTwo}
-          </div>
-          <div class = "datailButton">
-            <button class="btn add-to-cart-btn" data-id="${bike.id}">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-    `;
-    const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
-    addToCartBtn.addEventListener('click', () => {
-      addToCart(bike.id);
-    });
+        `;
+  
+        const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
+        addToCartBtn.addEventListener('click', (event) => {
+          let posclick = event.target;
+          let product_id = posclick.getAttribute('data-id');
+          addToCart(product_id)
+        });
+    } else {
+        console.error('Details container not found');
+    }
   }
 });
 //End of bike details
@@ -466,4 +365,6 @@ const changeQuantity = (productId, type) => {
   }
   addCartToHTML();
 };
-// ENd of Cart Functionality
+// End of Cart Functionality
+}
+ProductsFirebase();

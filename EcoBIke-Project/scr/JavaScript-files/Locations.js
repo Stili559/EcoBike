@@ -64,7 +64,7 @@ function closePopup() {
 }
 //End of closing the popups 
 
-async function initFirebase55() {
+async function locationFirebase() {
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
     const { getDatabase, ref, set, get, child, update, remove } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
     
@@ -85,12 +85,12 @@ async function initFirebase55() {
 const dbRef = ref(database, 'stores');
   get(dbRef).then((snapshot) => {
     if (snapshot.exists()) {
-      const bikesData = snapshot.val();
-      const bikesContainer = document.getElementById('storesContainer');
-      bikesContainer.innerHTML = ''; 
-      Object.values(bikesData).forEach(bike => {
-        const bikeHTML = generateStoreHTML(bike);
-        bikesContainer.innerHTML += bikeHTML;
+      const storeData = snapshot.val();
+      const storeContainer = document.getElementById('storesContainer');
+      storeContainer.innerHTML = ''; 
+      Object.values(storeData).forEach(bike => {
+        const storeHTML = generateStoreHTML(bike);
+        storeContainer.innerHTML += storeHTML;
       });
     } else {
       console.log("No data available");
@@ -122,4 +122,4 @@ function generateStoreHTML(store) {
 }
 //End of HTML generator
 }
-initFirebase55()
+locationFirebase()
