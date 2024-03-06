@@ -221,7 +221,6 @@ closeCart.addEventListener('click', () => {
 });
 
 // Populate Bike Details
-document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const bikeId = parseInt(params.get('id'));
   const bike = bikes.find(b => b.id === bikeId);
@@ -279,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Details container not found');
     }
   }
-});
 //End of bike details
 
 // Add to Cart Functionality
