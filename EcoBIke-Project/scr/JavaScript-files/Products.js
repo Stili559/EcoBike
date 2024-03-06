@@ -1,99 +1,3 @@
-//Filters
-document.addEventListener('DOMContentLoaded', function () {
-  const bikeList = document.querySelector('.featured-car-list');
-  const clearFiltersButton = document.getElementById('clear-filters-button');
-  const sortLowToHighButton = document.getElementById('sort-low-to-high');
-  const sortHighToLowButton = document.getElementById('sort-high-to-low');
-  const yearFilterSelect = document.getElementById('year-filter');
-  const checkboxes = document.querySelectorAll('#price-ranges input[type="checkbox"]');
-
-  const bikes = Array.from(bikeList.children);
-  const originalBikesOrder = Array.from(bikes);
-
-  // Price range for checkboxes
-  const priceRanges = {
-      'range-0-400': [0, 400],
-      'range-400-600': [401, 599],
-      'range-600-800': [600, 800],
-  };
-
-  // Compare bike prices
-  const comparePrices = (a, b) => {
-      const priceA = parseFloat(a.querySelector('.card-price strong').textContent.replace('$', ''));
-      const priceB = parseFloat(b.querySelector('.card-price strong').textContent.replace('$', ''));
-      return priceA - priceB;
-  };
-
-  // Update bike list
-  const updateBikeList = (bikeArray) => {
-      bikeList.innerHTML = '';
-      bikeArray.forEach((bike) => {
-          bikeList.appendChild(bike);
-      });
-  };
-
-  // Function for working filters
-  function updatePriceFilter() {
-      const selectedPriceRanges = [];
-      checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-              const rangeId = checkbox.id;
-              selectedPriceRanges.push(priceRanges[rangeId]);
-          }
-      });
-      let filteredBikes;
-      if (selectedPriceRanges.length === 0) {
-        filteredBikes = bikes;
-    } else {
-        filteredBikes = bikes.filter((bike) => {
-            const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
-            return selectedPriceRanges.some(([minPrice, maxPrice]) => bikePrice >= minPrice && bikePrice <= maxPrice);
-        });
-    }
-    updateBikeList(filteredBikes);
-  }
-  // End of function for filters
-
-  // Event listeners for all filters
-  checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', updatePriceFilter);
-  });
-
-  sortLowToHighButton.addEventListener('click', () => {
-      bikes.sort(comparePrices);
-      updateBikeList(bikes);
-  });
-
-  sortHighToLowButton.addEventListener('click', () => {
-      bikes.sort(comparePrices);
-      bikes.reverse();
-      updateBikeList(bikes);
-  });
-
-  yearFilterSelect.addEventListener('change', () => {
-      const selectedYear = yearFilterSelect.value;
-      let filteredBikes;
-      if (selectedYear === 'all') {
-          filteredBikes = bikes;
-      } else {
-          filteredBikes = bikes.filter((bike) => {
-              const bikeYear = bike.querySelector('.year').getAttribute('value');
-              return bikeYear === selectedYear;
-          });
-      }
-      updateBikeList(filteredBikes);
-  });
-
-  clearFiltersButton.addEventListener('click', () => {
-      yearFilterSelect.value = 'all';
-      bikes.length = 0;
-      bikes.push(...originalBikesOrder);
-      updateBikeList(bikes);
-  });
-});
-//End of event listeners
-//End of filters
-
 async function ProductsFirebase() {
   const { getDatabase, ref, set, push, get,firebase,child  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
@@ -128,6 +32,7 @@ async function ProductsFirebase() {
           ...bikesObj[key]
         }));
         renderBikes(bikes);
+        initFilters();
       } else {
         console.log("No data available");
       }
@@ -187,7 +92,7 @@ function generateBikeHTML(bike) {
 // Function to render bikes on the page
 function renderBikes(bikesData) {
   const bikesContainer = document.getElementById('bikeContainer');
-  bikesContainer.innerHTML = ''; // Clear the container
+  bikesContainer.innerHTML = '';
   Object.values(bikesData).forEach(bike => {
     const bikeHTML = generateBikeHTML(bike);
     bikesContainer.innerHTML += bikeHTML;
@@ -196,6 +101,107 @@ function renderBikes(bikesData) {
 
 fetchBikes();
 // End of function for rendering bikes
+
+//Filters
+function initFilters() {
+  const bikeList = document.querySelector('.featured-car-list');
+  const clearFiltersButton = document.getElementById('clear-filters-button');
+  const sortLowToHighButton = document.getElementById('sort-low-to-high');
+  const sortHighToLowButton = document.getElementById('sort-high-to-low');
+  const yearFilterSelect = document.getElementById('year-filter');
+  const checkboxes = document.querySelectorAll('#price-ranges input[type="checkbox"]');
+
+  const bikes = Array.from(bikeList.children);
+  const originalBikesOrder = Array.from(bikes);
+
+  // Price range for checkboxes
+  const priceRanges = {
+      'range-0-400': [0, 400],
+      'range-400-600': [401, 599],
+      'range-600-800': [600, 800],
+  };
+
+  // Compare bike prices
+  const comparePrices = (a, b) => {
+      const priceA = parseFloat(a.querySelector('.card-price strong').textContent.replace('$', ''));
+      const priceB = parseFloat(b.querySelector('.card-price strong').textContent.replace('$', ''));
+      return priceA - priceB;
+  };
+
+  // Update bike list
+  const updateBikeList = (bikeArray) => {
+    bikeList.innerHTML = '';
+    bikeArray.forEach((bike) => {
+        bikeList.appendChild(bike);
+    });
+};
+
+// Function for working filters
+function filterBikes() {
+  const selectedYear = yearFilterSelect.value;
+  const selectedPriceRanges = [];
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      const rangeId = checkbox.id;
+      selectedPriceRanges.push(priceRanges[rangeId]);
+    }
+  });
+
+  const filteredBikes = originalBikesOrder.filter((bike) => {
+    const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
+    const bikeYear = bike.querySelector('.year').getAttribute('value');
+
+    const isYearMatch = selectedYear === 'all' || bikeYear === selectedYear;
+    const isPriceMatch = selectedPriceRanges.length === 0 || selectedPriceRanges.some(([minPrice, maxPrice]) => bikePrice >= minPrice && bikePrice <= maxPrice);
+
+    return isYearMatch && isPriceMatch;
+  });
+
+  updateBikeList(filteredBikes);
+}
+// End of function for filters
+
+  // Event listeners for all filters
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', filterBikes);
+  });
+
+  sortLowToHighButton.addEventListener('click', () => {
+      bikes.sort(comparePrices);
+      updateBikeList(bikes);
+  });
+
+  sortHighToLowButton.addEventListener('click', () => {
+      bikes.sort(comparePrices);
+      bikes.reverse();
+      updateBikeList(bikes);
+  });
+
+  
+yearFilterSelect.addEventListener('change', filterBikes);
+
+  yearFilterSelect.addEventListener('change', () => {
+      const selectedYear = yearFilterSelect.value;
+      let filteredBikes;
+      if (selectedYear === 'all') {
+          filteredBikes = bikes;
+      } else {
+          filteredBikes = bikes.filter((bike) => {
+              const bikeYear = bike.querySelector('.year').getAttribute('value');
+              return bikeYear === selectedYear;
+          });
+      }
+      updateBikeList(filteredBikes);
+  });
+
+  clearFiltersButton.addEventListener('click', () => {
+    yearFilterSelect.value = 'all';
+    checkboxes.forEach((checkbox) => checkbox.checked = false);
+    filterBikes(); // Call filterBikes to reset the list
+  });
+}
+//End of event listeners
+//End of filters
 
 // Cart Elements
 const iconCart = document.querySelector('.icon-cart');
