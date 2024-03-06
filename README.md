@@ -26,6 +26,7 @@
 - [Locations Page](#locations-page)
 - [Support Pop-up](#support-pop-up)
 - [About Us Page](#about-us-page)
+- [Firebase](#firebase)
 - [Unit test](#unitTest)
 - [Technologies Used](#technologies-Used)
 - [Contributing](#contributing)
@@ -90,6 +91,28 @@ Download and set up [**Visual Studio Code**](https://code.visualstudio.com/downl
 **Delve into our story of sustainability**, from our humble beginnings to our innovative processes. Learn about our unwavering commitment to the environment and how our unique bicycles are a testament to our green mission.
 
 ![image](https://github.com/Stili559/EcoBike/assets/80035053/311fc241-e154-4fc3-a314-022723ae7be5)
+
+## Firebase Database☁️<a name="firebase"></a>
+
+### Overview
+
+The **EcoBike** site utilizes Firebase Database to store and manage various data related to user authentication, user profiles, and bike-related information. Firebase Database offers real-time data synchronization, making it a robust solution for our application's needs.
+
+### FIrebase Realtime Database
+
+A cloud-hosted database that enables real-time data syncing across all clients, making our app interactive and highly responsive.
+
+![image](https://github.com/Stili559/EcoBike/assets/80035053/92232b04-4595-46fa-a49b-c2fad9637ed2)
+
+### FIrebase Authentication
+
+Provides easy and secure login methods, supporting multiple authentication types for a frictionless user experience.
+
+![image](https://github.com/Stili559/EcoBike/assets/80035053/57483b81-a7cc-4f0b-9b77-93c063872046)
+
+### FIrebase Firestore
+
+A scalable database for mobile and web development, offering advanced queries and real-time updates for dynamic content delivery.
 
 ## Unit Tests: Ensuring Quality ✅<a name="unitTest"></a>
 The EcoBike website is equipped with a suite of unit tests designed to ensure the reliability and stability of the application. These tests cover a range of functionalities, from user authentication to cart management.
