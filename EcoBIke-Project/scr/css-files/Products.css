@@ -37,7 +37,7 @@ body{
 
 .sort-button {
   padding: 4px 6px;
-  margin-right: 10px;
+  margin-right: 11px;
   background-color: #4CAF50;
   color: #fff;
   border: none;
@@ -52,7 +52,7 @@ body{
 }
 
 /* Select box */
-#year-filter {
+#year-filter, #speed-filter, #weight-filter {
   padding: 2px; 
   border-radius: 4px;
   outline: none; 
@@ -263,7 +263,7 @@ input[type="checkbox"] {
     border-radius: 6px;
   }
   .sort-button,
-  #year-filter,
+  #year-filter, #speed-filter, #weight-filter,
   .checkbox-label
   {
     margin-right: 5px; 
@@ -284,7 +284,7 @@ input[type="checkbox"] {
     margin-right: 0.5rem;
   }
 
-  #year-filter {
+  #year-filter, #speed-filter, #weight-filter{
     flex: 1;
     margin-bottom: 0.5rem;
   }
@@ -310,7 +310,7 @@ input[type="checkbox"] {
   }
 
   .sort-button,
-  #year-filter,
+  #year-filter, #speed-filter, #weight-filter,
   .checkbox-label
   {
     margin-right: 5px; 
@@ -336,7 +336,7 @@ input[type="checkbox"] {
     margin-right: 0.5rem;
   }
 
-  #year-filter {
+  #year-filter, #speed-filter, #weight-filter {
     flex: 1;
     margin-bottom: 0.5rem;
   }

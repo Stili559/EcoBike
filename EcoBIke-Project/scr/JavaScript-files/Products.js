@@ -61,7 +61,7 @@ function generateBikeHTML(bike) {
           <ul class="card-list">
             <li class="card-list-item">
               <i class="fa-solid fa-tachometer-alt"></i>
-              <span class="card-item-text">${bike.speed}</span>
+              <span class="card-item-text speed">${bike.speed}</span>
             </li>
             <li class="card-list-item">
               <i class="fa-solid fa-battery-full"></i>
@@ -73,7 +73,7 @@ function generateBikeHTML(bike) {
             </li>
             <li class="card-list-item">
               <i class="fa-solid fa-bicycle"></i>
-              <span class="card-item-text">${bike.weight}</span>
+              <span class="card-item-text weight">${bike.weight}</span>
             </li>
           </ul>
           <div class="card-price-wrapper">
@@ -104,6 +104,8 @@ fetchBikes();
 
 //Filters
 function initFilters() {
+  const speedFilterSelect = document.getElementById('speed-filter');
+  const weightFilterSelect = document.getElementById('weight-filter');
   const bikeList = document.querySelector('.featured-car-list');
   const clearFiltersButton = document.getElementById('clear-filters-button');
   const sortLowToHighButton = document.getElementById('sort-low-to-high');
@@ -130,14 +132,31 @@ function initFilters() {
 
   // Update bike list
   const updateBikeList = (bikeArray) => {
-    bikeList.innerHTML = '';
-    bikeArray.forEach((bike) => {
-        bikeList.appendChild(bike);
-    });
+    bikeList.innerHTML = ''; 
+    if (bikeArray.length > 0) {
+        bikeArray.forEach((bike) => {
+            bikeList.appendChild(bike);
+        });
+    } else {
+        bikeList.innerHTML = ' <img class = "banner" src="https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Banner_EcoBIke_Live.png?alt=media&token=fa20bd78-1cce-4a85-86d1-a32b423a0576">';
+    }
 };
 
 // Function for working filters
 function filterBikes() {
+
+  const selectedSpeedRange = speedFilterSelect.value;
+  let minSpeed = 0, maxSpeed = Infinity;
+  if (selectedSpeedRange !== 'all') {
+    [minSpeed, maxSpeed] = selectedSpeedRange.split('-').map(Number);
+  }
+
+  const selectedWeightRange = weightFilterSelect.value;
+  let minWeight = 0, maxWeight = Infinity;
+  if (selectedWeightRange !== 'all') {
+    [minWeight, maxWeight] = selectedWeightRange.split('-').map(Number);
+  }
+
   const selectedYear = yearFilterSelect.value;
   const selectedPriceRanges = [];
   checkboxes.forEach((checkbox) => {
@@ -148,13 +167,17 @@ function filterBikes() {
   });
 
   const filteredBikes = originalBikesOrder.filter((bike) => {
+    
     const bikePrice = parseFloat(bike.querySelector('.card-price strong').textContent.replace('$', ''));
     const bikeYear = bike.querySelector('.year').getAttribute('value');
-
+    const bikeSpeed = parseFloat(bike.querySelector('.speed').textContent);
+    const isSpeedMatch = bikeSpeed >= minSpeed && bikeSpeed <= maxSpeed;
     const isYearMatch = selectedYear === 'all' || bikeYear === selectedYear;
     const isPriceMatch = selectedPriceRanges.length === 0 || selectedPriceRanges.some(([minPrice, maxPrice]) => bikePrice >= minPrice && bikePrice <= maxPrice);
+    const bikeWeight = parseFloat(bike.querySelector('.weight').textContent);
+    const isWeightMatch = bikeWeight >= minWeight && bikeWeight <= maxWeight;
 
-    return isYearMatch && isPriceMatch;
+    return isYearMatch && isPriceMatch && isSpeedMatch && isWeightMatch;
   });
 
   updateBikeList(filteredBikes);
@@ -171,33 +194,24 @@ function filterBikes() {
       updateBikeList(bikes);
   });
 
+  speedFilterSelect.addEventListener('change', filterBikes);
+
+  weightFilterSelect.addEventListener('change', filterBikes);
+
   sortHighToLowButton.addEventListener('click', () => {
       bikes.sort(comparePrices);
       bikes.reverse();
       updateBikeList(bikes);
   });
 
-  
-yearFilterSelect.addEventListener('change', filterBikes);
-
-  yearFilterSelect.addEventListener('change', () => {
-      const selectedYear = yearFilterSelect.value;
-      let filteredBikes;
-      if (selectedYear === 'all') {
-          filteredBikes = bikes;
-      } else {
-          filteredBikes = bikes.filter((bike) => {
-              const bikeYear = bike.querySelector('.year').getAttribute('value');
-              return bikeYear === selectedYear;
-          });
-      }
-      updateBikeList(filteredBikes);
-  });
+  yearFilterSelect.addEventListener('change', filterBikes);
 
   clearFiltersButton.addEventListener('click', () => {
+    weightFilterSelect.value = 'all';
     yearFilterSelect.value = 'all';
+    speedFilterSelect.value = 'all';
     checkboxes.forEach((checkbox) => checkbox.checked = false);
-    filterBikes(); // Call filterBikes to reset the list
+    filterBikes(); 
   });
 }
 //End of event listeners
