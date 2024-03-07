@@ -53,9 +53,10 @@
   </div>
 <div class="content betterText">
   <div id="price-ranges" class="flex-container">
-    <label class="textFilter" for="sort-low-to-high">Price:</label>
-    <button class="sort-button betterText" id="sort-low-to-high">Low to High</button>
-    <button class="sort-button betterText" id="sort-high-to-low">High to Low</button>
+    <div class="filter-item">
+      <label for="title-search">Search:</label>
+      <input type="text" id="title-search" placeholder="Enter bike title">
+    </div>    
     <label class="textFilter" for="speed-filter">Filter by Speed:</label>
     <select id="speed-filter"  class = "betterText">
       <option value="all">All Speeds</option>
@@ -77,6 +78,19 @@
       <option value="2021">2021</option>
       <option value="2020">2020</option>
     </select>
+    <label class="textFilter" for="year-filter">Filter by Type:</label>
+    <select id="type-filter" class = "betterText">
+      <option value="all">All Types</option>
+      <option value="urban">Urban</option>
+      <option value="hybrid">Hybrid</option>
+      <option value="folding">Folding</option>
+      <option value="sport">Sport</option>
+      <option value="trail">Trail</option>
+      <option value="bmx">BMX</option>
+    </select>
+    <label class="textFilter" for="sort-low-to-high">Price:</label>
+    <button class="sort-button betterText" id="sort-low-to-high">Low to High</button>
+    <button class="sort-button betterText" id="sort-high-to-low">High to Low</button>
     <label class="textFilter" for="range-0-400">Price Ranges:</label>
     <label class="checkbox-label">
       <input type="checkbox" id="range-0-400"> $0 - $400

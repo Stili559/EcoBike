@@ -26,13 +26,14 @@ body{
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 1rem;
   margin-left: 2rem;
   background-color: #1f1d1d;
   color: white;
   animation: slideIn 1.2s ease;
+  height: 105px;
 }
 
 .sort-button {
@@ -52,8 +53,8 @@ body{
 }
 
 /* Select box */
-#year-filter, #speed-filter, #weight-filter {
-  padding: 2px; 
+#year-filter, #speed-filter, #weight-filter, #type-filter {
+  padding: 4px; 
   border-radius: 4px;
   outline: none; 
   background-color: #fff; 
@@ -73,7 +74,7 @@ body{
 }
 
 #clear-filters-button {
-  padding: 4px 8px;
+  padding: 5px 6px;
   margin-right: 10px;
   background-color: #df0101;
   color: #fff;
@@ -90,12 +91,47 @@ body{
 
 input[type="checkbox"] {
   width: 20px; 
-  height: 20px; 
+  height: 60px; 
   border: 2px solid #4CAF50; 
   border-radius: 4px; 
   margin-right: 5px;
   cursor: pointer;
 }
+
+.filter-item {
+  display: flex; 
+  align-items: center; 
+}
+
+.filter-item input[type="text"] {
+  margin-left: 1rem;
+  padding: 2px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  outline: none;
+}
+
+.filter-item input[type="text"]::placeholder {
+  font-weight: 600;
+  color: #333; 
+  font-size: 14px;
+}
+
+.notFound {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto; 
+  display: block; 
+  max-width: 100%; 
+  object-fit: contain; 
+  animation: appear 1.5s ease-out forwards;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* Container bikes styling */
 .container {
@@ -252,18 +288,21 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
+  #price-ranges {
+    height: auto;
+  }
   .featured-car-card {
     width: 100%;
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
   #price-ranges {
-    width: 91.5%;
+    width: 90.5%;
     padding: 5px;
     border-radius: 6px;
   }
   .sort-button,
-  #year-filter, #speed-filter, #weight-filter,
+  #year-filter, #speed-filter, #weight-filter,#type-filter,
   .checkbox-label
   {
     margin-right: 5px; 
@@ -284,18 +323,21 @@ input[type="checkbox"] {
     margin-right: 0.5rem;
   }
 
-  #year-filter, #speed-filter, #weight-filter{
+  #year-filter, #speed-filter, #weight-filter, #type-filter{
     flex: 1;
     margin-bottom: 0.5rem;
   }
 
   input[type="checkbox"] {
-    width: 25px;
+    width: 45px;
     height: 25px;
   } 
 }
 
 @media (max-width: 767px) {
+  #price-ranges {
+    height: auto;
+  }
   .featured-car-card {
     width: 100%;
   }
@@ -305,12 +347,24 @@ input[type="checkbox"] {
 
   #price-ranges {
     width: 83%;
-    padding: 5px;
+    padding: 8px;
     border-radius: 6px;
   }
 
+  #speed-filter{
+    margin-left: 0.4rem;
+  }
+
+  #year-filter{
+    margin-left: 1rem;
+  }
+
+  #type-filter{
+    margin-left: 1.1rem;
+  }
+
   .sort-button,
-  #year-filter, #speed-filter, #weight-filter,
+  #year-filter, #speed-filter, #weight-filter, .filter-item, #type-filter,
   .checkbox-label
   {
     margin-right: 5px; 
@@ -336,7 +390,7 @@ input[type="checkbox"] {
     margin-right: 0.5rem;
   }
 
-  #year-filter, #speed-filter, #weight-filter {
+  #year-filter, #speed-filter, #weight-filter, #type-filter {
     flex: 1;
     margin-bottom: 0.5rem;
   }
@@ -349,6 +403,25 @@ input[type="checkbox"] {
   .checkbox-label {
     flex-basis: 100%; 
   }
+}
+
+@media (max-width: 380px) {
+  #speed-filter{
+    margin-left: 1rem;
+  }
+
+  #year-filter{
+    margin-right: 1rem;
+  }
+
+  #weight-filter{
+    margin-left: 1rem;
+  }
+
+  #type-filter{
+    margin-left: 1.65rem;
+  }
+
 }
 
 /* Animations */

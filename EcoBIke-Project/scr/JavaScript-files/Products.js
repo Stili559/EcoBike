@@ -53,6 +53,7 @@ function generateBikeHTML(bike) {
         </figure>
         <div class="card-content">
           <div class="card-title-wrapper">
+          <a style="display: none;" class="card-item-text type">${bike.type}</a>
             <h3 class="h3 card-title">
               <a>${bike.title}</a>
             </h3>
@@ -138,13 +139,15 @@ function initFilters() {
             bikeList.appendChild(bike);
         });
     } else {
-        bikeList.innerHTML = ' <img class = "banner" src="https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/Banner_EcoBIke_Live.png?alt=media&token=fa20bd78-1cce-4a85-86d1-a32b423a0576">';
+        bikeList.innerHTML = ' <img class = "notFound" src="https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/itemNotFound.png?alt=media&token=e17013a0-ae20-48d1-ba37-6784199a0c64">';
     }
 };
 
 // Function for working filters
 function filterBikes() {
-
+  const searchInput = document.getElementById('title-search').value.toLowerCase();
+  const selectedType = document.getElementById('type-filter').value;
+  
   const selectedSpeedRange = speedFilterSelect.value;
   let minSpeed = 0, maxSpeed = Infinity;
   if (selectedSpeedRange !== 'all') {
@@ -176,8 +179,12 @@ function filterBikes() {
     const isPriceMatch = selectedPriceRanges.length === 0 || selectedPriceRanges.some(([minPrice, maxPrice]) => bikePrice >= minPrice && bikePrice <= maxPrice);
     const bikeWeight = parseFloat(bike.querySelector('.weight').textContent);
     const isWeightMatch = bikeWeight >= minWeight && bikeWeight <= maxWeight;
+    const bikeTitle = bike.querySelector('.card-title a').textContent.toLowerCase();
+    const isTitleMatch = bikeTitle.includes(searchInput);
+    const bikeType = bike.querySelector('.type').textContent.trim();
+    const isTypeMatch = selectedType === 'all' || bikeType === selectedType;
 
-    return isYearMatch && isPriceMatch && isSpeedMatch && isWeightMatch;
+    return isYearMatch && isPriceMatch && isSpeedMatch && isWeightMatch && isTitleMatch && isTypeMatch;
   });
 
   updateBikeList(filteredBikes);
@@ -193,6 +200,10 @@ function filterBikes() {
       bikes.sort(comparePrices);
       updateBikeList(bikes);
   });
+
+  document.getElementById('type-filter').addEventListener('change', filterBikes);
+
+  document.getElementById('title-search').addEventListener('input', filterBikes);
 
   speedFilterSelect.addEventListener('change', filterBikes);
 
@@ -210,6 +221,8 @@ function filterBikes() {
     weightFilterSelect.value = 'all';
     yearFilterSelect.value = 'all';
     speedFilterSelect.value = 'all';
+    document.getElementById('title-search').value = '';
+    document.getElementById('type-filter').value = 'all'
     checkboxes.forEach((checkbox) => checkbox.checked = false);
     filterBikes(); 
   });
@@ -255,6 +268,7 @@ closeCart.addEventListener('click', () => {
         const snapshot = await get(dbRef);
         if (snapshot.exists()) {
             const bikeData = snapshot.val();
+            bikeData.id = bikeId;
             renderBikeDetails(bikeData);
         } else {
             console.log(`No bike found with ID ${bikeId}`);
