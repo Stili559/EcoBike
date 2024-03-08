@@ -646,7 +646,8 @@ body{
   
 @media (max-width: 767px) {
   .square-image img {
-    height: 8rem;
+    margin-top: -1.5rem;
+    height: 9.5rem;
   }
   .square {
     width: calc(33.33% - 0px);
@@ -680,7 +681,7 @@ body{
     width: 1.5rem;
   }
   .carousel-item .fixer{
-    height: 14rem;
+    height: 12rem;
     width: 1rem;
   }
   .carousel-caption p, .carousel-captionThree p { 
