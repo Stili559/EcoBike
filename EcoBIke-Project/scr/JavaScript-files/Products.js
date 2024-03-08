@@ -192,6 +192,33 @@ function filterBikes() {
 // End of function for filters
 
   // Event listeners for all filters
+  document.getElementById('toggle-filters-button').addEventListener('click', function() {
+    var filters = document.getElementById('price-ranges');
+    if (filters.style.display === "none" || filters.style.display === "") {
+      filters.style.display = "flex";
+      this.textContent = "Hide Filters";
+    } else {
+      filters.style.display = "none";
+      this.textContent = "Show Filters";
+    }
+  });
+
+  function adjustForViewport() {
+    const filters = document.getElementById('price-ranges');
+    const toggleButton = document.getElementById('toggle-filters-button');
+    if (window.innerWidth > 1200) {
+      filters.style.display = 'flex';
+      toggleButton.style.display = 'none';
+    } else {
+      filters.style.display = 'none';
+      toggleButton.style.display = 'inline-block';
+    }
+  }
+  
+  window.addEventListener('load', adjustForViewport);
+  
+  window.addEventListener('resize', adjustForViewport);
+
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', filterBikes);
   });

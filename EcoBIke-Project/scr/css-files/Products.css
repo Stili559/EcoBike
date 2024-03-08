@@ -103,6 +103,34 @@ input[type="checkbox"] {
   align-items: center; 
 }
 
+#toggle-filters-button {
+  display: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  text-align: center; 
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
+}
+
+#toggle-filters-button:hover {
+  background-color: #3b863d; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .filter-item input[type="text"] {
   margin-left: 1rem;
   padding: 2px; 
@@ -290,17 +318,25 @@ input[type="checkbox"] {
 @media (min-width: 768px) and (max-width: 1200px) {
   #price-ranges {
     height: auto;
+    display: none;
   }
+
+  #toggle-filters-button {
+    display: block;
+  }
+
   .featured-car-card {
     width: 100%;
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
+
   #price-ranges {
     width: 90.5%;
     padding: 5px;
     border-radius: 6px;
   }
+  
   .sort-button,
   #year-filter, #speed-filter, #weight-filter,#type-filter,
   .checkbox-label
@@ -337,7 +373,13 @@ input[type="checkbox"] {
 @media (max-width: 767px) {
   #price-ranges {
     height: auto;
+    display: none;
   }
+
+  #toggle-filters-button {
+    display: block;
+  }
+
   .featured-car-card {
     width: 100%;
   }
@@ -406,6 +448,15 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 380px) {
+  #price-ranges {
+    height: auto;
+    display: none;
+  }
+
+  #toggle-filters-button {
+    display: block;
+  }
+
   #speed-filter{
     margin-left: 1rem;
   }
