@@ -66,7 +66,7 @@ function closePopup() {
 
 async function locationFirebase() {
     const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
-    const { getDatabase, ref, set, get, child, update, remove } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
+    const { getDatabase, ref, get } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
     
     const firebaseConfig = {
         apiKey: "AIzaSyDEffEyjkHl-hztawckeSD1qFYAI4vCDUI",

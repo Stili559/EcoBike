@@ -1,8 +1,9 @@
 async function ProductsFirebase() {
-  const { getDatabase, ref, set, push, get,firebase,child  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
+  const { getDatabase, ref, get  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
-  const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
-
+  const { getFirestore, doc, getDoc, setDoc, collection } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
+  const { getAuth, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
+  
   const firebaseConfig = {
       apiKey: "AIzaSyDEffEyjkHl-hztawckeSD1qFYAI4vCDUI",
       authDomain: "ecobike-bb6cc.firebaseapp.com",
@@ -102,6 +103,12 @@ function renderBikes(bikesData) {
 
 fetchBikes();
 // End of function for rendering bikes
+
+async function loadDataAndCart() {
+  await fetchBikes(); 
+  fetchCartFromFirestore(currentUserId); 
+}
+loadDataAndCart();
 
 //Filters
 function initFilters() {
@@ -305,45 +312,45 @@ closeCart.addEventListener('click', () => {
     }
   }  
 
-  function renderBikeDetails(bikeData) {
-    const detailsContainer = document.querySelector('.bike-details');
-    if (detailsContainer) {
-        detailsContainer.innerHTML = `
-          <div class="bike-detail">
-            <div class = "detailImg">
-              <img src="${bikeData.imageSrc}" alt="${bikeData.title}">
+function renderBikeDetails(bikeData) {
+  const detailsContainer = document.querySelector('.bike-details');
+  if (detailsContainer) {
+      detailsContainer.innerHTML = `
+        <div class="bike-detail">
+          <div class = "detailImg">
+            <img src="${bikeData.imageSrc}" alt="${bikeData.title}">
+          </div>
+          <div class = "detailInfo">
+            <h2 class = "desName">${bikeData.title}</h2>
+            <p class = "desPrice">$${bikeData.price}</p>
+            <div class = "detailDescription">
+            ${bikeData.description}
             </div>
-            <div class = "detailInfo">
-              <h2 class = "desName">${bikeData.title}</h2>
-              <p class = "desPrice">$${bikeData.price}</p>
-              <div class = "detailDescription">
-              ${bikeData.description}
-              </div>
-              <div class = "detailDescription">
-              ${bikeData.descriptionTwo}
-              </div>
-              <div class = "datailButton">
-                <button class="btn add-to-cart-btn" data-id="${bikeData.id}">ADD TO CART</button>
-              </div>
+            <div class = "detailDescription">
+            ${bikeData.descriptionTwo}
+            </div>
+            <div class = "datailButton">
+              <button class="btn add-to-cart-btn" data-id="${bikeData.id}">ADD TO CART</button>
             </div>
           </div>
-        `;
-  
-        const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
-        addToCartBtn.addEventListener('click', (event) => {
-          let posclick = event.target;
-          let product_id = posclick.getAttribute('data-id');
-          addToCart(product_id)
-        });
-    } else {
-        console.error('Details container not found');
-    }
+        </div>
+      `;
+
+      const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
+      addToCartBtn.addEventListener('click', (event) => {
+        let posclick = event.target;
+        let product_id = posclick.getAttribute('data-id');
+        addToCart(product_id)
+      });
+  } else {
+      console.error('Details container not found');
   }
+}
 //End of bike details
 
 // Add to Cart Functionality
 const bikeList = document.querySelector('.featured-car-list');
-const cartAdding = [];
+let cartAdding = [];
 
 bikeList.addEventListener('click', (event) => {
   const posclick = event.target;
@@ -353,6 +360,48 @@ bikeList.addEventListener('click', (event) => {
   }
 });
 
+let currentUserId = null;
+
+onAuthStateChanged(getAuth(), (user) => {
+  if (user) {
+    // User is signed in
+    currentUserId = user.uid;
+    fetchCartFromFirestore(currentUserId);
+  } else {
+    // User is signed out
+    currentUserId = null;
+  }
+});
+
+// Save Cart to Firestore
+async function saveCartToFirestore(userCart, userId) {
+  if (!userId) return;
+  try {
+    await setDoc(doc(db, "carts", userId), { cartItems: userCart });
+    console.log("Cart saved successfully!");
+  } catch (error) {
+    console.error("Error saving cart: ", error);
+  }
+}
+
+// Fetch Cart from Firestore
+async function fetchCartFromFirestore(userId) {
+  if (!userId) return [];
+  try {
+    const docRef = doc(db, "carts", userId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Cart data:", docSnap.data().cartItems);
+      cartAdding = docSnap.data().cartItems;
+      addCartToHTML();
+    } else {
+      console.log("No such document!");
+    }
+  } catch (error) {
+    console.error("Error fetching cart: ", error);
+  }
+}
+
 const addToCart = (productId) => {
   const productIndex = cartAdding.findIndex(item => item.productId === productId);
   if (productIndex === -1) {
@@ -361,6 +410,7 @@ const addToCart = (productId) => {
     cartAdding[productIndex].quantity++;
   }
   addCartToHTML();
+  saveCartToFirestore(cartAdding, currentUserId);
 };
 
 //HTML for cart
@@ -375,6 +425,7 @@ const addCartToHTML = () => {
       newCart.dataset.id = cart.productId;
       const productInCart = bikes.findIndex((value) => value.id == cart.productId);
       const info = bikes[productInCart];
+      
       newCart.innerHTML = `
         <div class="cartItem">
           <div class="cartImage">
@@ -423,6 +474,7 @@ const changeQuantity = (productId, type) => {
     }
   }
   addCartToHTML();
+  saveCartToFirestore(cartAdding, currentUserId);
 };
 // End of Cart Functionality
 }
