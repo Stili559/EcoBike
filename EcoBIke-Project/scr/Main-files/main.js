@@ -1,4 +1,4 @@
-// Profile popup opening
+// Navbar for phone opening
 const navbarToggler = document.getElementById("navbarToggler");
 const navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -6,7 +6,7 @@ navbarToggler.addEventListener("click", () => {
     navbarToggler.classList.toggle("active");
     navbarCollapse.classList.toggle("active");
 });
-// End of profile popup opening
+// Navbar for phone opening
 
 // Firebase for Sign Out authatication
 async function initFirebase54() {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.insertAdjacentHTML('beforeend', profilePopupHTML);
     //End of HTML content
 
-    // No scroll on open popup
+    // Profile popup
     var popup = document.getElementById('profilePopup');
     var btn = document.getElementById('profileBtn');
     var closeBtn = document.querySelector('.close-btn');
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 });
-//End of no scroll on open
+//Profile popup
 
 // Footer HTML
 function delay(ms) {

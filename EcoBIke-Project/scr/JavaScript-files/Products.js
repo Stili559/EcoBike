@@ -109,6 +109,10 @@ loadDataAndCart();
 fetchBikes();
 
 
+
+
+
+
 // Cart Elements
 const iconCart = document.querySelector('.icon-cart');
 const closeCart = document.querySelector('.closeCart');
@@ -282,6 +286,72 @@ const addCartToHTML = () => {
 // Modify Cart Item Quantity
 listCart.addEventListener('click', modifyCartItemQuantity);
 
+
+
+
+
+// Check-out function
+function updateCheckoutModal() {
+  const checkoutItemsElement = document.getElementById('checkoutItems');
+  checkoutItemsElement.innerHTML = '';
+  let totalCartPrice = 0;
+
+  cartAdding.forEach(item => {
+    const bike = bikes.find(bike => bike.id === item.productId);
+    if (bike) {
+      const itemTotalPrice = item.quantity * bike.price;
+      totalCartPrice += itemTotalPrice;
+
+      const itemHTML = `
+        <div class="checkout-item">
+          <img src="${bike.imageSrc}" alt="${bike.title}" style="width:50px; height:auto;">
+          <div>
+            <p>${bike.title}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Price: $${bike.price}</p>
+          </div>
+        </div>
+      `;
+      checkoutItemsElement.innerHTML += itemHTML;
+    }
+  });
+
+  const checkoutFieldsHTML = `
+    <div class="checkout-fields">  
+      <label for="NameCH">Name:</label>
+      <input type="text" id="NameCH" name="checkoutname"><br><br>
+      <label for="PhoneNumberCH">Phone Number</label>
+      <input type="number" id="PhoneNumberCH" name="PhoneNumber"><br><br>
+      <label for="AddressCH">Address</label>
+      <input type="text" id="AddressCH" name="Address"><br><br>
+      <label for="CityCH">City</label>
+      <input type="text" id="CityCH" name="City"><br><br>
+      <label for="CountryCH">Country</label>
+      <input type="text" id="CountryCH" name="Country"><br><br>
+      <button id="finalizeOrder">Place Order</button>
+    </div>
+  `;
+  checkoutItemsElement.innerHTML += checkoutFieldsHTML;
+
+  document.getElementById('checkoutTotal').innerText = `$${totalCartPrice.toFixed(2)}`;
+}
+
+document.querySelector('.modal .close').addEventListener('click', function() {
+  this.parentElement.parentElement.style.display = 'none';
+});
+
+document.querySelector('.checkOut').addEventListener('click', function() {
+  document.querySelector('body').classList.remove('showCart');
+  document.querySelector('.shadowTwo').style.display = 'none';
+  isVisible = false;
+  updateCheckoutModal();
+  document.getElementById('checkoutModal').style.display = 'block';
+});
+
+
+
+
+
 //Helper functions
 function toggleCartVisibility() {
   body.classList.toggle('showCart');
@@ -333,6 +403,9 @@ const changeQuantity = (productId, type) => {
 };
 }
 ProductsFirebase();
+
+
+
 
 
 //Filters
