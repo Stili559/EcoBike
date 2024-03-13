@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var popup = document.getElementById('profilePopup');
     var btn = document.getElementById('profileBtn');
     var closeBtn = document.querySelector('.close-btn');
-
+    var checkoutPopup = document.getElementById('checkoutModal')
+    
     if (btn) {
         btn.onclick = function() {
             popup.style.display = 'block';
@@ -102,8 +103,9 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     window.onclick = function(event) {
-        if (event.target === popup) {
+        if (event.target === popup || event.target === checkoutPopup) {
             popup.style.display = 'none';
+            document.getElementById('checkoutModal').style.display = 'none';
             document.body.classList.remove('no-scroll');
         }
     };

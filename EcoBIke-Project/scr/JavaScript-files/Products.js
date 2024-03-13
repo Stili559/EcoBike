@@ -109,8 +109,7 @@ loadDataAndCart();
 fetchBikes();
 
 
-
-
+//-------------------------------------------//
 
 
 // Cart Elements
@@ -287,13 +286,15 @@ const addCartToHTML = () => {
 listCart.addEventListener('click', modifyCartItemQuantity);
 
 
-
+//-------------------------------------------//
 
 
 // Check-out function
 function updateCheckoutModal() {
   const checkoutItemsElement = document.getElementById('checkoutItems');
   checkoutItemsElement.innerHTML = '';
+  const checkoutFieldsElement = document.getElementById('checkoutFields');
+  checkoutFieldsElement.innerHTML = '';
   let totalCartPrice = 0;
 
   cartAdding.forEach(item => {
@@ -302,45 +303,67 @@ function updateCheckoutModal() {
       const itemTotalPrice = item.quantity * bike.price;
       totalCartPrice += itemTotalPrice;
 
-      const itemHTML = `
+    const itemHTML = `
+    <div class = "cartCH">
+      <div class = "listCh">
         <div class="checkout-item">
-          <img src="${bike.imageSrc}" alt="${bike.title}" style="width:50px; height:auto;">
-          <div>
-            <p>${bike.title}</p>
-            <p>Quantity: ${item.quantity}</p>
-            <p>Price: $${bike.price}</p>
+          <img src="${bike.imageSrc}" alt="${bike.title}">
+          <div class = "infoCH">
+            <div class = "nameCH">${bike.title}</div>
           </div>
+          <div class = "quantityCH">${item.quantity}</div>
+          <div class = "priceCH">$${bike.price}</div>
         </div>
+      </div>
+    </div>
       `;
       checkoutItemsElement.innerHTML += itemHTML;
     }
   });
 
   const checkoutFieldsHTML = `
+  <div class="rightCH">
+  <h1>COMPLETE ORDER</h1>
     <div class="checkout-fields">  
-      <label for="NameCH">Name:</label>
-      <input type="text" id="NameCH" name="checkoutname"><br><br>
-      <label for="PhoneNumberCH">Phone Number</label>
-      <input type="number" id="PhoneNumberCH" name="PhoneNumber"><br><br>
-      <label for="AddressCH">Address</label>
-      <input type="text" id="AddressCH" name="Address"><br><br>
-      <label for="CityCH">City</label>
-      <input type="text" id="CityCH" name="City"><br><br>
-      <label for="CountryCH">Country</label>
-      <input type="text" id="CountryCH" name="Country"><br><br>
-      <button id="finalizeOrder">Place Order</button>
+      <div class = "groupCH">
+        <label for="NameCH">Full Name</label>
+        <input type="text" name="" id="NameCH" required>
+      </div>
+      <div class = "groupCH">
+        <label for="PhoneCH">Phone Number</label>
+        <input type="text" name="" id="PhoneCH" required>
+      </div>
+      <div class = "groupCH">
+        <label for="AddressCH">Address</label>
+        <input type="text" name="" id="AddressCH" required>
+      </div>
+      <div class = "groupCH">
+        <label for="CityCH">City</label>
+        <input type="text" name="" id="CityCH" required>
+      </div>
+      <div class = "groupCH">
+        <label for="CountryCH">Country</label>
+        <input type="text" name="" id="CountryCH" required>
+      </div>
     </div>
+    <div class = "priceCH">
+    <div>Total Price:</div>
+    <div id="checkoutTotal">$0.00</div>
+  </div>
+    <button class = "buttonCheckOut" id = "checkoutButton">PLACE ORDER</button>
+  </div>
   `;
-  checkoutItemsElement.innerHTML += checkoutFieldsHTML;
+  checkoutFieldsElement.innerHTML += checkoutFieldsHTML;
 
-  document.getElementById('checkoutTotal').innerText = `$${totalCartPrice.toFixed(2)}`;
+  document.getElementById('checkoutTotal').innerText = `$${totalCartPrice.toFixed(0)}`;
 }
 
-document.querySelector('.modal .close').addEventListener('click', function() {
-  this.parentElement.parentElement.style.display = 'none';
-});
-
 document.querySelector('.checkOut').addEventListener('click', function() {
+  if (cartAdding.length === 0) {
+    return;
+  }
+  
+  document.body.classList.add('no-scroll');
   document.querySelector('body').classList.remove('showCart');
   document.querySelector('.shadowTwo').style.display = 'none';
   isVisible = false;
@@ -349,7 +372,7 @@ document.querySelector('.checkOut').addEventListener('click', function() {
 });
 
 
-
+//-------------------------------------------//
 
 
 //Helper functions
@@ -405,7 +428,7 @@ const changeQuantity = (productId, type) => {
 ProductsFirebase();
 
 
-
+//-------------------------------------------//
 
 
 //Filters
@@ -530,7 +553,7 @@ function filterBikes() {
     filterBikes(); 
   });
 
-    // Adjust filters for different screens
+  // Adjust filters for different screens
   function adjustForViewport() {
     const filters = document.getElementById('price-ranges');
     const toggleButton = document.getElementById('toggle-filters-button');

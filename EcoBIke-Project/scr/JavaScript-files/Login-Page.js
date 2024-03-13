@@ -63,7 +63,7 @@ async function initFirebase55() {
     var password = document.getElementById("passwordIn").value;
 
     var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    var passwordPattern = /(?=.*[a-z])(?=.*[a-zA-Z]).{6,}$/;
+    var passwordPattern = /(?=.*[a-zA-Z]?.[0-9]*).{5,}$/;
 
     if (emailPattern.test(email) && passwordPattern.test(password)) {
         signInWithEmailAndPassword(auth, email, password)
@@ -92,9 +92,9 @@ document.getElementById("signUpButton").addEventListener("click", function () {
     const  email = document.getElementById("emailUp").value;
     const  password = document.getElementById("passwordUp").value;
   
-    var namePattern = /^[A-z]{5,}$/;
+    var namePattern = /(?=.*[a-zA-Z]?.[0-9]*).{5,}$/;
     var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    var passwordPattern = /(?=.*[a-z])(?=.*[a-zA-Z]).{6,}$/;
+    var passwordPattern = /(?=.*[a-zA-Z]?.[0-9]*).{6,}$/;
 
     if (namePattern.test(name) && emailPattern.test(email) && passwordPattern.test(password)) {
         createUserWithEmailAndPassword(auth, email, password)
@@ -121,7 +121,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
     {
         if (!namePattern.test(name)) 
         {
-            showToast("Please enter a name with at least 5 letters.");
+            showToast("Please enter a name with at least 5 characters.");
         }
         else if (!emailPattern.test(email))
         {
