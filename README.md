@@ -56,7 +56,7 @@ Download and set up [**Visual Studio Code**](https://code.visualstudio.com/downl
 
 **Embark on a journey of innovation and sustainability with EcoBike.** Click on the link below to explore how EcoBike is revolutionizing the world of eco-friendly transportation. Experience the future of travel that not only promises adventure but also pledges to protect our planet. 🌍💚
 
-[**Discover EcoBike's Sustainable Vision**](https://ecobike.netlify.app/ecobike-project/scr/pages/home) - Begin your exploration of a greener and more sustainable future today!
+[**Discover EcoBike's Sustainable Vision**](https://ecobike.netlify.app/ecobike-project/scr/home/home) - Begin your exploration of a greener and more sustainable future today!
 
 ## Welcome to Our Green Journey 🌱<a name="home-page"></a>
 
