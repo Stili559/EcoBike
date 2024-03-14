@@ -137,3 +137,4 @@ export function initFilters() {
     
     window.addEventListener('resize', adjustForViewport);
   }
+  //End of Filters

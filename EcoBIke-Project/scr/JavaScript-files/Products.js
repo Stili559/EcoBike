@@ -1,75 +1,17 @@
-import { initFilters } from "../../Components/Filters.js";
-
+import { initFilters } from "../Components/Filters.js";
+import { initializeFirebase } from "../Components/Firebase.js";
+import { generateBikeHTML } from "../Components/Bikes.js";
 
 async function ProductsFirebase() {
   const { getDatabase, ref, get  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, collection } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
   const { getAuth, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
-  
-  const firebaseConfig = {
-      apiKey: "AIzaSyDEffEyjkHl-hztawckeSD1qFYAI4vCDUI",
-      authDomain: "ecobike-bb6cc.firebaseapp.com",
-      projectId: "ecobike-bb6cc",
-      storageBucket: "ecobike-bb6cc.appspot.com",
-      messagingSenderId: "73199752449",
-      appId: "1:73199752449:web:7288aedbefb7cedd6bb700",
-      measurementId: "G-Q1N62R5827"
-    };  
 
-  const app = initializeApp(firebaseConfig);
+  const app = await initializeFirebase();
   const db = getFirestore(app);
   const database = getDatabase(app, "https://ecobike-bb6cc-default-rtdb.europe-west1.firebasedatabase.app");
 
   let bikes = [];
-
-// Function to generate HTML for each bike
-function generateBikeHTML(bike) {
-  return `
-    <div class="bike">
-      <div class="featured-car-card">
-        <figure class="card-banner">
-        <a href ="Detail.html?id=${bike.id}">
-        <img src="${bike.imageSrc}" alt="${bike.title}" loading="lazy" width="440" height="300" class="w-100">
-        </a>
-        </figure>
-        <div class="card-content">
-          <div class="card-title-wrapper">
-          <a style="display: none;" class="card-item-text type">${bike.type}</a>
-            <h3 class="h3 card-title">
-              <a>${bike.title}</a>
-            </h3>
-            <data class="year" value="${bike.year}">${bike.year}</data>
-          </div>
-          <ul class="card-list">
-            <li class="card-list-item">
-              <i class="fa-solid fa-tachometer-alt"></i>
-              <span class="card-item-text speed">${bike.speed}</span>
-            </li>
-            <li class="card-list-item">
-              <i class="fa-solid fa-battery-full"></i>
-              <span class="card-item-text">${bike.range}</span>
-            </li>
-            <li class="card-list-item">
-              <i class="fa-solid fa-bolt"></i>
-              <span class="card-item-text">${bike.batteryLife}</span>
-            </li>
-            <li class="card-list-item">
-              <i class="fa-solid fa-bicycle"></i>
-              <span class="card-item-text weight">${bike.weight}</span>
-            </li>
-          </ul>
-          <div class="card-price-wrapper">
-            <p class="card-price">
-              <strong>$${bike.price}</strong>
-            </p>
-            <button class="btn" data-id="${bike.id}">Add to cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
 
 // Function to retrieve bikes data from Firebase and generate HTML
 async function fetchBikes() {

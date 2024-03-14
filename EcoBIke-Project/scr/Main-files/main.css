@@ -527,22 +527,7 @@ body.showCart .cartTab{
   width: 0;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 700px) {
-  .profile-container {  
-    width: 80%;
-  }
-}
-
-@keyframes fadeInAnimation {
-from {
-    opacity: 0; 
-}
-to {
-    opacity: 1; 
-}
-}
-
+/* Check Out popup */
 .modal {
   display: none;
   position: fixed;
@@ -569,7 +554,7 @@ to {
   height: 85%;
   border-radius: 1rem;
   animation: slideInFromTop 0.7s ease-in-out;
-  background-image: url('/EcoBIke-Project/Images/dsadsd.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/CheckOut.jpg?alt=media&token=b3e87cd7-1fcc-47d4-8a70-1cc510d4ee22');
 }
 
 .rightCH{
@@ -675,6 +660,19 @@ to {
   border-radius: 1rem;
 }
 
+.checkout-fields input:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 700px) {
+  .profile-container {  
+    width: 80%;
+  }
+}
+
+
+/* Animations */
 @keyframes slideInFromTop {
   from {
     transform: translateY(-100%);
@@ -686,6 +684,11 @@ to {
   }
 }
 
-.checkout-fields input:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+@keyframes fadeInAnimation {
+from {
+    opacity: 0; 
+}
+to {
+    opacity: 1; 
+}
 }
