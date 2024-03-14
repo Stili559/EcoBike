@@ -36,7 +36,7 @@ async function signOut() {
             signOut(auth)
                 .then(() => {
                     console.log("User signed out");
-                    window.location.href = "Login-Page.html";
+                    window.location.href = "../Login-Register/Login-Page.html";
                 })
                 .catch((error) => {
                     console.error("Error signing out:", error);

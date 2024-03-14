@@ -4,7 +4,7 @@ export function generateBikeHTML(bike) {
       <div class="bike">
         <div class="featured-car-card">
           <figure class="card-banner">
-          <a href ="Detail.html?id=${bike.id}">
+          <a href ="../Detail/Detail.html?id=${bike.id}">
           <img src="${bike.imageSrc}" alt="${bike.title}" loading="lazy" width="440" height="300" class="w-100">
           </a>
           </figure>

@@ -63,7 +63,7 @@ async function login_Register() {
             const user = userCredential.user;
             console.log("User login:", user); 
             localStorage.setItem('userEmail', user.email);
-            window.location.href = "Home.html";  
+            window.location.href = "../Home/Home.html";  
         })
         .catch((error) => {
             showToast("Incorrect Email or password.");
