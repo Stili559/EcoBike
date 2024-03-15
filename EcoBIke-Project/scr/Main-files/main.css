@@ -803,14 +803,14 @@ body.showCart .cartTab{
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
+    margin-top: -5rem;
   }
   .support-left{
     height: 200px;
   }
-
   .close-btnS {
-    top: 230px;
-    }
+    top: 140px;
+  }
 }
 
 /* Media queries for responsiveness */
