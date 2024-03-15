@@ -274,6 +274,7 @@ function updateCheckoutModal() {
   const checkoutFieldsHTML = `
   <div class="rightCH">
   <h1>COMPLETE ORDER</h1>
+  <form>
     <div class="checkout-fields">  
       <div class = "groupCH">
         <label for="NameCH">Full Name</label>
@@ -300,7 +301,8 @@ function updateCheckoutModal() {
     <div>Total Price:</div>
     <div id="checkoutTotal">$0.00</div>
   </div>
-    <button class = "buttonCheckOut" id = "checkoutButton">PLACE ORDER</button>
+    <button type = "submit" class = "buttonCheckOut" id = "checkoutButton">PLACE ORDER</button>
+  </form>
   </div>
   `;
   checkoutFieldsElement.innerHTML += checkoutFieldsHTML;

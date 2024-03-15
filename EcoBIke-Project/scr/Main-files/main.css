@@ -680,6 +680,139 @@ body.showCart .cartTab{
   width: 0;
 }
 
+/* support design */
+.support{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1050;
+  justify-content: center;
+  align-items: center;
+}
+
+.support-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  max-width: 850px;
+  width: auto; 
+  margin: auto;
+  animation: fadeInAnimation 0.5s ease-in-out;
+}
+
+.support-box{
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+.support-left{
+  background: url("https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/ContactUs.gif?alt=media&token=32f7505e-6ac4-48d6-a7c8-905fe6ce4a8a") no-repeat center;
+  background-size: cover;
+  height: 100%;
+}
+
+.support-right{
+  padding: 25px 40px;
+}
+
+.support-container h2{
+  position: relative;
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+}
+
+.support-container h2:after{
+  content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #b6cd32;
+}
+
+.support-field{
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: none;
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: .3s;
+}
+
+.support-field:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.support-textarea{
+  min-height: 150px;
+}
+
+.support-btn{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #b6cd32;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.support-btn:hover{
+    background-color: #a3b82e;
+}
+
+.support-field:focus{
+    border: 2px solid #b6cd32;
+    background-color: #fff;
+}
+
+.close-btnS {
+  color: #b6cd32;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 55px;
+}
+
+.close-btnS:hover{
+  color: #a3b82e;
+}
+
+@media screen and (max-width: 880px){
+  .support-box{
+    grid-template-columns: 1fr;
+  }
+  .support-left{
+    height: 200px;
+  }
+
+  .close-btnS {
+    top: 230px;
+    }
+}
+
 /* Media queries for responsiveness */
 @media (min-width: 768px) and (max-width: 1200px) {
   .rightCH{
