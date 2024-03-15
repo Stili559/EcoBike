@@ -272,6 +272,11 @@
   margin-bottom: 10px;
 }
 
+.footer-content li a{
+  color: #d6d6d6;
+  text-decoration: none;
+}
+
 .footer-content li {
   display: block;
   color: #d6d6d6;
@@ -544,14 +549,16 @@ body.showCart .cartTab{
 .modal-contentCH{
   background-color: white;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
   gap: 50px;
   padding: 20px;
   margin: 6% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 60%;
+  width: 90%;
   height: 85%;
+  max-height: 810px;
+  max-width: 900px;
   border-radius: 1rem;
   animation: slideInFromTop 0.7s ease-in-out;
   background-image: url('https://firebasestorage.googleapis.com/v0/b/ecobike-bb6cc.appspot.com/o/CheckOut.jpg?alt=media&token=b3e87cd7-1fcc-47d4-8a70-1cc510d4ee22');
@@ -568,12 +575,12 @@ body.showCart .cartTab{
   color: #fff;
   margin-top: -1.2rem;
   width: 450px;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
 }
 
 .rightCH .checkout-fields{
  display: grid;
- grid-template-columns: repeat(2, 1fr);
+ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
  gap: 20px;
  border-bottom: 1px solid #fffefe;
  padding-bottom: 20px;
@@ -634,7 +641,6 @@ body.showCart .cartTab{
 }
 
 .checkout-item{
-  width: 430px;
   display: grid;
   grid-template-columns: 60px 1fr 50px 80px;
   align-items: center;
@@ -664,13 +670,39 @@ body.showCart .cartTab{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
+#checkoutItems {
+  max-height: 600px;
+  min-width: 430px;
+  overflow-y: auto;
+}
+
+#checkoutItems::-webkit-scrollbar{
+  width: 0;
+}
+
 /* Media queries for responsiveness */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .rightCH{
+    width: 400px;
+    margin: -1.2rem auto 0;
+    height: 590px;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;   
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; 
+  }
+
+  .modal-contentCH{
+    margin-top: 10rem;
+    width: 500px;
+  }
+}
+
 @media (max-width: 700px) {
   .profile-container {  
     width: 80%;
   }
 }
-
 
 /* Animations */
 @keyframes slideInFromTop {

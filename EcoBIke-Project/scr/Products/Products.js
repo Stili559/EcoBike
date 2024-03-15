@@ -241,30 +241,35 @@ function updateCheckoutModal() {
   const checkoutFieldsElement = document.getElementById('checkoutFields');
   checkoutFieldsElement.innerHTML = '';
   let totalCartPrice = 0;
-
+  
   cartAdding.forEach(item => {
     const bike = bikes.find(bike => bike.id === item.productId);
     if (bike) {
       const itemTotalPrice = item.quantity * bike.price;
       totalCartPrice += itemTotalPrice;
-
-    const itemHTML = `
-    <div class = "cartCH">
-      <div class = "listCh">
-        <div class="checkout-item">
-          <img src="${bike.imageSrc}" alt="${bike.title}">
-          <div class = "infoCH">
-            <div class = "nameCH">${bike.title}</div>
+  
+      const itemHTML = `
+        <div class="cartCH">
+          <div class="listCh">
+            <div class="checkout-item">
+              <img src="${bike.imageSrc}" alt="${bike.title}">
+              <div class="infoCH">
+                <div class="nameCH">${bike.title}</div>
+              </div>
+              <div class="quantityCH">${item.quantity}</div>
+              <div class="priceCH">$${bike.price}</div>
+            </div>
           </div>
-          <div class = "quantityCH">${item.quantity}</div>
-          <div class = "priceCH">$${bike.price}</div>
         </div>
-      </div>
-    </div>
       `;
       checkoutItemsElement.innerHTML += itemHTML;
     }
   });
+  
+  const showScrollBar = cartAdding.length > 6 ? 'scrollbar' : '';
+  if (showScrollBar) {
+    checkoutItemsElement.classList.add(showScrollBar);
+  }
 
   const checkoutFieldsHTML = `
   <div class="rightCH">

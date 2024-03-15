@@ -25,20 +25,20 @@ export async function addFooterContent() {
         <div class="footer-content">
             <h4>Locations</h4>
             <ul>
-                <li>Bulgaria</li>
-                <li>Germany</li>
-                <li>Japan</li>
-                <li>France</li>
+            <li><a href="../Locations/Locations.html">Bulgaria</a></li>
+            <li><a href="../Locations/Locations.html">Germany</a></li>
+            <li><a href="../Locations/Locations.html">Japan</a></li>
+            <li><a href="../Locations/Locations.html">France</a></li>
             </ul>
         </div>
   
         <div class="footer-content">
-            <h4>Services</h4>
+            <h4>Content</h4>
             <ul>
-                <li>Replacements</li>
-                <li>Repair</li>
-                <li>Rent</li>
-                <li>E-Bike</li>
+            <li><a href="../Home/Home.html">Home</a></li>
+            <li><a href="../Products/Products.html">Product</a></li>
+            <li><a href="../Locations/Locations.html">Locations</a></li>
+            <li><a href="../About-us/About-us.html">About Us</a></li>
             </ul>
         </div>
   
