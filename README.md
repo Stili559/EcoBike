@@ -86,6 +86,8 @@ Download and set up [**Visual Studio Code**](https://code.visualstudio.com/downl
 
 **Encounter an issue or have a question?** Our support pop-up is here to help. Easily ask questions or report any concerns regarding our website or products, and receive timely assistance.
 
+![image](https://github.com/Stili559/EcoBike/assets/80035053/d5de11ef-4f87-4143-a975-afc675aba8b1)
+
 ## About Us: Our Eco Mission 🌍<a name="about-us-page"></a>
 
 **Delve into our story of sustainability**, from our humble beginnings to our innovative processes. Learn about our unwavering commitment to the environment and how our unique bicycles are a testament to our green mission.
