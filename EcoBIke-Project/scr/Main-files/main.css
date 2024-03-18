@@ -399,8 +399,8 @@
 
 .containerButton {
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  justify-content: left; 
+  margin-bottom: 2rem;
 }
 
 #signOutButton {
@@ -857,6 +857,55 @@ body.showCart .cartTab{
   margin-top: 0.5rem;
 }
 
+/* Order style */
+.order {
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+}
+
+.order h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #efefef;
+  padding-bottom: 5px;
+}
+
+.order p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.order .totalPrice {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-top: 15px;
+  display: block;
+  border-top: 2px solid #efefef;
+  padding-top: 5px;
+}
+
+.order:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.order-item {
+  color: #333;
+  font-size: 16px;
+  margin: 10px 0;
+  padding-left: 20px;
+  border-left: 3px solid #9ACD32;
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
@@ -885,11 +934,14 @@ body.showCart .cartTab{
     margin-top: 10rem;
     width: 500px;
   }
+  .profile-container {  
+    width: 80%;
+  }
 }
 
 @media (max-width: 700px) {
   .profile-container {  
-    width: 80%;
+    width: 85%;
   }
   .rightCH{
     width: 330px;

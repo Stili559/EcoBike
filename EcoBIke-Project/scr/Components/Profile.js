@@ -28,6 +28,9 @@ export function profile() {
                         <div class="containerButton">
                         <button id="signOutButton">Sign Out</button>
                         </div>
+                        <div class="profile-header">
+                        <h2>Your Orders</h2>
+                        </div>
                         <div id="ordersContainer"></div>
                     </div>
                 </div>

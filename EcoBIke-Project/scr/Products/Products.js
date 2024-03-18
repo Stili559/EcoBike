@@ -332,6 +332,14 @@ function updateCheckoutModal() {
 
       showSuccessModal("Your order has been successfully placed and confirmed.");
 
+      fetchOrdersByUser(userId)
+      .then(orders => {
+        displayOrders(orders);
+      })
+      .catch(error => {
+        console.error("Error fetching orders: ", error);
+      });
+
       if (iconCartSpan) {
         iconCartSpan.innerText = '0';
       }
@@ -430,14 +438,14 @@ function displayOrders(orders) {
   
   orders.forEach(order => {
     const orderItemsHTML = order.items.map(item => `
-      <p>${item.title} - Quantity: ${item.quantity}</p>
+      <p class="order-item">${item.title} - Quantity: ${item.quantity}</p>
     `).join('');
 
     const orderHTML = `
       <div class="order">
         <h3>Order ID: ${order.id}</h3>
         ${orderItemsHTML}
-        <p>Total Price: $${order.totalPrice}</p>
+        <p class="totalPrice">Total Price: ${order.totalPrice}</p>
       </div>
     `;
     ordersContainer.innerHTML += orderHTML;
