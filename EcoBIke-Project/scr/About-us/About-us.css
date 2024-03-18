@@ -136,21 +136,17 @@ body{
 @media (max-width: 840px) {
     .about-banner {
         margin-right: 0px; 
-    }
-            
+    }         
     .section {
         flex-direction: column;
         padding: 20px;
     }
-
     .container {
         flex-direction: column;
     }
-
     .about-banner {
         margin-bottom: 20px;
     }
-
     .img-1 {
         margin-left: auto;
         margin-right: auto;
@@ -181,5 +177,3 @@ body{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-

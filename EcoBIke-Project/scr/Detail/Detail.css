@@ -136,45 +136,36 @@
   .bike-detail .detailImg::before{
     display: none;
   }
-
   .bike-detail .desName::before{
     display: none;
   }
-
   .bike-detail .btn::before{
     display: none;
   }
-
   .bike-detail {
     grid-template-columns: repeat(1, 1fr);
   }
-
   .bike-detail .detailImg img{
     width: auto;
     margin-left: 2.3rem;
     margin-bottom: 0rem;
   }
-
   .titleDesctiption {
     margin-left: 0;
   }
-
   .bike-detail .desPrice {
     width: 80%; 
     margin: 0 auto; 
   }
-
   .bike-detail .desName {
     width: 60%; 
     margin-left: 2.5rem;
     margin-top: -4rem;
   }
-
   .bike-detail .detailDescription {
     width: 78%;
     margin-left: 2.5rem;
   }
-
   .btn{
     margin-left: 2.3rem;
     margin-bottom: 2rem;
@@ -185,36 +176,42 @@
   .bike-detail {
     grid-template-columns: repeat(1, 1fr);
   }
-
   .bike-detail .detailImg img{
     width: 25rem;
     margin-left: 13rem;
     margin-bottom: 0rem;
   }
-
   .titleDesctiption {
     margin-left: 0;
   }
-
   .bike-detail .desPrice {
     width: 50%;
     margin: 0 auto; 
     margin-left: 13rem;
   }
-
   .bike-detail .desName {
     width: 60%; 
     margin-left: 13rem;
     margin-top: -4rem;
   }
-
   .bike-detail .detailDescription {
     width: 52%;
     margin-left: 13rem;
   }
-
   .btn{
     margin-left: 13rem;
     margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1800px){
+  .footer {
+    bottom: 0;
+  }
+  .bike-detail .detailImg img{ 
+    margin-left: 33rem;
+  }
+  .bike-detail{
+    margin-top: 5rem;
   }
 }

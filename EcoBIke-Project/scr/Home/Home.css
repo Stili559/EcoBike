@@ -121,6 +121,9 @@ body{
   width: 5rem;
   height: 10rem;
   margin-top: 2rem;
+  width: calc(33.33% - 20px);
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .square:hover .square-image {
@@ -565,26 +568,6 @@ body{
 
 /* Responsiveness */
 @media (min-width: 768px) and (max-width: 1200px){
-  .square {
-    width: calc(33.33% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  .square:last-child {
-    margin-right: 0;
-  }
-  .square-text {
-    padding: 30px;
-    font-size: 18px;
-  }
-  .square-text h2 {
-    font-size: 30px;
-    margin-top: 0;
-  }
-  .square-text p {
-    font-size: 20px;
-    margin-bottom: 0;
-  }
   .carousel-item .fixer{
     height: 24rem;
   }
@@ -593,13 +576,16 @@ body{
     font-size: 2rem;
   }
   .carousel-caption p{
-    font-size: 1rem; 
-    width: 40%;
+    font-size: 0.9rem; 
+    width: 70%;
     margin-left: -5rem;
   }
   .carousel-captionThree p { 
-    font-size: 1rem; 
-    width: 40%;
+    font-size: 0.9rem; 
+    width: 70%;
+  }
+  .more-button{
+    margin-left: -4.5rem;
   }
   .carousel-captionThree h1{
     font-size: 2rem;
@@ -619,13 +605,19 @@ body{
     font-size: 1.5rem; 
   }
   .card-title{
-    font-size: 1rem;
-  }
-  .card-text {
     font-size: 0.8rem;
   }
+  .card-text {
+    font-size: 0.6rem;
+  }
   .service-item .card-icon {
-    display: none;
+    min-width: 5px;
+    width: 80px;
+    height: 60px;
+    font-size:1.3rem;
+  }
+  .img-cover{
+    width: 15rem;
   }
   .latest-news .post-box.grey-bg {
     height: 18.2rem;
@@ -645,33 +637,19 @@ body{
 }           
   
 @media (max-width: 767px) {
-  .square-image img {
-    margin-top: -1.5rem;
-    height: 9.5rem;
-  }
   .square {
-    width: calc(33.33% - 0px);
-  }
-  .square:last-child {
-    margin-right: 0;
-  }
-  .square-text {
-    padding: 30px;
-    font-size: 18px;
-  }
-  .square-text h2 {
-    font-size: 20px;
-    margin-top: 0;
-  }
-  .square-text p {
-    font-size: 13px;
-    margin-bottom: 0;
+    height: 7rem;
+    width:90%;
+    margin-left: 1.5rem;
+    float: none;
+    margin-top: 1rem;
   }
   .section {
-    margin-top: 12rem;
+    margin-top: 2.5rem;
   }
   .devider{
     border-top: 2px solid #cec5c5;
+    margin-top: 0rem;
   }
   .carousel-control-prev{
     width: 1.5rem;
@@ -702,6 +680,9 @@ body{
   }
   .card-text {
     font-size: 0.8rem;
+  }
+  .img-cover{
+    margin-bottom: -3rem;
   }
   .img-holder {
     width: 75%;
@@ -767,28 +748,18 @@ body{
   }
 }
 
-@media (min-width: 768px){
-  .square {
-    width: calc(33.33% - 20px);
-    margin-right: 10px;
-    margin-left: 10px;
+@media (min-width: 1800px){
+  #sponsorTitle{
+    margin-left: 6.2rem;
   }
-  .square:last-child {
-    margin-right: 0;
+  .carousel{
+    max-width: 120rem;
+    max-height: 63rem; 
   }
-  .square-text {
-    padding: 30px;
-    font-size: 18px;
-  }
-  .square-text h2 {
-    font-size: 30px;
-    margin-top: 0;
-  }
-  .square-text p {
-    font-size: 20px;
-    margin-bottom: 0;
-  }
-}           
+  .carousel-item .fixer{
+    height: 57rem;
+  } 
+}
 
 /* Animations */
 @keyframes fadeIn {
