@@ -852,6 +852,7 @@ body.showCart .cartTab{
   .modal-contentCH{
     height: 750px;
     width: 355px;
+    margin-top: -1rem;
   }
   .cartCH{
     width: 75%;
