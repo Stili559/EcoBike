@@ -55,7 +55,7 @@ export function profile() {
         };
     
         window.onclick = function(event) {
-            if (event.target === popup || event.target === checkoutPopup) {
+            if (event.target === checkoutPopup) {
                 document.getElementById('checkoutModal').style.display = 'none';
                 document.body.classList.remove('no-scroll');
             }
