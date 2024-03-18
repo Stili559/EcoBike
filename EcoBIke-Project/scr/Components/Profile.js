@@ -28,6 +28,7 @@ export function profile() {
                         <div class="containerButton">
                         <button id="signOutButton">Sign Out</button>
                         </div>
+                        <div id="ordersContainer"></div>
                     </div>
                 </div>
             </div>

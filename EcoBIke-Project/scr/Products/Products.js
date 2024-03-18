@@ -6,7 +6,7 @@ import { showSuccessModal } from "../Components/Success.js";
 
 async function ProductsFirebase() {
   const { getDatabase, ref, get  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
-  const { getFirestore, doc, getDoc, setDoc, collection } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
+  const { getFirestore, query, getDocs,where,doc, getDoc, setDoc, collection } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
   const { getAuth, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
 
   const app = await initializeFirebase();
@@ -143,6 +143,13 @@ onAuthStateChanged(getAuth(), (user) => {
   if (user) {
     // User is signed in
     currentUserId = user.uid;
+    fetchOrdersByUser(currentUserId)
+        .then(orders => {
+          displayOrders(orders);
+        })
+        .catch(error => {
+          console.error("Error fetching orders: ", error);
+        });
     fetchCartFromFirestore(currentUserId);
   } else {
     // User is signed out
@@ -316,7 +323,8 @@ function updateCheckoutModal() {
     if (!userId) return;
     try {
       const orderId = `order_${Date.now()}`;
-      await setDoc(doc(db, "orders", orderId), checkoutData);
+      const orderData = { ...checkoutData, userId: userId };
+      await setDoc(doc(db, "orders", orderId), orderData);
       console.log("Order saved successfully!");
 
       await saveCartToFirestore([], userId);
@@ -370,7 +378,6 @@ function updateCheckoutModal() {
       timestamp: new Date(),
     };
 
-    // Save the order to Firestore
     await saveCheckoutOrder(checkoutData, currentUserId);
   }
 
@@ -393,6 +400,49 @@ document.querySelector('.checkOut').addEventListener('click', function() {
   document.getElementById('checkoutModal').style.display = 'block';
 });
 
+//-------------------------------------------//
+
+
+// Function for retrieving the orders by user
+async function fetchOrdersByUser(userId) {
+  if (!userId) return;
+  const db = getFirestore();
+  const ordersRef = collection(db, "orders");
+  const q = query(ordersRef, where("userId", "==", userId));
+  
+  try {
+    const querySnapshot = await getDocs(q);
+    const orders = [];
+    querySnapshot.forEach((doc) => {
+      orders.push({ id: doc.id, ...doc.data() });
+    });
+    console.log(orders);
+    return orders;
+  } catch (error) {
+    console.error("Error fetching orders: ", error);
+    throw error;
+  }
+}
+
+function displayOrders(orders) {
+  const ordersContainer = document.getElementById('ordersContainer');
+  ordersContainer.innerHTML = '';
+  
+  orders.forEach(order => {
+    const orderItemsHTML = order.items.map(item => `
+      <p>${item.title} - Quantity: ${item.quantity}</p>
+    `).join('');
+
+    const orderHTML = `
+      <div class="order">
+        <h3>Order ID: ${order.id}</h3>
+        ${orderItemsHTML}
+        <p>Total Price: $${order.totalPrice}</p>
+      </div>
+    `;
+    ordersContainer.innerHTML += orderHTML;
+  });
+}
 
 
 //-------------------------------------------//
