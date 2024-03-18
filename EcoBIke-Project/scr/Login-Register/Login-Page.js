@@ -1,5 +1,6 @@
 import { showToast } from "../Components/Alert.js";
 import { initializeFirebase } from "../Components/Firebase.js";
+import { showSuccessModal } from "../Components/Success.js";
 
 // Sign-up/Sign-in move animation
 const container = document.getElementById('container');
@@ -43,8 +44,7 @@ async function login_Register() {
         }
         sendPasswordResetEmail(auth, email)
         .then(() => {
-            const myModal = new bootstrap.Modal(document.getElementById('exampleModalTwo'));
-            myModal.show();
+            showSuccessModal("Password reset email sent. Please check your inbox.");
         })
     });
     //End of password logic
@@ -95,8 +95,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
                 const user = userCredential.user;
                 console.log("User registered:", user); 
                 sendEmailVerification(auth.currentUser);
-                const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-                myModal.show();
+                showSuccessModal("Your account has been created! Please sign-in.");
                 
                 document.getElementById("name").value = "";
                 document.getElementById("emailUp").value = "";

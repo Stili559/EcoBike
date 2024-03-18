@@ -1,6 +1,8 @@
 import { initFilters } from "../Components/Filters.js";
 import { initializeFirebase } from "../Components/Firebase.js";
 import { generateBikeHTML } from "../Components/Bikes.js";
+import { showToast } from "../Components/Alert.js";
+import { showSuccessModal } from "../Components/Success.js";
 
 async function ProductsFirebase() {
   const { getDatabase, ref, get  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
@@ -308,6 +310,74 @@ function updateCheckoutModal() {
   checkoutFieldsElement.innerHTML += checkoutFieldsHTML;
 
   document.getElementById('checkoutTotal').innerText = `$${totalCartPrice.toFixed(0)}`;
+
+  // Function to save checkout order
+  async function saveCheckoutOrder(checkoutData, userId) {
+    if (!userId) return;
+    try {
+      const orderId = `order_${Date.now()}`;
+      await setDoc(doc(db, "orders", orderId), checkoutData);
+      console.log("Order saved successfully!");
+
+      await saveCartToFirestore([], userId);
+      cartAdding = []; 
+
+      showSuccessModal("Your order has been successfully placed and confirmed.");
+
+      if (iconCartSpan) {
+        iconCartSpan.innerText = '0';
+      }
+
+      listCart.innerHTML = '';
+
+      document.getElementById('checkoutModal').style.display = 'none';
+      document.body.classList.remove('no-scroll');
+
+    } catch (error) {
+      console.error("Error saving order: ", error);
+    }
+  }
+
+  // Function to gather checkout data and save order
+  async function handlePlaceOrderEvent() {
+    const fullName = document.getElementById('NameCH').value.trim();
+    const phoneNumber = document.getElementById('PhoneCH').value.trim();
+    const address = document.getElementById('AddressCH').value.trim();
+    const city = document.getElementById('CityCH').value.trim();
+    const country = document.getElementById('CountryCH').value.trim();
+  
+    if (!fullName || !phoneNumber || !address || !city || !country) {
+      showToast("Please fill in all required fields.");
+      return;
+    }
+
+    const itemsWithTitles = cartAdding.map(item => {
+      const bike = bikes.find(b => b.id === item.productId);
+      return {
+        ...item,
+        title: bike ? bike.title : 'Unknown', 
+      };
+    });
+
+    const checkoutData = {
+      fullName,
+      phoneNumber,
+      address,
+      city,
+      country,
+      items: itemsWithTitles,
+      totalPrice: document.getElementById('checkoutTotal').innerText,
+      timestamp: new Date(),
+    };
+
+    // Save the order to Firestore
+    await saveCheckoutOrder(checkoutData, currentUserId);
+  }
+
+  document.getElementById('checkoutButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    handlePlaceOrderEvent();
+  });
 }
 
 document.querySelector('.checkOut').addEventListener('click', function() {
@@ -322,6 +392,7 @@ document.querySelector('.checkOut').addEventListener('click', function() {
   updateCheckoutModal();
   document.getElementById('checkoutModal').style.display = 'block';
 });
+
 
 
 //-------------------------------------------//

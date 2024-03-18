@@ -800,6 +800,63 @@ body.showCart .cartTab{
   color: #a3b82e;
 }
 
+/* Successfull message design */
+.modal-content {
+  background-color: #1F1F1F;
+  color: white;
+  border-radius: 25px;
+  max-height: 3.5rem;
+}
+
+#exampleModalTwo{
+  z-index: 900000;
+}
+
+#exampleModal{
+  z-index: 900000;
+}
+
+.modal-header {
+  border-bottom: none; 
+  position: relative; 
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+.checkmark-and-text {
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 10px 0px; 
+  margin-top: -0.5rem;
+}
+
+.checkmark-circle {
+  width: 35px;
+  height: 30px;
+  background-color: #9ACD32; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  margin-right: 10px; 
+  margin-top: 0.7rem;
+}
+
+.checkmark {
+  color: black; 
+  font-size: 18px; 
+  margin-right: 3px;
+}
+
+.email-text {
+  font-size: 16px;
+  margin-top: 0.5rem;
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
