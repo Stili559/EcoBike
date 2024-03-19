@@ -432,11 +432,18 @@ async function fetchOrdersByUser(userId) {
   }
 }
 
+// Function to display the orders in the user profile
 function displayOrders(orders) {
   const ordersContainer = document.getElementById('ordersContainer');
   ordersContainer.innerHTML = '';
   
   orders.forEach(order => {
+    const timestamp = order.timestamp.toDate(); 
+
+    const formattedTimestamp = new Intl.DateTimeFormat('default', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    }).format(timestamp);
+
     const orderItemsHTML = order.items.map(item => `
       <p class="order-item">${item.title} - Quantity: ${item.quantity}</p>
     `).join('');
@@ -446,9 +453,35 @@ function displayOrders(orders) {
         <h3>Order ID: ${order.id}</h3>
         ${orderItemsHTML}
         <p class="totalPrice">Total Price: ${order.totalPrice}</p>
+        <p class="order-date">Order Placed: ${formattedTimestamp}</p>
+        <div class="order-item"><span class="delivery-countdown" data-timestamp="${timestamp.getTime()}">Loading countdown...</span></div>
+      </div>
       </div>
     `;
     ordersContainer.innerHTML += orderHTML;
+
+// Function to display days left to delivery
+    document.querySelectorAll('.delivery-countdown').forEach(function(countdown) {
+      const startTime = parseInt(countdown.getAttribute('data-timestamp'), 10);
+      let daysLeft = 5;
+  
+      const updateCountdown = function() {
+        const now = new Date().getTime();
+        const elapsed = now - startTime;
+        const daysElapsed = Math.floor(elapsed / (10 * 1000));
+        const currentDaysLeft = daysLeft - daysElapsed;
+  
+        if (currentDaysLeft <= 0) {
+          countdown.innerText = "Order Delivered";
+          clearInterval(interval);
+        } else {
+          countdown.innerText = `${currentDaysLeft} days left to delivering`;
+        }
+      };
+
+      const interval = setInterval(updateCountdown, 10 * 1000);
+      updateCountdown();
+    });
   });
 }
 
