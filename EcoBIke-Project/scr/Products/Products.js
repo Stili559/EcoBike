@@ -48,9 +48,9 @@ function renderBikes(bikesData) {
 
 // Function for calling all the functions
 async function loadDataAndCart() {
+  initFilters();
   await fetchBikes(); 
   fetchCartFromFirestore(currentUserId); 
-  initFilters();
 }
 loadDataAndCart();
 fetchBikes();

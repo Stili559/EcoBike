@@ -967,10 +967,10 @@ body.showCart .cartTab{
     width: 0px; 
   }
   .rightCH{
-    width: 330px;
+    width: 325px;
     justify-content: center;
     align-items: center;
-    height: 590px;
+    height: 480px;
     border-top-left-radius: 10px; 
     border-top-right-radius: 10px;   
     border-bottom-right-radius: 10px;
@@ -982,12 +982,12 @@ body.showCart .cartTab{
     width: 0;
   }  
   .modal-contentCH{
-    height: 750px;
-    width: 355px;
-    margin-top: -1rem;
+    height: 660px;
+    width: 350px;
+    margin-top: 3rem;
   }
   .cartCH{
-    width: 75%;
+    width: 72%;
     margin-top: 0rem;
   } 
   .checkout-item{

@@ -55,7 +55,7 @@ async function login_Register() {
     var password = document.getElementById("passwordIn").value;
 
     var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    var passwordPattern = /(?=.[a-zA-Z]*.[0-9]*).{6,}$/;
+    var passwordPattern = /(?=.[a-zA-Z]*.*[0-9]).{6,}$/;
 
     if (emailPattern.test(email) && passwordPattern.test(password)) {
         signInWithEmailAndPassword(auth, email, password)
@@ -86,7 +86,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
   
     var namePattern = /(?=.*[a-zA-Z].[0-9]*).{5,}$/;
     var emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    var passwordPattern = /(?=.[a-zA-Z]*.[0-9]*).{6,}$/;
+    var passwordPattern = /(?=.[a-zA-Z]*.*[0-9]).{6,}$/;
 
     if (namePattern.test(name) && emailPattern.test(email) && passwordPattern.test(password)) {
         createUserWithEmailAndPassword(auth, email, password)
@@ -120,7 +120,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
         } 
         else if (!passwordPattern.test(password))
         {
-            showToast("Please enter a password with at least 6 characters.");
+            showToast("Please enter a password with at least 6 characters and a number.");
         } 
         
     }
