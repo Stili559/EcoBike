@@ -127,7 +127,6 @@
   border: none;
   color: white;
   text-align: center;
-  text-decoration: none;
   font-size: 16px;
   cursor: pointer;
   border-top-left-radius: 10px; 
@@ -136,6 +135,10 @@
   border-bottom-left-radius: 0;   
   font-weight: bold;
   transition: background-color 0.3s;
+}
+
+.betterButton{
+  text-decoration: none;
 }
 
 .custom-corner-button .fa-arrow-right {
@@ -263,7 +266,6 @@
 .footer-content h4{
   color: #fff;
   margin-bottom: 1.2rem;
-  margin-left: 2rem;
   font-size: 20px;
   pointer-events: none;
 }
@@ -923,6 +925,22 @@ body.showCart .cartTab{
   margin-top: 0.5rem;
 }
 
+.login-prompt {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 24px;
+  color: #333;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
@@ -938,6 +956,9 @@ body.showCart .cartTab{
 
 /* Media queries for responsiveness */
 @media (min-width: 768px) and (max-width: 1200px) {
+  .login-prompt {
+    margin-left: 0rem;
+  }
   .rightCH{
     width: 400px;
     margin: -1.2rem auto 0;
@@ -957,6 +978,10 @@ body.showCart .cartTab{
 }
 
 @media (max-width: 700px) {
+  .login-prompt {
+    margin-left: 0rem;
+    font-size: 20px;
+  }
   .delivery-countdown {
     bottom: -10px;
   }

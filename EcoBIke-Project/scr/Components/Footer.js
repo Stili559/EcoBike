@@ -24,42 +24,42 @@ export async function addFooterContent() {
   
         <div class="footer-content">
             <h4>Locations</h4>
-            <ul>
+          
             <li><a href="../Locations/Locations.html">Bulgaria</a></li>
             <li><a href="../Locations/Locations.html">Germany</a></li>
             <li><a href="../Locations/Locations.html">Japan</a></li>
             <li><a href="../Locations/Locations.html">France</a></li>
-            </ul>
+           
         </div>
   
         <div class="footer-content">
             <h4>Content</h4>
-            <ul>
+            
             <li><a href="../Home/Home.html">Home</a></li>
             <li><a href="../Products/Products.html">Product</a></li>
             <li><a href="../Locations/Locations.html">Locations</a></li>
             <li><a href="../About-us/About-us.html">About Us</a></li>
-            </ul>
+          
         </div>
   
         <div class="footer-content">
             <h4>Contacts</h4>
-            <ul>
+         
                 <li>+359-884-544-632</li>
                 <li>stilianmanolov05@gmail.com</li>
                 <li>stilimanolov12@gmail.com</li>
                 <li>Bankya, Bulgaria</li>
-            </ul>
+            
         </div>
   
         <div class="footer-content">
             <h4>Help</h4>
-            <ul>
+            
                 <li>Privacy</li>
                 <li>Support</li>
                 <li>Condition</li>
                 <li>Other</li>
-            </ul>
+         
         </div>
         </section>
     `;

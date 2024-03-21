@@ -37,10 +37,12 @@
                 <a id="supportLink" class="navbar-link">Support</a>
               </li>   
               <li class="navbar-item">
-                <a class="navbar-link icon-cart"><i class="fas fa-shopping-cart"></i>  <span class="count-items">0</span></a>    
+                <a class="navbar-link icon-cart" id = "cartSignIn"><i class="fas fa-shopping-cart"></i>  <span class="count-items">0</span></a>    
+                <a href="../Login-Register/Login-Page.html" class="navbar-link" id = "cartNotSignIn" style="display: none;"><i class="fas fa-shopping-cart"></i>  <span class="count-items">0</span></a> 
               </li>
           </ul>
           <button class="custom-corner-button" id="profileBtn">PROFILE <i class="fa-solid fa-arrow-right"></i></button>
+          <a href="../Login-Register/Login-Page.html" class="betterButton"><button id="profileBtn1"  class="custom-corner-button" style="display: none;">PROFILE <i class="fa-solid fa-arrow-right"></i></button></a>
       </div>
       </div>
   </nav>
@@ -100,19 +102,6 @@
   </div>
 </section>
 
-<!-- Cart Modal -->
-<div class = "cartTab">
-  <h1 class = "cartTitle">Shopping Cart</h1>
-    <div class="listCart">
-    </div>
-  <div class="btnCart">
-    <button class="closeCart">CLOSE</button>
-    <button class="checkOut">CHECK OUT</button>
-  </div>
-</div>
-
-<div class="shadowTwo"></div>
-
 <!-- HTML Container for Bike Information -->
 <section id="featured-car" style="display: none;">
   <div id="price-ranges" class="flex-container"></div>
@@ -128,19 +117,17 @@
   <button id="clear-filters-button" class="clear-button betterText"></button>
 </section>
 
-<!-- Checkout Modal -->
-<div id="checkoutModal" class="modal">
-  <div class="modal-contentCH">
-    <div id="checkoutItems"></div>
-    <div id="checkoutFields"></div>
+<!-- Cart -->
+<div class = "cartTab">
+  <h1 class = "cartTitle">Shopping Cart</h1>
+    <div class="listCart">
+    </div>
+  <div class="btnCart">
+    <button class="closeCart">CLOSE</button>
+    <button class="checkOut">CHECK OUT</button>
   </div>
 </div>
-
-<!-- Error message -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999999">
-  <div id="toast-container" class="toast-container">
-  </div>
-</div>
+<div class="shadowTwo"></div>
 
 <!--  Successfull order message -->
 <div id="modal-container"></div>

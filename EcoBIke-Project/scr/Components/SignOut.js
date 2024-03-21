@@ -21,14 +21,14 @@ export async function signOut() {
     // Sign Out Button function
     document.body.addEventListener('click', function(event) {
         if (event.target.id === 'signOutButton') {
-            signOut(auth)
-                .then(() => {
-                    console.log("User signed out");
-                    window.location.href = "../Login-Register/Login-Page.html";
-                })
-                .catch((error) => {
-                    console.error("Error signing out:", error);
-                });
+        signOut(auth)
+            .then(() => {
+                console.log("User signed out");
+                window.location.href = "../Home/Home.html";
+            })
+            .catch((error) => {
+                console.error("Error signing out:", error);
+            });
         }
     });
     // End of Sign Out Button function

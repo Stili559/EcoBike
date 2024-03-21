@@ -2,6 +2,7 @@ import { addFooterContent } from "../Components/Footer.js";
 import { support } from "../Components/Support.js";
 import { signOut } from "../Components/SignOut.js";
 import { profile } from "../Components/Profile.js";
+import { injectHTMLComponents } from "../Components/CheckOut.js";
 
 // Navbar for phone opening
 const navbarToggler = document.getElementById("navbarToggler");
@@ -21,9 +22,13 @@ profile();
 //End of Profile popup
 
 // Footer 
-  addFooterContent();
+addFooterContent();
 // End of Footer
 
 // Support
-    support();
+support();
 //End of Support
+
+// Function to add the checkout-modal and error message HTML
+injectHTMLComponents();
+// End of function to add the checkout-modal and error message HTML

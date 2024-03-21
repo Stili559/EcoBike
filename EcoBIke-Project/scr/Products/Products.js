@@ -138,6 +138,11 @@ let cartAdding = [];
 bikeList.addEventListener('click', addToCartHandler);
 
 let currentUserId = null;
+let loginAlert = document.getElementById("login-alert");
+let SignIn = document.getElementById("profileBtn");
+let SignIn1 = document.getElementById("profileBtn1");
+let cartNotSignIn = document.getElementById("cartNotSignIn");
+let cartSignIn = document.getElementById("cartSignIn");
 
 onAuthStateChanged(getAuth(), (user) => {
   if (user) {
@@ -153,7 +158,17 @@ onAuthStateChanged(getAuth(), (user) => {
     fetchCartFromFirestore(currentUserId);
   } else {
     // User is signed out
-    currentUserId = null;
+    currentUserId = null
+
+    if (loginAlert) {
+    loginAlert.style.display = 'flex';
+    }
+
+    SignIn.style.display = 'none';
+    SignIn1.style.display = 'block';
+
+    cartNotSignIn.style.display = '';
+    cartSignIn.style.display = 'none';
   }
 });
 
