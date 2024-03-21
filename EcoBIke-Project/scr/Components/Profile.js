@@ -1,15 +1,5 @@
-// Function to scroll to the top of the page
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' 
-    });
-}
-//End of scroll function
-
 export function profile() {
     // Define the HTML content for the profile popup
-    document.getElementById('topBtn').addEventListener('click', scrollToTop);
     const email = localStorage.getItem('userEmail');
     const name = localStorage.getItem('userName');
     document.addEventListener("DOMContentLoaded", function() {

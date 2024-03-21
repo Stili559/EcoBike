@@ -13,7 +13,7 @@
 <section>
   <nav class="navbar navbar-expand-lg navbar-light dark shadow fixed-top">
       <div class="containerHome">
-          <a class="navbar-brand" id="topBtn" style="text-align: center">
+          <a href="../Home/Home.html" class="navbar-brand" id="topBtn" style="text-align: center">
               <i class="fa-solid fa-bicycle" id="bike-icon"></i>
               <span id="brand-text" style="position: relative; left: -0.8rem; top: -0.18rem;">coBike</span>
           </a> 
@@ -41,7 +41,7 @@
               </li>
           </ul>
           <button class="custom-corner-button" id="profileBtn">PROFILE <i class="fa-solid fa-arrow-right"></i></button>
-          <a href="../Login-Register/Login-Page.html" class="betterButton"><button id="profileBtn1"  class="custom-corner-button" style="display: none;">PROFILE <i class="fa-solid fa-arrow-right"></i></button></a>
+          <button id="profileBtn1"  class="custom-corner-button" style="display: none;">PROFILE <i class="fa-solid fa-arrow-right"></i></button>
       </div>
       </div>
   </nav>
@@ -49,6 +49,12 @@
 
 <!-- Slider section -->
 <section style="margin-top: 4.5rem;">
+
+<!-- Not sign in -->
+<div class="login-prompt style-promt" id="login-alert" style="display: none;">
+  Please Sign in to access all features
+</div>
+
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators" id="carouselExampleIndicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

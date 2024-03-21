@@ -32,3 +32,8 @@ support();
 // Function to add the checkout-modal and error message HTML
 injectHTMLComponents();
 // End of function to add the checkout-modal and error message HTML
+
+// Not SignIn no profile
+document.getElementById('profileBtn1').addEventListener('click', function() {
+  window.open('../Login-Register/Login-Page.html', '_self');
+});

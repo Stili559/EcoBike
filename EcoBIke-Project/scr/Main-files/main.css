@@ -941,6 +941,11 @@ body.showCart .cartTab{
   margin-bottom: 1rem;
 }
 
+.style-promt{
+  margin-left: 0rem;
+  margin-bottom: 0rem;
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
@@ -980,7 +985,7 @@ body.showCart .cartTab{
 @media (max-width: 700px) {
   .login-prompt {
     margin-left: 0rem;
-    font-size: 20px;
+    font-size: 18px;
   }
   .delivery-countdown {
     bottom: -10px;
