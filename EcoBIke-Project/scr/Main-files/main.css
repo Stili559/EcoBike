@@ -946,6 +946,30 @@ body.showCart .cartTab{
   margin-bottom: 0rem;
 }
 
+/* Styling for the admin tables */
+#usersTable,  #usersTable2{
+  width: 70%;
+  border-collapse: collapse;
+  margin: 0 auto 20px auto; 
+}
+
+#usersTable th, #usersTable2 th{
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 2px solid #ddd;
+}
+
+#usersTable tr:hover, #usersTable2 tr:hover{
+  background-color: #eaeaea;
+}
+
+#usersTable td, #usersTable2 td{
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
@@ -983,6 +1007,12 @@ body.showCart .cartTab{
 }
 
 @media (max-width: 700px) {
+  #usersTable,  #usersTable2{
+    display: none;
+  }
+  #usersTable,  #usersTable2{
+    width: 300px;
+  }
   .login-prompt {
     margin-left: 0rem;
     font-size: 18px;

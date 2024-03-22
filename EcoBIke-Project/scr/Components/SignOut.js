@@ -25,6 +25,7 @@ export async function signOut() {
             .then(() => {
                 console.log("User signed out");
                 window.location.href = "../Home/Home.html";
+                localStorage.clear();
             })
             .catch((error) => {
                 console.error("Error signing out:", error);

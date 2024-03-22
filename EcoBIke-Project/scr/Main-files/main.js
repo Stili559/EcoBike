@@ -3,10 +3,12 @@ import { support } from "../Components/Support.js";
 import { signOut } from "../Components/SignOut.js";
 import { profile } from "../Components/Profile.js";
 import { injectHTMLComponents } from "../Components/CheckOut.js";
+import { fetchAndDisplayUsers } from "../Components/Admin.js";
 
 // Navbar for phone opening
 const navbarToggler = document.getElementById("navbarToggler");
 const navbarCollapse = document.querySelector(".navbar-collapse");
+const email = localStorage.getItem('userEmail');
 
 navbarToggler.addEventListener("click", () => {
     navbarToggler.classList.toggle("active");
@@ -37,3 +39,9 @@ injectHTMLComponents();
 document.getElementById('profileBtn1').addEventListener('click', function() {
   window.open('../Login-Register/Login-Page.html', '_self');
 });
+
+// Admin access
+if (email === 'stilianmanolov05@gmail.com') {
+  fetchAndDisplayUsers();
+}
+// End of admin access

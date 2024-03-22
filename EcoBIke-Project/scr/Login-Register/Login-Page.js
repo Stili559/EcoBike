@@ -20,6 +20,7 @@ loginBtn.addEventListener('click', () => {
 async function login_Register() {
     const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider,sendEmailVerification, sendPasswordResetEmail } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
     const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"); 
+    const { doc, setDoc } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
 
     const app = await initializeFirebase();
     const db = getFirestore(app);
@@ -95,6 +96,16 @@ document.getElementById("signUpButton").addEventListener("click", function () {
                 const user = userCredential.user;
                 console.log("User registered:", user); 
                 sendEmailVerification(auth.currentUser);
+         
+                const userRef = doc(db, "users", user.uid);
+                setDoc(userRef, { email: user.email, id: user.uid })
+                .then(() => {
+                    console.log("User data saved to Firestore.");
+                })
+                .catch((error) => {
+                    console.error("Error saving user data to Firestore:", error);
+                });
+
                 showSuccessModal("Your account has been created! Please sign-in.");
                 
                 document.getElementById("name").value = "";
@@ -121,8 +132,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
         else if (!passwordPattern.test(password))
         {
             showToast("Please enter a password with at least 6 characters and a number.");
-        } 
-        
+        }     
     }
 });
 //End of logic for registration
