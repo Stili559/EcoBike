@@ -17,7 +17,7 @@ export function initFilters() {
     const priceRanges = {
         'range-0-400': [0, 400],
         'range-400-600': [401, 599],
-        'range-600-800': [600, 800],
+        'range-600-1200': [600, 1200],
     };
   
     // Compare bike prices

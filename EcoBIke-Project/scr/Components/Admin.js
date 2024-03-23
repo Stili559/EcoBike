@@ -16,13 +16,13 @@ export async function fetchAndDisplayUsers() {
     const usersTable2 = document.getElementById("usersTable2");
     if(usersTable){
     usersTable.innerHTML = `
-    <div class="title" style="margin-top: -1rem; margin-left: 20rem;">
+    <div class="title" style="margin-top: -1rem; margin-left: 33rem;">
         ADMIN TABLES
     </div>
     <h2 class = "table-text">Users</h2>
     <div id="usersTableContainer">
       <table id="usersTable">
-        <tr><th>Email</th><th>User ID</th></tr>
+        <tr><th>Name</th><th>Email</th><th>User ID</th></tr>
       </table>
     </div>`;
 
@@ -36,12 +36,12 @@ export async function fetchAndDisplayUsers() {
   
     querySnapshot.forEach((doc) => {
         const userData = doc.data();
-        usersTable.innerHTML += `<tr><td>${userData.email}</td><td>${userData.id}</td></tr>`;
+        usersTable.innerHTML += `<tr class = "about-content"><td>${userData.name}<td>${userData.email}</td><td>${userData.id}</td></tr>`;
     });
 
     querySnapshot1.forEach((doc) => {
         const userData = doc.data();
-        usersTable2.innerHTML += `<tr><td>${userData.userId}</td><td>${userData.fullName}</td><td>${userData.phoneNumber}</td><td>${userData.address}</td><td>${userData.city}</td><td>${userData.country}</td><td>${userData.totalPrice}</td></tr>`;
+        usersTable2.innerHTML += `<tr class = "about-content"><td>${userData.userId}</td><td>${userData.fullName}</td><td>${userData.phoneNumber}</td><td>${userData.address}</td><td>${userData.city}</td><td>${userData.country}</td><td>${userData.totalPrice}</td></tr>`;
     });
   }
 }

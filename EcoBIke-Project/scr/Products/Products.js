@@ -5,9 +5,10 @@ import { showToast } from "../Components/Alert.js";
 import { showSuccessModal } from "../Components/Success.js";
 
 async function ProductsFirebase() {
-  const { getDatabase, ref, get  } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
+  const { getDatabase,  ref, set, push, get, firebase, child, update, remove } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js");
   const { getFirestore, query, getDocs,where,doc, getDoc, setDoc, collection } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
   const { getAuth, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
+  const { getStorage, ref: storageRef, uploadBytesResumable, getDownloadURL } =  await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js");
 
   const app = await initializeFirebase();
   const db = getFirestore(app);
@@ -54,6 +55,77 @@ async function loadDataAndCart() {
 }
 loadDataAndCart();
 fetchBikes();
+
+// Function to create bikes
+document.getElementById('newBikeForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const imageFile = document.getElementById('bikeImageFile').files[0];
+  uploadImageAndCreateBike(imageFile);
+});
+
+async function uploadImageAndCreateBike(imageFile) {
+  const storage = getStorage(app);
+  const storagePath = `bikeImages/${imageFile.name}`;
+  const imageRef = storageRef(storage, storagePath);
+  const onCreate = document.getElementById('popupForm');
+  // Upload the image to Firebase Storage
+  const uploadTask = uploadBytesResumable(imageRef, imageFile);
+
+  uploadTask.on('state_changed', 
+  (snapshot) => {
+  }, 
+  (error) => {
+    console.error("Error uploading image: ", error);
+  }, 
+    () => {
+      // Handle successful upload
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        createBike(downloadURL);
+        onCreate.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        document.getElementById('newBikeForm').reset();
+        showSuccessModal("Bike creation successful, adventure awaits you.");
+      });
+    }
+  );
+}
+
+async function createBike(imageUrl) {
+  const newBikeData = {
+    title: document.getElementById('bikeTitle').value,
+    type: document.getElementById('bikeType').value,
+    year: parseInt(document.getElementById('bikeYear').value, 10),
+    speed: document.getElementById('bikeSpeed').value + " mph",
+    range: document.getElementById('bikeRange').value + " miles",
+    batteryLife: document.getElementById('bikeBatteryLife').value + " hours",
+    weight: document.getElementById('bikeWeight').value + " pounds",
+    price: document.getElementById('bikePrice').value,
+    descriptionTwo: document.getElementById('descriptionTwo').value,
+    description: document.getElementById('description').value,
+    imageSrc: imageUrl
+  };
+
+  const bikesRef = ref(database, 'bikes');
+
+  try {
+    const snapshot = await get(bikesRef);
+    const bikes = snapshot.val() || {};
+
+    // Find the highest numerical key
+    const highestKey = Object.keys(bikes)
+      .filter(key => !isNaN(key))
+      .reduce((max, key) => Math.max(max, parseInt(key)), 0);
+
+    const newKey = highestKey + 1;
+    
+    const newBikeRef = ref(database, `bikes/${newKey}`);
+    await set(newBikeRef, newBikeData);
+
+    fetchBikes();
+  } catch (error) {
+    console.error("Error adding new bike: ", error);
+  }
+}
 
 
 //-------------------------------------------//
@@ -555,4 +627,3 @@ const changeQuantity = (productId, type) => {
 };
 }
 ProductsFirebase();
-

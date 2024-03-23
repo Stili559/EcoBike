@@ -79,6 +79,7 @@
     <label class="textFilter" for="year-filter">Filter by Year:</label>
     <select id="year-filter" class = "betterText">
       <option value="all">All Years</option>
+      <option value="2023">2023</option>
       <option value="2022">2022</option>
       <option value="2021">2021</option>
       <option value="2020">2020</option>
@@ -104,7 +105,7 @@
       <input type="checkbox" id="range-400-600"> $400 - $600
     </label>
     <label class="checkbox-label">
-      <input type="checkbox" id="range-600-800"> $600 - $800
+      <input type="checkbox" id="range-600-1200"> $600 - $1200
     </label>
     <button id="clear-filters-button" class="clear-button betterText">Clear Filters</button>
   </div>
@@ -113,6 +114,10 @@
 <!-- Not sign in -->
 <div class="login-prompt" id="login-alert" style="display: none;">
     Please Sign in to access all features
+</div>
+
+<div class="centered-container">
+  <button id="openPopupBtn" style="display: none;">Create a Bike</button>
 </div>
 
 <!-- Cart -->
@@ -129,6 +134,32 @@
 
 <!-- HTML Container for Bike cards -->
 <div id="bikeContainer" class="featured-car-list"></div>
+
+<!-- Create Bikes Form -->
+<div id="popupForm" class="popup">
+<form id="newBikeForm">
+  <input type="text" id="bikeTitle" placeholder="Title" required>
+  <select id="bikeType">
+    <option value="bmx">BMX</option>
+    <option value="urban">URBAN</option>
+    <option value="hybrid">HYBRID</option>
+    <option value="folding">FOLDING</option>
+    <option value="sport">SPORT</option>
+    <option value="trail">TRAIL</option>
+  </select>
+  <input type="number" id="bikeYear" placeholder="Year Manufactured" required>
+  <input type="text" id="bikeSpeed" placeholder="Top Speed" required>
+  <input type="text" id="bikeRange" placeholder="Max Range" required>
+  <input type="text" id="bikeBatteryLife" placeholder="Charching Speed" required>
+  <input type="text" id="bikeWeight" placeholder="Weight" required>
+  <input type="text" id="bikePrice" placeholder="Price" required>
+  <input type="text" id="description" placeholder="description" required>
+  <input type="text" id="descriptionTwo" placeholder="description" required>
+  <input type="file" id="bikeImageFile" accept="image/*">
+  <button type="button" id="closePopupBtn">Close</button>
+  <button type="submit">Create Bike</button>
+</form>
+</div>
 
 <!--  Successfull order message -->
 <div id="modal-container"></div>

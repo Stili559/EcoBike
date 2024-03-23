@@ -20,7 +20,7 @@ loginBtn.addEventListener('click', () => {
 async function login_Register() {
     const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider,sendEmailVerification, sendPasswordResetEmail } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js");
     const { getFirestore } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"); 
-    const { doc, setDoc } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
+    const { doc, setDoc, getDoc } = await import("https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js");
 
     const app = await initializeFirebase();
     const db = getFirestore(app);
@@ -63,8 +63,23 @@ async function login_Register() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User login:", user); 
-            localStorage.setItem('userEmail', user.email);
-            window.location.href = "../Home/Home.html";  
+            const obfuscatedKey = 'uiSettings'; // Less obvious key name
+            const encodedEmail = btoa(user.email); // Basic base64 encoding of the email
+            
+            localStorage.setItem(obfuscatedKey, encodedEmail);
+        
+            const userRef = doc(db, "users", user.uid);
+            getDoc(userRef).then(docSnap => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    localStorage.setItem('userName', userData.name);
+                    window.location.href = "../Home/Home.html";  
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch(error => {
+                console.error("Error fetching user data:", error);
+            });
         })
         .catch((error) => {
             showToast("Incorrect Email or password.");
@@ -73,7 +88,7 @@ async function login_Register() {
         if (!emailPattern.test(email)) {
             showToast("Please enter a valid email address.");
         } else if (!passwordPattern.test(password)) {
-            showToast("Please enter a password.");
+            showToast("Please enter a valid password.");
         }
     }
 });
@@ -98,7 +113,7 @@ document.getElementById("signUpButton").addEventListener("click", function () {
                 sendEmailVerification(auth.currentUser);
          
                 const userRef = doc(db, "users", user.uid);
-                setDoc(userRef, { email: user.email, id: user.uid })
+                setDoc(userRef, {name: name, email: user.email, id: user.uid })
                 .then(() => {
                     console.log("User data saved to Firestore.");
                 })

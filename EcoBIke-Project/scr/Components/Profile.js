@@ -1,7 +1,8 @@
 export function profile() {
     // Define the HTML content for the profile popup
-    const email = localStorage.getItem('userEmail');
+    const encodedEmail = localStorage.getItem('uiSettings');
     const name = localStorage.getItem('userName');
+    const email = atob(encodedEmail)
     document.addEventListener("DOMContentLoaded", function() {
         var profilePopupHTML = `
             <div id="profilePopup" class="profile-popup">
@@ -35,6 +36,23 @@ export function profile() {
         var btn = document.getElementById('profileBtn');
         var closeBtn = document.querySelector('.close-btn');
         var checkoutPopup = document.getElementById('checkoutModal')
+        var popupCreate = document.getElementById('popupForm');
+        var btnCreate = document.getElementById('openPopupBtn');
+        var closeBtnCreate = document.getElementById('closePopupBtn');
+
+        if (btnCreate) {
+        btnCreate.onclick = function() {
+            popupCreate.style.display = "block";
+            document.body.classList.add('no-scroll');
+          }
+        }
+          
+        if (closeBtnCreate) {
+        closeBtnCreate.onclick = function() {
+            popupCreate.style.display = "none";
+            document.body.classList.remove('no-scroll');
+          }
+        }
         
         if (btn) {
             btn.onclick = function() {

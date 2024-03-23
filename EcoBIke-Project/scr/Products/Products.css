@@ -298,6 +298,125 @@ input[type="checkbox"] {
   color: #fff;
 }
 
+/* Create a Bike Style */
+#newBikeForm {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #3a3a39;
+  animation: fadeIn 0.5s ease-out forwards; 
+}
+
+#newBikeForm input[type="text"],
+#newBikeForm input[type="number"],
+#newBikeForm select,
+#newBikeForm input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#newBikeForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#newBikeForm button:hover {
+  background-color: #429245;
+}
+
+#newBikeForm input::placeholder {
+  color: #adb5bd;
+}
+
+#newBikeForm input[type="file"] {
+  padding: 0;
+  margin-top: -1px;
+}
+
+#newBikeForm input[type="file"]::-webkit-file-upload-button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#newBikeForm input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #429245;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+#newBikeForm {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+#closePopupBtn {
+  margin-bottom: 1rem;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#closePopupBtn:hover,
+#closePopupBtn:focus {
+  background-color: #7aa02f;
+}
+
+#openPopupBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+#openPopupBtn:hover {
+  background-color: #429245;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 /* Media Query for Tablets and Smaller Screens */
 @media (max-width: 1000px) {
   .featured-car-list {
@@ -504,9 +623,3 @@ input[type="checkbox"] {
     transform: translateX(0);
   }
 }
-
-  
-  
-
-
-  

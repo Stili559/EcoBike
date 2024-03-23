@@ -985,6 +985,9 @@ body.showCart .cartTab{
 
 /* Media queries for responsiveness */
 @media (min-width: 768px) and (max-width: 1200px) {
+  #usersTable,  #usersTable2{
+    display: none;
+  }
   .login-prompt {
     margin-left: 0rem;
   }
@@ -1053,6 +1056,15 @@ body.showCart .cartTab{
   .checkout-item{
     box-shadow: 5px 5px 10px #555;
     grid-template-columns: 60px 1fr 20px 50px;
+  }
+}
+
+@media (min-width: 1800px){
+  .modal-contentCH{
+    max-height: 645px;
+  }
+  .rightCH{
+    margin-top: -1.25rem;
   }
 }
 

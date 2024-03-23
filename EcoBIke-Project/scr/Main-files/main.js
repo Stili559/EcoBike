@@ -8,7 +8,8 @@ import { fetchAndDisplayUsers } from "../Components/Admin.js";
 // Navbar for phone opening
 const navbarToggler = document.getElementById("navbarToggler");
 const navbarCollapse = document.querySelector(".navbar-collapse");
-const email = localStorage.getItem('userEmail');
+const email = localStorage.getItem('uiSettings');
+const createBike = document.getElementById("openPopupBtn");
 
 navbarToggler.addEventListener("click", () => {
     navbarToggler.classList.toggle("active");
@@ -41,7 +42,10 @@ document.getElementById('profileBtn1').addEventListener('click', function() {
 });
 
 // Admin access
-if (email === 'stilianmanolov05@gmail.com') {
+if (email === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20=') {
   fetchAndDisplayUsers();
+  if(createBike){
+    createBike.style.display = 'block';
+  }
 }
 // End of admin access
