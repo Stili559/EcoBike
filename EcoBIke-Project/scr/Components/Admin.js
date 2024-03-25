@@ -16,9 +16,6 @@ export async function fetchAndDisplayUsers() {
     const usersTable2 = document.getElementById("usersTable2");
     if(usersTable){
     usersTable.innerHTML = `
-    <div class="title" style="margin-top: -1rem; margin-left: 33rem;">
-        ADMIN TABLES
-    </div>
     <h2 class = "table-text">Users</h2>
     <div id="usersTableContainer">
       <table id="usersTable">

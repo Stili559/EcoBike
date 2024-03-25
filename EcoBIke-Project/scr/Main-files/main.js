@@ -10,7 +10,10 @@ const navbarToggler = document.getElementById("navbarToggler");
 const navbarCollapse = document.querySelector(".navbar-collapse");
 const email = localStorage.getItem('uiSettings');
 const createBike = document.getElementById("openPopupBtn");
-
+if (email === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20=') {
+  fetchAndDisplayUsers();
+  if(createBike){createBike.style.display = 'block';}
+}
 navbarToggler.addEventListener("click", () => {
     navbarToggler.classList.toggle("active");
     navbarCollapse.classList.toggle("active");
@@ -40,12 +43,3 @@ injectHTMLComponents();
 document.getElementById('profileBtn1').addEventListener('click', function() {
   window.open('../Login-Register/Login-Page.html', '_self');
 });
-
-// Admin access
-if (email === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20=') {
-  fetchAndDisplayUsers();
-  if(createBike){
-    createBike.style.display = 'block';
-  }
-}
-// End of admin access

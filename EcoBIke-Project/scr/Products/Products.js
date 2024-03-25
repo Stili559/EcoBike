@@ -68,11 +68,17 @@ async function uploadImageAndCreateBike(imageFile) {
   const storagePath = `bikeImages/${imageFile.name}`;
   const imageRef = storageRef(storage, storagePath);
   const onCreate = document.getElementById('popupForm');
+  const buttonCreate = document.getElementById('buttonCreate');
+  
   // Upload the image to Firebase Storage
   const uploadTask = uploadBytesResumable(imageRef, imageFile);
 
   uploadTask.on('state_changed', 
   (snapshot) => {
+    if(buttonCreate){
+      buttonCreate.disabled = true;
+      buttonCreate.textContent = 'Loading...';
+    }
   }, 
   (error) => {
     console.error("Error uploading image: ", error);
@@ -85,6 +91,10 @@ async function uploadImageAndCreateBike(imageFile) {
         document.body.classList.remove('no-scroll');
         document.getElementById('newBikeForm').reset();
         showSuccessModal("Bike creation successful, adventure awaits you.");
+        if(buttonCreate){
+          buttonCreate.disabled = false;
+          buttonCreate.textContent = 'Create Bike';
+        }
       });
     }
   );

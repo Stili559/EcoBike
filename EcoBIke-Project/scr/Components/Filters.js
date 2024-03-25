@@ -15,9 +15,9 @@ export function initFilters() {
   
     // Price range for checkboxes
     const priceRanges = {
-        'range-0-400': [0, 400],
-        'range-400-600': [401, 599],
-        'range-600-1200': [600, 1200],
+        'range-0-600': [0, 600],
+        'range-600-1000': [600, 1000],
+        'range-1000-1800': [1000, 1800],
     };
   
     // Compare bike prices

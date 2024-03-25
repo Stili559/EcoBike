@@ -324,17 +324,12 @@ input[type="checkbox"] {
 #newBikeForm button {
   width: 100%;
   padding: 10px;
-  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-}
-
-#newBikeForm button:hover {
-  background-color: #429245;
 }
 
 #newBikeForm input::placeholder {
@@ -373,6 +368,14 @@ input[type="checkbox"] {
   background-color: rgba(0,0,0,0.4);
 }
 
+#buttonCreate{
+  background-color: #4CAF50;
+}
+
+#newBikeForm #buttonCreate:hover {
+  background-color: #429245;
+}
+
 #newBikeForm {
   background-color: #fefefe;
   margin: 5% auto;
@@ -387,11 +390,12 @@ input[type="checkbox"] {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  background-color: red;
 }
 
 #closePopupBtn:hover,
 #closePopupBtn:focus {
-  background-color: #7aa02f;
+  background-color: #be0d0d;
 }
 
 #openPopupBtn {

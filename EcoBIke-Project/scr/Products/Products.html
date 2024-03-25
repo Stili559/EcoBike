@@ -68,6 +68,7 @@
       <option value="0-20">10-20 mph</option>
       <option value="21-30">21-30 mph</option>
       <option value="31-40">31-40 mph</option>
+      <option value="41-50">41-50 mph</option>
     </select>
     <label class="textFilter" for="speed-filter">Filter by Weight:</label>
     <select id="weight-filter"  class = "betterText">
@@ -75,10 +76,12 @@
       <option value="0-20">10-20 lbs</option>
       <option value="21-30">21-30 lbs</option>
       <option value="31-40">31-40 lbs</option>
+      <option value="41-50">41-50 lbs</option>
     </select>
     <label class="textFilter" for="year-filter">Filter by Year:</label>
     <select id="year-filter" class = "betterText">
       <option value="all">All Years</option>
+      <option value="2024">2024</option>
       <option value="2023">2023</option>
       <option value="2022">2022</option>
       <option value="2021">2021</option>
@@ -97,15 +100,15 @@
     <label class="textFilter" for="sort-low-to-high">Price:</label>
     <button class="sort-button betterText" id="sort-low-to-high">Low to High</button>
     <button class="sort-button betterText" id="sort-high-to-low">High to Low</button>
-    <label class="textFilter" for="range-0-400">Price Ranges:</label>
+    <label class="textFilter" for="range-0-600">Price Ranges:</label>
     <label class="checkbox-label">
-      <input type="checkbox" id="range-0-400"> $0 - $400
+      <input type="checkbox" id="range-0-600"> $0 - $600
     </label>
     <label class="checkbox-label">
-      <input type="checkbox" id="range-400-600"> $400 - $600
+      <input type="checkbox" id="range-600-1000"> $600 - $1000
     </label>
     <label class="checkbox-label">
-      <input type="checkbox" id="range-600-1200"> $600 - $1200
+      <input type="checkbox" id="range-1000-1800"> $1000 - $1800
     </label>
     <button id="clear-filters-button" class="clear-button betterText">Clear Filters</button>
   </div>
@@ -147,17 +150,17 @@
     <option value="sport">SPORT</option>
     <option value="trail">TRAIL</option>
   </select>
-  <input type="number" id="bikeYear" placeholder="Year Manufactured" required>
-  <input type="text" id="bikeSpeed" placeholder="Top Speed" required>
-  <input type="text" id="bikeRange" placeholder="Max Range" required>
-  <input type="text" id="bikeBatteryLife" placeholder="Charching Speed" required>
-  <input type="text" id="bikeWeight" placeholder="Weight" required>
-  <input type="text" id="bikePrice" placeholder="Price" required>
-  <input type="text" id="description" placeholder="description" required>
-  <input type="text" id="descriptionTwo" placeholder="description" required>
-  <input type="file" id="bikeImageFile" accept="image/*">
+  <input type="number" id="bikeYear" placeholder="Year Manufactured (2020-2024)" required>
+  <input type="number" id="bikeSpeed" placeholder="Top Speed (10-50 mph)" required>
+  <input type="number" id="bikeRange" placeholder="Max Range (miles)" required>
+  <input type="number" id="bikeBatteryLife" placeholder="Charching Time (hours)" required>
+  <input type="number" id="bikeWeight" placeholder="Weight (10-50 lbs)" required>
+  <input type="number" id="bikePrice" placeholder="Price ($100 - $1800)" required>
+  <input type="text" id="description" placeholder="Description" required>
+  <input type="text" id="descriptionTwo" placeholder="Optional Description">
+  <input type="file" id="bikeImageFile" accept="image/*" required>
   <button type="button" id="closePopupBtn">Close</button>
-  <button type="submit">Create Bike</button>
+  <button type="submit" id = "buttonCreate">Create Bike</button>
 </form>
 </div>
 
