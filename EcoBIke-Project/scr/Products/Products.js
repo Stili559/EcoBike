@@ -45,6 +45,22 @@ function renderBikes(bikesData) {
     const bikeHTML = generateBikeHTML(bike);
     bikesContainer.innerHTML += bikeHTML;
   });
+
+  // Event listener for delete buttons
+  bikesContainer.addEventListener('click', function(event) {
+    if (event.target.classList.contains('delete-btn')) {
+      const bikeId = event.target.getAttribute('data-delete-id');
+      deleteBike(bikeId);
+    }
+  });
+
+  const email = localStorage.getItem('uiSettings');
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  if(email === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20='){
+  deleteButtons.forEach(button => {
+      button.style.display = 'block';
+  });
+  }
 }
 
 // Function for calling all the functions
@@ -134,6 +150,18 @@ async function createBike(imageUrl) {
     fetchBikes();
   } catch (error) {
     console.error("Error adding new bike: ", error);
+  }
+}
+
+// Function to delete bikes
+async function deleteBike(bikeId) {
+  const bikeRef = ref(database, `bikes/${bikeId}`);
+  try {
+    await remove(bikeRef);
+    console.log(`Bike with ID ${bikeId} has been deleted.`);
+    fetchBikes();
+  } catch (error) {
+    console.error("Error deleting bike: ", error);
   }
 }
 

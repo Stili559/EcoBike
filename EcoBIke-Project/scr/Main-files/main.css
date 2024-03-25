@@ -970,6 +970,19 @@ body.showCart .cartTab{
   border-bottom: 1px solid #ddd;
 }
 
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.delete-btn:hover{
+  background-color: rgb(209, 8, 8);
+}
+
 @media screen and (max-width: 880px){
   .support-box{
     grid-template-columns: 1fr;
@@ -1010,6 +1023,11 @@ body.showCart .cartTab{
 }
 
 @media (max-width: 700px) {
+  .delete-btn {
+    padding: 8px 5px;
+    margin-left: 10px;
+  }
+  
   #usersTable,  #usersTable2{
     display: none;
   }

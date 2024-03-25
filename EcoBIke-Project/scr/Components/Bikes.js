@@ -38,6 +38,7 @@ export function generateBikeHTML(bike) {
               <p class="card-price">
                 <strong>$${bike.price}</strong>
               </p>
+              <button class=" delete-btn" data-delete-id="${bike.id}" style = "display:none">Delete</button>
               <button class="btn" data-id="${bike.id}">Add to cart</button>
             </div>
           </div>

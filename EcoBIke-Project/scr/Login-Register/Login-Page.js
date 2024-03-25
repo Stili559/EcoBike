@@ -63,8 +63,8 @@ async function login_Register() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User login:", user); 
-            const obfuscatedKey = 'uiSettings'; // Less obvious key name
-            const encodedEmail = btoa(user.email); // Basic base64 encoding of the email
+            const obfuscatedKey = 'uiSettings';
+            const encodedEmail = btoa(user.email);
             
             localStorage.setItem(obfuscatedKey, encodedEmail);
         
