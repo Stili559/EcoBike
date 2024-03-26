@@ -31,7 +31,7 @@ export function profile() {
         document.body.insertAdjacentHTML('beforeend', profilePopupHTML);
     //End of HTML content
     
-    // Profile popup
+    // Open/Close popups
         var popup = document.getElementById('profilePopup');
         var btn = document.getElementById('profileBtn');
         var closeBtn = document.querySelector('.close-btn');
@@ -39,6 +39,13 @@ export function profile() {
         var popupCreate = document.getElementById('popupForm');
         var btnCreate = document.getElementById('openPopupBtn');
         var closeBtnCreate = document.getElementById('closePopupBtn');
+        const closeEditButton = document.getElementById('closeEditPopupBtn');
+
+        if(closeEditButton){
+        closeEditButton.addEventListener('click', function() {
+        document.getElementById('editBikeForm').style.display = 'none';
+        });
+        }
 
         if (btnCreate) {
         btnCreate.onclick = function() {

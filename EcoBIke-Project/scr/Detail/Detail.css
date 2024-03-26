@@ -89,18 +89,6 @@
     width: 55%;
   }
 
-  .bike-detail .btn::before{
-    position: absolute;
-    width: 150px;
-    height: 120px;
-    content: '';
-    background-color: #94817733;
-    z-index: -1;
-    border-radius: 190px 100px 170px 180px;
-    margin-left: -8rem;
-    margin-top: -5rem;
-  }
-
   .btn{
     background-color: #2f2f2f;
     color: #eee;

@@ -70,6 +70,19 @@
   <form id="newBikeForm"></form>
 </section>
 
+<!-- Edit Bikes Form -->
+<div id="editBikeForm" class="popup" style="display: none;">
+  <form id="updateBikeForm">
+    <input type="hidden" id="editBikeId" value="">
+    <input type="text" id="editBikeTitle" placeholder="Title">
+    <input type="text" id="editBikePrice" placeholder="Price ($100 - $1800)">
+    <input type="text" id="editDescription" placeholder="Description">
+    <input type="text" id="editDescriptionTwo" placeholder="Optional Description">
+    <button type="button" id="closeEditPopupBtn">Close</button>
+    <button type="submit" id="buttonUpdate">Update Bike</button>
+  </form>
+</div>
+
 <!-- Cart -->
 <div class = "cartTab">
   <h1 class = "cartTitle">Shopping Cart</h1>

@@ -46,7 +46,7 @@ function renderBikes(bikesData) {
     bikesContainer.innerHTML += bikeHTML;
   });
 
-  // Event listener for delete buttons
+  // Event listener for delete button
   bikesContainer.addEventListener('click', function(event) {
     if (event.target.classList.contains('delete-btn')) {
       const bikeId = event.target.getAttribute('data-delete-id');
@@ -153,6 +153,47 @@ async function createBike(imageUrl) {
   }
 }
 
+// Function to edit bikes
+async function editBike(bikeId) {
+  const bikeRef = ref(database, `bikes/${bikeId}`);
+  const snap = await get(bikeRef);
+  if (snap.exists()) {
+    const bike = snap.val();
+    document.getElementById('editBikeId').value = bikeId;
+    document.getElementById('editBikeTitle').value = bike.title;
+    document.getElementById('editBikePrice').value = bike.price;
+    document.getElementById('editDescriptionTwo').value = bike.descriptionTwo;
+    document.getElementById('editDescription').value = bike.description;
+    document.getElementById('editBikeForm').style.display = 'block';
+  } else {
+    console.error('No bike found with ID:', bikeId);
+  }
+}
+
+const updateBikeForm = document.getElementById('updateBikeForm');
+if(updateBikeForm){
+  updateBikeForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const bikeId = document.getElementById('editBikeId').value;
+  const updatedData = {
+    title: document.getElementById('editBikeTitle').value,
+    price: document.getElementById('editBikePrice').value,
+    descriptionTwo: document.getElementById('editDescriptionTwo').value,
+    description: document.getElementById('editDescription').value,
+  };
+  
+  const bikeRef = ref(database, `bikes/${bikeId}`);
+  try {
+    await update(bikeRef, updatedData);
+    console.log('Bike updated successfully');
+    document.getElementById('editBikeForm').style.display = 'none';
+    fetchBikeDetails(bikeId);
+  } catch (error) {
+    console.error('Error updating bike:', error);
+  }
+});
+}
+
 // Function to delete bikes
 async function deleteBike(bikeId) {
   const bikeRef = ref(database, `bikes/${bikeId}`);
@@ -220,13 +261,31 @@ function renderBikeDetails(bikeData) {
             ${bikeData.descriptionTwo}
             </div>
             <div class = "datailButton">
+              <button class="btn edit-btn" data-edit-id="${bikeData.id}" style = "display: none">Edit</button> 
               <button class="btn add-to-cart-btn" data-id="${bikeData.id}">ADD TO CART</button>
             </div>
           </div>
         </div>
       `;
 
-      const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
+      // Event listener for edit button
+      const bikesContainer = document.querySelector('.bike-details');
+      bikesContainer.addEventListener('click', function(event) {
+      if (event.target.classList.contains('edit-btn')) {
+        const bikeId = event.target.getAttribute('data-edit-id');
+        editBike(bikeId);
+      } 
+  });
+
+    const email = localStorage.getItem('uiSettings');
+      const EditButtons = document.querySelectorAll('.edit-btn');
+      if(email === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20='){
+      EditButtons.forEach(button => {
+        button.style.display = '';
+    });
+  }
+
+    const addToCartBtn = detailsContainer.querySelector('.add-to-cart-btn');
       addToCartBtn.addEventListener('click', (event) => {
         let posclick = event.target;
         let product_id = posclick.getAttribute('data-id');
