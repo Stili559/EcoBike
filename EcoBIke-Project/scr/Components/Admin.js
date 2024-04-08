@@ -27,7 +27,7 @@ export async function fetchAndDisplayUsers() {
     <h2 class = "table-text">Orders</h2>
     <div id="usersTableContainer">
       <table id="usersTable2">
-        <tr><th>User ID</th><th>Name</th><th>Phone Number</th><th>Adress</th><th>City</th><th>Country</th><th>Order Price</th></tr>
+      <tr><th>User ID</th><th>Name</th><th>Products</th><th>Quantity</th><th>Date</th><th>Price</th></tr>
       </table>
     </div>`;
   
@@ -38,7 +38,7 @@ export async function fetchAndDisplayUsers() {
 
     querySnapshot1.forEach((doc) => {
         const userData = doc.data();
-        usersTable2.innerHTML += `<tr class = "about-content"><td>${userData.userId}</td><td>${userData.fullName}</td><td>${userData.phoneNumber}</td><td>${userData.address}</td><td>${userData.city}</td><td>${userData.country}</td><td>${userData.totalPrice}</td></tr>`;
+        usersTable2.innerHTML += `<tr class = "about-content"><td>${userData.userId}</td><td>${userData.fullName}</td><td>${userData.items.map(item => item.title).join(', ')}</td><td>${userData.items.map(item => item.quantity).join(', ')}</td><td>${userData.timestamp.toDate().toLocaleDateString('en-US')}</td><td>${userData.totalPrice}</td></tr>`;
     });
   }
 }
