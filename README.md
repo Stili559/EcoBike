@@ -119,7 +119,7 @@ A scalable database for mobile and web development, offering advanced queries an
 ![image](https://github.com/Stili559/EcoBike/assets/80035053/97a46063-a903-41d6-8200-23203b000a07)
 
 ## Unit Tests: Ensuring Quality ✅<a name="unitTest"></a>
-The EcoBike website is equipped with a suite of unit tests designed to ensure the reliability and stability of the application. These tests cover a range of functionalities, from user authentication to cart management.
+The EcoBike website is equipped with a suite of unit tests designed to ensure the reliability and stability of the application. These tests cover a range of functionalities.
 
 #### Running Tests
 
