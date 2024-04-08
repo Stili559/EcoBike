@@ -126,8 +126,12 @@ The EcoBike website is equipped with a suite of unit tests designed to ensure th
 To run the unit tests for the EcoBike application, follow these steps:
 
 1. Open the terminal in visual studio code
-3. Type in ```npm run test```
-4. After few seconds different test will appear in the terminal
+2. Type in ```npm install```
+3. Type in ```npm install --save-dev mocha chai jsdom sinon```
+4. Type in ```npm run test```
+5. After few seconds different test will appear in the terminal
+
+![image](https://github.com/Stili559/EcoBike/assets/80035053/0c833371-c88c-42ba-ad3f-868dc96f6a8d)
 
 ## Technologies Used<a name="technologies-Used"></a>
 
