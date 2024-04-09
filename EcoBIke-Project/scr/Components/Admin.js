@@ -9,11 +9,14 @@ export async function fetchAndDisplayUsers() {
     const db = getFirestore(app);
     const usersCollectionRef = collection(db, "users");
     const querySnapshot = await getDocs(usersCollectionRef);
-    const usersCollectionRef1 = collection(db, "orders");
-    const querySnapshot1 = await getDocs(usersCollectionRef1);
+    const usersCollectionRefOrders = collection(db, "orders");
+    const querySnapshotOrder = await getDocs(usersCollectionRefOrders);
+    const querySnapshotDelivery = await getDocs(usersCollectionRefOrders);
     
     const usersTable = document.getElementById("usersTable");
-    const usersTable2 = document.getElementById("usersTable2");
+    const orderTable = document.getElementById("orderTable");
+    const deliveryTable = document.getElementById("deliveryTable");
+
     if(usersTable){
     usersTable.innerHTML = `
     <h2 class = "table-text">Users</h2>
@@ -23,11 +26,19 @@ export async function fetchAndDisplayUsers() {
       </table>
     </div>`;
 
-    usersTable2.innerHTML = `
+    orderTable.innerHTML = `
     <h2 class = "table-text">Orders</h2>
     <div id="usersTableContainer">
       <table id="usersTable2">
-      <tr><th>User ID</th><th>Name</th><th>Products</th><th>Quantity</th><th>Date</th><th>Price</th></tr>
+      <tr><th>User ID</th><th>Products</th><th>Quantity</th><th>Date</th><th>Price</th></tr>
+      </table>
+    </div>`;
+
+    deliveryTable.innerHTML = `
+    <h2 class = "table-text">Delivery</h2>
+    <div id="usersTableContainer">
+      <table id="usersTable2">
+      <tr><th>Order ID</th><th>Name</th><th>PhoneNumber</th><th>Address</th><th>City</th><th>Country</th></tr>
       </table>
     </div>`;
   
@@ -36,9 +47,14 @@ export async function fetchAndDisplayUsers() {
         usersTable.innerHTML += `<tr class = "about-content"><td>${userData.name}<td>${userData.email}</td><td>${userData.id}</td></tr>`;
     });
 
-    querySnapshot1.forEach((doc) => {
+    querySnapshotOrder.forEach((doc) => {
         const userData = doc.data();
-        usersTable2.innerHTML += `<tr class = "about-content"><td>${userData.userId}</td><td>${userData.fullName}</td><td>${userData.items.map(item => item.title).join(', ')}</td><td>${userData.items.map(item => item.quantity).join(', ')}</td><td>${userData.timestamp.toDate().toLocaleDateString('en-US')}</td><td>${userData.totalPrice}</td></tr>`;
+        orderTable.innerHTML += `<tr class = "about-content"><td>${userData.userId}</td><td>${userData.items.map(item => item.title).join(', ')}</td><td>${userData.items.map(item => item.quantity).join(', ')}</td><td>${userData.timestamp.toDate().toLocaleDateString('en-US')}</td><td>${userData.totalPrice}</td></tr>`;
     });
+
+    querySnapshotDelivery.forEach((doc) => {
+      const userData = doc.data();
+      deliveryTable.innerHTML += `<tr class = "about-content"><td>${doc.id}</td><td>${userData.fullName}</td><td>${userData.phoneNumber}</td><td>${userData.address}</td><td>${userData.city}</td><td>${userData.country}</td></tr>`;
+  });
   }
 }
