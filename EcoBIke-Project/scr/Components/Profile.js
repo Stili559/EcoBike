@@ -18,6 +18,7 @@ export function profile() {
                         </div>
                         <div class="containerButton">
                         <button id="signOutButton">Sign Out</button>
+                        <a href="../Admin/Admin.html" id="adminPage" style = "display: none">Admin</a>
                         </div>
                         <div class="profile-header">
                         <h2>Your Orders</h2>
@@ -40,11 +41,17 @@ export function profile() {
         var btnCreate = document.getElementById('openPopupBtn');
         var closeBtnCreate = document.getElementById('closePopupBtn');
         const closeEditButton = document.getElementById('closeEditPopupBtn');
+        const emailChecker = localStorage.getItem('uiSettings');
+        const adminPage = document.getElementById("adminPage");
 
         if(closeEditButton){
         closeEditButton.addEventListener('click', function() {
         document.getElementById('editBikeForm').style.display = 'none';
         });
+        }
+
+        if (emailChecker === 'c3RpbGlhbm1hbm9sb3YwNUBnbWFpbC5jb20=') {
+            if(adminPage){adminPage.style.display = '';}
         }
 
         if (btnCreate) {

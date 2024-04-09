@@ -638,6 +638,8 @@ function displayOrders(orders) {
         ${orderItemsHTML}
         <p class="totalPrice">Total Price: ${order.totalPrice}</p>
         <p class="order-date">Order Placed: ${formattedTimestamp}</p>
+        <p class="order-date">Delivery Location: ${order.city}, ${order.address}</p>
+        <p class="order-date">Method Of Payment: Cash</p>
         <div class="order-item"><span class="delivery-countdown" data-timestamp="${timestamp.getTime()}">Loading countdown...</span></div>
       </div>
       </div>

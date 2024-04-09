@@ -405,7 +405,7 @@
   margin-bottom: 2rem;
 }
 
-#signOutButton {
+#signOutButton, #adminPage {
   background-color: #4b8b3b; 
   color: white;
   padding: 10px 20px;
@@ -419,6 +419,16 @@
   justify-content: center;
   gap: 5px; 
   transition: background-color 1.5s ease; 
+}
+
+#adminPage:hover{
+  background-color: #3e7230; 
+  transition: none;
+}
+
+#adminPage{
+  margin-left: 1rem;
+  text-decoration: none;
 }
 
 #signOutButton:hover {
@@ -478,15 +488,15 @@
 .order-date {
   color: #888;
   font-size: 14px;
-  margin-top: -15px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 8px;
   font-style: italic;
 }
 
 .delivery-countdown {
   position: absolute;
-  bottom: 55px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   font-size: 12px;
   color: #4b8b3b;
 }
@@ -947,27 +957,37 @@ body.showCart .cartTab{
 }
 
 /* Styling for the admin tables */
-#usersTable,  #orderTable, #deliveryTable{
+#usersTable,  #orderTable, #deliveryTable {
   width: 70%;
   border-collapse: collapse;
   margin: 0 auto 20px auto; 
+  height: 500px;
 }
 
-#usersTable th, #orderTable th, #deliveryTable th{
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#usersTable th, #orderTable th, #deliveryTable th,
+#usersTable td, #orderTable td, #deliveryTable td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+  max-width: 59px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#usersTable th, #orderTable th, #deliveryTable th {
   background-color: #f2f2f2;
   color: #333;
   text-align: left;
-  padding: 8px;
   border-bottom: 2px solid #ddd;
 }
 
-#usersTable tr:hover, #orderTable tr:hover, #deliveryTable tr:hover{
+#usersTable tr:hover, #orderTable tr:hover, #deliveryTable tr:hover {
   background-color: #eaeaea;
-}
-
-#usersTable td, #orderTable td, #deliveryTable td{
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
 }
 
 .delete-btn {
@@ -1109,8 +1129,9 @@ body.showCart .cartTab{
 
 /* Media queries for responsiveness */
 @media (min-width: 768px) and (max-width: 1200px) {
-  #usersTable,  #orderTable, #deliveryTable{
-    display: none;
+  #usersTable th, #orderTable th, #deliveryTable th,
+  #usersTable td, #orderTable td, #deliveryTable td {
+  font-size: 10px;
   }
   .login-prompt {
     margin-left: 0rem;
@@ -1134,13 +1155,13 @@ body.showCart .cartTab{
 }
 
 @media (max-width: 700px) {
+  #usersTable th, #orderTable th, #deliveryTable th,
+  #usersTable td, #orderTable td, #deliveryTable td {
+  font-size: 8px;
+  }
   .delete-btn {
     padding: 8px 5px;
     margin-left: 10px;
-  }
-  
-  #usersTable, #orderTable, #deliveryTable{
-    display: none;
   }
   #usersTable, #orderTable, #deliveryTable{
     width: 300px;

@@ -140,158 +140,156 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2.5rem;
   }
 
+.containerFAQ {
+  background-color: #fff;
+  width: 90%;
+  border-radius: 20px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  max-width: 1035px;
+  max-height: fit-content;
+  margin-left: 9rem;
+}
+
+.containerFAQ .imgCont {
+  width: 100%;
+  margin-top: -100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerFAQ .imgCont img {
+  margin-left: 6px;
+  animation: fadeIn 1s ease-out forwards; 
+  transition: transform 0.3s ease;
+  width: 400px;
+  height: 356px;
+  margin-bottom: 10px;
+}
+
+.containerFAQ .questionCont {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerFAQ .questionCont h1 {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: -2rem;
+  margin-bottom: 15px;
+}
+
+.containerFAQ .questionCont .card {
+  width: 85%;
+  transition: 3s ease all;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.containerFAQ .questionCont .card .question {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5px;
+  align-items: center;
+}
+
+.containerFAQ .questionCont .questionpara p {
+  font-weight: 700;
+  color: hsl(240, 6%, 50%);
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s ease max-height;
+}
+
+.containerFAQ .questionCont .card .arrowCont {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 5px;
+  user-select: none;
+  transition: 0.5s ease transform;
+  margin-right: 0.4rem;
+}
+
+.containerFAQ .questionCont .card .arrowCont img {
+  margin-top: 3px;
+  height: 15px;
+}
+
+.containerFAQ .questionCont .card .arrowCont:active {
+  background-color: hsla(240, 6%, 50%, 0.514);
+}
+
+.answer .answerPara p {
+  padding: 15px 10px;
+  padding-top: 0%;
+  color: hsl(240, 6%, 50%);
+  line-height: 17px;
+}
+
+.containerFAQ .questionCont .card.active .questionpara p {
+  color: #000;
+}
+
+.containerFAQ .questionCont .card.active .answer {
+  height: auto;
+  max-height: 70px;
+}
+
+.containerFAQ .questionCont .card.active .arrowCont {
+  transform: rotate(-180deg);
+}
+
+@media (min-width: 900px) {
   .containerFAQ {
-    background-color: #fff;
+    flex-direction: row;
+    height: 500px;
+    margin-top: 0;
     width: 90%;
-    border-radius: 20px;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    max-width: 1035px;
-    max-height: fit-content;
-    margin-left: 9rem;
   }
-
-  .containerFAQ .imgCont {
-    width: 100%;
-    margin-top: -100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .card {
+    overflow: auto;
   }
-
-  .containerFAQ .imgCont img {
-    margin-left: 6px;
-    animation: fadeIn 1s ease-out forwards; 
-    transition: transform 0.3s ease;
-    width: 400px;
-    height: 356px;
-    margin-bottom: 10px;
-  }
-
   .containerFAQ .questionCont {
-    margin-top: 50px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    align-items: baseline;
+    justify-content: unset;
+    margin-top: 100px;
   }
+  .containerFAQ .imgCont {
+    height: 100%;
+    margin-top: 10px;
+    margin-left: -150px;
+  }
+  .containerFAQ .imgCont img {
+    transform: scale(1.4);
+  }
+}
 
-  .containerFAQ .questionCont h1 {
-    font-size: 28px;
-    text-align: center;
-    font-weight: 700;
-    margin-top: -2rem;
-    margin-bottom: 15px;
-  }
-
-  .containerFAQ .questionCont .card {
-    width: 85%;
-    transition: 3s ease all;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  }
-
-  .containerFAQ .questionCont .card .question {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 5px;
-    align-items: center;
-  }
-
-  .containerFAQ .questionCont .questionpara p {
-    font-weight: 700;
-    color: hsl(240, 6%, 50%);
-  }
-
-  .answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.5s ease max-height;
-  }
-
-  .containerFAQ .questionCont .card .arrowCont {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    padding: 5px;
-    user-select: none;
-    transition: 0.5s ease transform;
-    margin-right: 0.4rem;
-  }
-
-  .containerFAQ .questionCont .card .arrowCont img {
-    margin-top: 3px;
-    height: 15px;
-  }
-
-  .containerFAQ .questionCont .card .arrowCont:active {
-    background-color: hsla(240, 6%, 50%, 0.514);
-  }
-
-  .answer .answerPara p {
-    padding: 15px 10px;
-    padding-top: 0%;
-    color: hsl(240, 6%, 50%);
-    line-height: 17px;
-  }
-
-  .containerFAQ .questionCont .card.active .questionpara p {
-    color: #000;
-  }
-
-  .containerFAQ .questionCont .card.active .answer {
-    height: auto;
-    max-height: 70px;
-  }
-
-  .containerFAQ .questionCont .card.active .arrowCont {
-    transform: rotate(-180deg);
-  }
-
-  @media (min-width: 900px) {
-    .containerFAQ {
-      flex-direction: row;
-      height: 500px;
-      margin-top: 0;
-      width: 90%;
-    }
-    .card {
-      overflow: auto;
-    }
-    .containerFAQ .questionCont {
-      height: 100%;
-      margin: 0;
-      align-items: baseline;
-      justify-content: unset;
-      margin-top: 100px;
-    }
-    .containerFAQ .imgCont {
-      height: 100%;
-      margin-top: 10px;
-      margin-left: -150px;
-    }
-    .containerFAQ .imgCont img {
-      transform: scale(1.4);
-    }
-  }
-
-  .attribution {
-    position: absolute;
-    bottom: 2%;
-  }
+.attribution {
+  position: absolute;
+  bottom: 2%;
+}
   
 /* Media queries for responsiveness */
 @media (max-width: 840px) {
-    .Faq{
-      margin-bottom: 2rem;
-    }
     .containerFAQ {
       margin-left: -0.6rem;
       margin-bottom: 1rem;
