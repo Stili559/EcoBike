@@ -64,13 +64,13 @@ function renderBikes(bikesData) {
 }
 
 // Function for calling all the functions
+initFilters();
 async function loadDataAndCart() {
-  initFilters();
   await fetchBikes(); 
   fetchCartFromFirestore(currentUserId); 
 }
 loadDataAndCart();
-fetchBikes();
+initFilters();
 
 // Function to create bikes
 document.getElementById('newBikeForm').addEventListener('submit', function(event) {

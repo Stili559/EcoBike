@@ -5,7 +5,7 @@ export async function addFooterContent() {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    await delay(650); 
+    await delay(750); 
     
     const footerSection = document.getElementById('footerSection');
     footerSection.innerHTML = `
@@ -55,11 +55,9 @@ export async function addFooterContent() {
         <div class="footer-content">
             <h4>Help</h4>
             
-                <li>Privacy</li>
-                <li>Support</li>
-                <li>Condition</li>
-                <li>Other</li>
-         
+                <li><a href="../Home/Home.html">News</a></li>
+                <li><a href="../About-us/About-us.html">FAQ</a></li>
+                                    
         </div>
         </section>
     `;
