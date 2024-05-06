@@ -10,18 +10,20 @@ export function support() {
                         <div class="support-right">
                         <span class="close-btnS">&times;</span>
                             <h2>Reach Us</h2>
-                            <input type="hidden" name="access_key" value="8b5a32e6-c25c-4d2b-a7af-b4a27b3207df">
+                            <input type="hidden" name="access_key" value="3987d5fb-544c-4666-a71b-d237032c2c09">
+                            <input type="hidden" name="from_name" value="EcoBike Customer">
                             <input type="text"  name="name"  class="support-field" placeholder="Your Name" required>
                             <input type="email" name="email" class="support-field" placeholder="Your Email" required>
                             <textarea name="message"  placeholder="Message" class="support-field" required></textarea>
                             <button type = "submit" class="support-btn">Send</button>
+                            <div id="result"></div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
         `;
-    
+
             document.body.insertAdjacentHTML('beforeend', footerSection);
          
             var form = document.getElementById('supportForm');
@@ -41,6 +43,45 @@ export function support() {
                 popupS.style.display = 'none';
                 document.body.classList.remove('no-scroll');
             };
-    
+
+            //Web3Form message submission on same page
+            const support = document.getElementById('supportForm');
+            const result = document.getElementById('result');
+            
+            support.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const formData = new FormData(support);
+              const object = Object.fromEntries(formData);
+              const json = JSON.stringify(object);
+              result.innerHTML = "Please wait..."
+            
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let json = await response.json();
+                        if (response.status == 200) {
+                            result.innerHTML = json.message;
+                        } else {
+                            console.log(response);
+                            result.innerHTML = json.message;
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        result.innerHTML = "Something went wrong!";
+                    })
+                    .then(function() {
+                        support.reset();
+                        setTimeout(() => {
+                            result.style.display = "none";
+                        }, 3000);
+                    });
+            });
     });
 }
